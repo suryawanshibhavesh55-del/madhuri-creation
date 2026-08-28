@@ -109,7 +109,7 @@ const Category = mongoose.models.Category || mongoose.model('Category', Category
 const Product = mongoose.models.Product || mongoose.model('Product', ProductSchema);
 const Settings = mongoose.models.Settings || mongoose.model('Settings', SettingsSchema);
 
-// Seed Data Definition (4 Official Categories & Products)
+// Seed Data Definition (4 Official Categories & Full Product Suite)
 const seedCategories = [
   { name: 'Handmade Soaps', slug: 'soaps', description: 'Natural care, handcrafted with love.', displayOrder: 1, active: true, whatsappNumber: '8407913008' },
   { name: 'Handcrafted Candles', slug: 'candles', description: 'Beautifully crafted candles for beautiful moments.', displayOrder: 2, active: true, whatsappNumber: '8407913008' },
@@ -150,7 +150,7 @@ const seedProducts = [
     displayOrder: 2
   },
 
-  // CANDLES
+  // CANDLES (FULL 7 CANDLE PRODUCTS)
   {
     name: "Single Handcrafted Rose & Floral Candle",
     categoryId: "candles",
@@ -168,7 +168,7 @@ const seedProducts = [
     displayOrder: 3
   },
   {
-    name: "Premium Sculpted Lotus Candle",
+    name: "Premium Sculpted Crimson Lotus Candle",
     categoryId: "candles",
     categoryLabel: "Handcrafted Candles",
     price: 99,
@@ -176,15 +176,47 @@ const seedProducts = [
     weight: "Premium Candle",
     tag: "Premium Candle",
     whatsappNumber: "8407913008",
-    description: "Exquisitely hand-sculpted premium lotus candle in deep crimson and dual-tone hues.",
-    features: ["1 Premium Sculpted Candle", "Intricate Lotus Carving", "Long Clean Burn"],
+    description: "Exquisitely hand-sculpted lotus petal candle in deep crimson red.",
+    features: ["Deep Crimson Red Petals", "Intricate Lotus Carving", "Long Clean Burn"],
     mainImage: "assets/WhatsApp Image 2026-08-28 at 12.56.16 PM.jpeg",
     additionalImages: ["assets/WhatsApp Image 2026-08-28 at 12.56.20 PM (1).jpeg"],
     active: true,
     displayOrder: 4
   },
   {
-    name: "Candle Combo – 7 Pcs Floral Set",
+    name: "Royal Dual-Tone Crimson & Dark Lotus Candle",
+    categoryId: "candles",
+    categoryLabel: "Handcrafted Candles",
+    price: 99,
+    specs: "Dual-Tone Lotus",
+    weight: "Premium Candle",
+    tag: "Dual-Tone Premium",
+    whatsappNumber: "8407913008",
+    description: "Unique hand-poured lotus candle featuring rich crimson red inner petals transitioning into obsidian dark base petals.",
+    features: ["Dual-Tone Color Gradient", "Handcrafted Petal Alignment", "Dramatic Ambient Glow"],
+    mainImage: "assets/WhatsApp Image 2026-08-28 at 12.56.20 PM (1).jpeg",
+    additionalImages: ["assets/WhatsApp Image 2026-08-28 at 12.56.16 PM.jpeg"],
+    active: true,
+    displayOrder: 5
+  },
+  {
+    name: "Sculpted Blooming Rose & Botanical Leaf Candle",
+    categoryId: "candles",
+    categoryLabel: "Handcrafted Candles",
+    price: 60,
+    specs: "Blooming Rose",
+    weight: "Single Candle",
+    tag: "Botanical Single",
+    whatsappNumber: "8407913008",
+    description: "A lifelike blooming rose candle in romantic pink tones resting gracefully on a sculpted green leafy base.",
+    features: ["Detailed Rose & Leaf Base", "Soft Pink Rose Wax", "Gentle Ambient Flame"],
+    mainImage: "assets/WhatsApp Image 2026-08-28 at 12.56.21 PM.jpeg",
+    additionalImages: ["assets/WhatsApp Image 2026-08-28 at 12.56.22 PM.jpeg"],
+    active: true,
+    displayOrder: 6
+  },
+  {
+    name: "Candle Combo – 7 Pcs Artisanal Pink Flower Set",
     categoryId: "candles",
     categoryLabel: "Handcrafted Candles",
     price: 200,
@@ -192,12 +224,44 @@ const seedProducts = [
     weight: "7 pcs Combo",
     tag: "Best Value Combo",
     whatsappNumber: "8407913008",
-    description: "A stunning combo set of 7 handcrafted floral candles in vibrant pink and rose tones.",
-    features: ["7 Handcrafted Pieces Set", "Vibrant Floral Sculptures", "Best Value Festival Combo"],
+    description: "A stunning set of 7 handcrafted floral candles in vibrant and soft pink hues.",
+    features: ["7 Handcrafted Pieces Set", "Vibrant Pink Floral Sculptures", "Best Value Festival Combo"],
     mainImage: "assets/WhatsApp Image 2026-08-28 at 12.56.22 PM (1).jpeg",
     additionalImages: ["assets/WhatsApp Image 2026-08-28 at 12.56.23 PM.jpeg"],
     active: true,
-    displayOrder: 5
+    displayOrder: 7
+  },
+  {
+    name: "Luxury Blossom Rose Candle Collection",
+    categoryId: "candles",
+    categoryLabel: "Handcrafted Candles",
+    price: 200,
+    specs: "5 Pieces Tray Set",
+    weight: "5 pcs Luxury Set",
+    tag: "Luxury Gift Set",
+    whatsappNumber: "8407913008",
+    description: "Exquisitely detailed rose and peony flower candles presented on a golden luxury tray.",
+    features: ["5 Sculpted Rose & Peony Candles", "Gold Flake Petal Accents", "Luxury Presentation"],
+    mainImage: "assets/WhatsApp Image 2026-08-28 at 12.56.18 PM.jpeg",
+    additionalImages: ["assets/WhatsApp Image 2026-08-28 at 12.56.19 PM.jpeg"],
+    active: true,
+    displayOrder: 8
+  },
+  {
+    name: "Handcrafted Floral Ambient Table Candle Set",
+    categoryId: "candles",
+    categoryLabel: "Handcrafted Candles",
+    price: 200,
+    specs: "7 Lit Flower Set",
+    weight: "7 pcs Table Set",
+    tag: "Festive Set",
+    whatsappNumber: "8407913008",
+    description: "Assorted handcrafted blooming flower candles designed to illuminate dinner tables, diwali rangolis, and intimate celebrations.",
+    features: ["7 Assorted Floral Candles", "Floating / Tabletop Suitable", "Warm Soft Light"],
+    mainImage: "assets/WhatsApp Image 2026-08-28 at 12.56.19 PM.jpeg",
+    additionalImages: ["assets/WhatsApp Image 2026-08-28 at 12.56.22 PM (1).jpeg"],
+    active: true,
+    displayOrder: 9
   },
 
   // CUSTOMIZED SUP
@@ -214,7 +278,7 @@ const seedProducts = [
     mainImage: "assets/custom sups/WhatsApp Image 2026-08-28 at 5.38.06 PM.jpeg",
     additionalImages: ["assets/custom sups/WhatsApp Image 2026-08-28 at 5.38.06 PM (1).jpeg", "assets/custom sups/WhatsApp Image 2026-08-28 at 5.38.06 PM (2).jpeg"],
     active: true,
-    displayOrder: 6
+    displayOrder: 10
   },
   {
     name: "पहिली मंगळागौर सुप - Crimson Red (Pahili Mangalagaur Customized Sup)",
@@ -229,7 +293,7 @@ const seedProducts = [
     mainImage: "assets/custom sups/WhatsApp Image 2026-08-28 at 5.38.06 PM (1).jpeg",
     additionalImages: ["assets/custom sups/WhatsApp Image 2026-08-28 at 5.38.06 PM.jpeg", "assets/custom sups/WhatsApp Image 2026-08-28 at 5.38.06 PM (2).jpeg"],
     active: true,
-    displayOrder: 7
+    displayOrder: 11
   },
   {
     name: "पहिली मंगळागौर सुप - Festive Yellow (Pahili Mangalagaur Customized Sup)",
@@ -244,7 +308,7 @@ const seedProducts = [
     mainImage: "assets/custom sups/WhatsApp Image 2026-08-28 at 5.38.06 PM (2).jpeg",
     additionalImages: ["assets/custom sups/WhatsApp Image 2026-08-28 at 5.38.06 PM.jpeg", "assets/custom sups/WhatsApp Image 2026-08-28 at 5.38.06 PM (1).jpeg"],
     active: true,
-    displayOrder: 8
+    displayOrder: 12
   },
 
   // CUSTOMIZED RANGOLI
@@ -261,7 +325,7 @@ const seedProducts = [
     mainImage: "assets/custom rangoli/WhatsApp Image 2026-08-28 at 4.53.19 PM (1).jpeg",
     additionalImages: ["assets/custom rangoli/WhatsApp Image 2026-08-28 at 4.53.19 PM (3).jpeg", "assets/custom rangoli/WhatsApp Image 2026-08-28 at 4.53.20 PM.jpeg"],
     active: true,
-    displayOrder: 9
+    displayOrder: 13
   },
   {
     name: "देवी / गौराई Rangoli (\"गौराई आली\" Handmade Festive Set)",
@@ -276,7 +340,7 @@ const seedProducts = [
     mainImage: "assets/custom rangoli/WhatsApp Image 2026-08-28 at 4.53.19 PM (2).jpeg",
     additionalImages: ["assets/custom rangoli/WhatsApp Image 2026-08-28 at 4.53.19 PM.jpeg", "assets/custom rangoli/WhatsApp Image 2026-08-28 at 4.53.20 PM (1).jpeg"],
     active: true,
-    displayOrder: 10
+    displayOrder: 14
   },
   {
     name: "शुभ चिन्ह श्री गणेश Rangoli (Ganesha Shubh Chinh Rangoli)",
@@ -291,19 +355,34 @@ const seedProducts = [
     mainImage: "assets/custom rangoli/WhatsApp Image 2026-08-28 at 4.53.18 PM.jpeg",
     additionalImages: [],
     active: true,
-    displayOrder: 11
+    displayOrder: 15
+  },
+  {
+    name: "Festival Special Crimson Lotus Rangoli Pair",
+    categoryId: "custom-rangoli",
+    categoryLabel: "Customized Rangoli",
+    price: 0,
+    weight: "Pair of Crimson Lotus Cutouts",
+    tag: "Festival Special",
+    whatsappNumber: "8275892945",
+    description: "सुरेख लाल व सोनेरी बॉर्डरच्या कमळाच्या पाकळ्यांची हस्तकला रांगोळी pair. दिवाळी, लक्ष्मीपूजन व सणांच्या सजावटीसाठी.",
+    features: ["🪔 100% Reusable Festival Decor", "✨ Rich Crimson Red Glitter Texture", "🌸 Easy to Place & Rearrange"],
+    mainImage: "assets/custom rangoli/WhatsApp Image 2026-08-28 at 4.53.20 PM.jpeg",
+    additionalImages: ["assets/custom rangoli/WhatsApp Image 2026-08-28 at 4.53.19 PM (1).jpeg"],
+    active: true,
+    displayOrder: 16
   }
 ];
 
 async function autoSeedIfEmpty() {
   try {
     const prodCount = await Product.countDocuments();
-    if (prodCount < 10) {
+    if (prodCount < 14) {
       await Category.deleteMany({});
       await Product.deleteMany({});
       await Category.insertMany(seedCategories);
       await Product.insertMany(seedProducts);
-      console.log('Database seeded with 4 official categories and products successfully.');
+      console.log('Database auto-seeded all 16 products successfully.');
     }
   } catch (err) {
     console.error('Auto seed error:', err);
@@ -662,7 +741,7 @@ app.post('/api/products/seed', async (req, res) => {
     await Product.deleteMany({});
     await Category.insertMany(seedCategories);
     await Product.insertMany(seedProducts);
-    res.json({ success: true, message: 'Database re-seeded successfully with 4 official categories and products!', count: seedProducts.length });
+    res.json({ success: true, message: 'Database re-seeded successfully with all 16 official products!', count: seedProducts.length });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }

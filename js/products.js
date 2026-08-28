@@ -82,7 +82,7 @@ window.PRODUCT_CATALOG = [
     ]
   },
 
-  // ================= 2. HANDCRAFTED CANDLES (₹60, ₹99, ₹200) =================
+  // ================= 2. HANDCRAFTED CANDLES (FULL 7 CANDLE PRODUCTS) =================
   {
     id: "candle_1",
     name: "Single Handcrafted Rose & Floral Candle",
@@ -106,7 +106,7 @@ window.PRODUCT_CATALOG = [
   },
   {
     id: "candle_2",
-    name: "Premium Sculpted Lotus Candle",
+    name: "Premium Sculpted Crimson Lotus Candle",
     category: "candles",
     categoryLabel: "Handcrafted Candles",
     price: 99,
@@ -115,11 +115,11 @@ window.PRODUCT_CATALOG = [
     rating: 5,
     tag: "Premium Candle",
     whatsappNumber: "8407913008",
-    description: "Exquisitely hand-sculpted premium lotus candle in deep crimson and dual-tone hues. Designed for sacred puja, festive ambiance, and premium gifting.",
+    description: "Exquisitely hand-sculpted lotus petal candle in deep crimson red. Symbolizes warmth, purity, and spiritual radiance in sacred home spaces.",
     features: [
-      "1 Premium Sculpted Candle",
-      "Intricate Lotus & Rose Carving",
-      "Long Clean Burning Time",
+      "Deep Crimson Red Petals",
+      "Intricate Lotus Carving",
+      "Eco Wax Blend & Smokeless Wick",
       "Ideal for Puja & Elegant Gifting"
     ],
     mainImage: "assets/WhatsApp Image 2026-08-28 at 12.56.16 PM.jpeg",
@@ -127,7 +127,49 @@ window.PRODUCT_CATALOG = [
   },
   {
     id: "candle_3",
-    name: "Candle Combo – 7 Pcs Floral Set",
+    name: "Royal Dual-Tone Crimson & Dark Lotus Candle",
+    category: "candles",
+    categoryLabel: "Handcrafted Candles",
+    price: 99,
+    weight: "Premium Candle",
+    specs: "Dual-Tone Lotus",
+    rating: 5,
+    tag: "Dual-Tone Premium",
+    whatsappNumber: "8407913008",
+    description: "Unique hand-poured lotus candle featuring rich crimson red inner petals transitioning into obsidian dark base petals for a striking aesthetic.",
+    features: [
+      "Dual-Tone Color Gradient",
+      "Handcrafted Petal Alignment",
+      "Premium Fragrance Blend",
+      "Dramatic Ambient Glow"
+    ],
+    mainImage: "assets/WhatsApp Image 2026-08-28 at 12.56.20 PM (1).jpeg",
+    additionalImages: ["assets/WhatsApp Image 2026-08-28 at 12.56.16 PM.jpeg"]
+  },
+  {
+    id: "candle_4",
+    name: "Sculpted Blooming Rose & Botanical Leaf Candle",
+    category: "candles",
+    categoryLabel: "Handcrafted Candles",
+    price: 60,
+    weight: "Single Candle",
+    specs: "Blooming Rose",
+    rating: 5,
+    tag: "Botanical Single",
+    whatsappNumber: "8407913008",
+    description: "A lifelike blooming rose candle in romantic pink tones resting gracefully on a sculpted green leafy base. Adds romantic elegance to any bedside or mantelpiece.",
+    features: [
+      "Detailed Rose & Leaf Base",
+      "Soft Pink Rose Wax",
+      "Gentle Ambient Flame",
+      "Thoughtful Favor & Gift"
+    ],
+    mainImage: "assets/WhatsApp Image 2026-08-28 at 12.56.21 PM.jpeg",
+    additionalImages: ["assets/WhatsApp Image 2026-08-28 at 12.56.22 PM.jpeg"]
+  },
+  {
+    id: "candle_5",
+    name: "Candle Combo – 7 Pcs Artisanal Pink Flower Set",
     category: "candles",
     categoryLabel: "Handcrafted Candles",
     price: 200,
@@ -136,10 +178,10 @@ window.PRODUCT_CATALOG = [
     rating: 5,
     tag: "Best Value Combo",
     whatsappNumber: "8407913008",
-    description: "A stunning combo set of 7 handcrafted floral candles in vibrant pink and rose tones. Hand-poured for festive celebrations, rangoli lighting, and grand decor.",
+    description: "A stunning set of 7 handcrafted floral candles in vibrant and soft pink hues. Carefully hand-poured with lotus and peony petal detail for festive elegance.",
     features: [
       "7 Handcrafted Pieces Set",
-      "Vibrant Floral Sculptures",
+      "Vibrant Pink Floral Sculptures",
       "Best Value Festival Combo",
       "Smokeless Long Glow"
     ],
@@ -147,7 +189,7 @@ window.PRODUCT_CATALOG = [
     additionalImages: ["assets/WhatsApp Image 2026-08-28 at 12.56.23 PM.jpeg"]
   },
   {
-    id: "candle_4",
+    id: "candle_6",
     name: "Luxury Blossom Rose Candle Collection",
     category: "candles",
     categoryLabel: "Handcrafted Candles",
@@ -155,7 +197,7 @@ window.PRODUCT_CATALOG = [
     weight: "5 pcs Luxury Set",
     specs: "5 Pieces Tray Set",
     rating: 5,
-    tag: "Luxury Gift",
+    tag: "Luxury Gift Set",
     whatsappNumber: "8407913008",
     description: "Exquisitely detailed rose and peony flower candles presented on a golden luxury tray. Handcrafted with gold leaf accents for weddings, celebrations, and home decor.",
     features: [
@@ -166,6 +208,27 @@ window.PRODUCT_CATALOG = [
     ],
     mainImage: "assets/WhatsApp Image 2026-08-28 at 12.56.18 PM.jpeg",
     additionalImages: ["assets/WhatsApp Image 2026-08-28 at 12.56.19 PM.jpeg"]
+  },
+  {
+    id: "candle_7",
+    name: "Handcrafted Floral Ambient Table Candle Set",
+    category: "candles",
+    categoryLabel: "Handcrafted Candles",
+    price: 200,
+    weight: "7 pcs Table Set",
+    specs: "7 Lit Flower Set",
+    rating: 5,
+    tag: "Festive Set",
+    whatsappNumber: "8407913008",
+    description: "Assorted handcrafted blooming flower candles designed to illuminate dinner tables, diwali rangolis, and intimate celebrations with cozy floral radiance.",
+    features: [
+      "7 Assorted Floral Candles",
+      "Floating / Tabletop Suitable",
+      "Warm Soft Light",
+      "Artisanal Craftsmanship"
+    ],
+    mainImage: "assets/WhatsApp Image 2026-08-28 at 12.56.19 PM.jpeg",
+    additionalImages: ["assets/WhatsApp Image 2026-08-28 at 12.56.22 PM (1).jpeg"]
   },
 
   // ================= 3. CUSTOMIZED SUP (₹500 | WhatsApp: 8275892945) =================
@@ -249,7 +312,7 @@ window.PRODUCT_CATALOG = [
   // ================= 4. CUSTOMIZED RANGOLI (Price on Request | WhatsApp: 8275892945) =================
   {
     id: "rangoli_1",
-    name: "कमळ Rangoli (Handcrafted Pink Lotus Rangoli Pair)",
+    name: "कमळ Rangoli (Handcrafted Pink Lotus Rangoli Mat Pair)",
     category: "custom-rangoli",
     categoryLabel: "Customized Rangoli",
     price: 0,

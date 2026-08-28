@@ -32,24 +32,34 @@ const JWT_SECRET = process.env.JWT_SECRET || 'madhuri_creation_secret_key_2026_x
 const ADMIN_USER = process.env.ADMIN_USERNAME || 'admin';
 const ADMIN_PASS = process.env.ADMIN_PASSWORD || 'MadhuriAdmin2026!';
 
-let isConnected = false;
+mongoose.set('bufferCommands', false);
+
 async function connectDB() {
-  if (isConnected && mongoose.connection.readyState === 1) return;
+  if (mongoose.connection.readyState >= 1) return;
   try {
-    const db = await mongoose.connect(MONGODB_URI);
-    isConnected = db.connections[0].readyState === 1;
+    await mongoose.connect(MONGODB_URI, {
+      serverSelectionTimeoutMS: 5000,
+      connectTimeoutMS: 10000
+    });
     console.log('MongoDB Connected successfully');
   } catch (err) {
     console.error('MongoDB connection error:', err.message);
+    throw err;
   }
 }
 
 // Ensure DB connected for every API request
 app.use(async (req, res, next) => {
   if (req.path.startsWith('/api')) {
-    await connectDB();
+    try {
+      await connectDB();
+      next();
+    } catch (err) {
+      return res.status(500).json({ error: 'Database Connection Error: ' + err.message });
+    }
+  } else {
+    next();
   }
-  next();
 });
 
 // ================= MONGOOSE SCHEMAS & MODELS =================

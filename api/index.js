@@ -69,7 +69,8 @@ const CategorySchema = new mongoose.Schema({
   description: { type: String, default: '' },
   image: { type: String, default: '' },
   active: { type: Boolean, default: true },
-  displayOrder: { type: Number, default: 0 }
+  displayOrder: { type: Number, default: 0 },
+  whatsappNumber: { type: String, default: '8407913008' }
 }, { timestamps: true });
 
 const ProductSchema = new mongoose.Schema({
@@ -93,12 +94,14 @@ const ProductSchema = new mongoose.Schema({
   featured: { type: Boolean, default: false },
   tag: { type: String, default: '' },
   features: [{ type: String }],
-  displayOrder: { type: Number, default: 0 }
+  displayOrder: { type: Number, default: 0 },
+  whatsappNumber: { type: String, default: '' }
 }, { timestamps: true });
 
 const SettingsSchema = new mongoose.Schema({
   businessName: { type: String, default: 'MADHURI CREATION' },
   whatsappNumber: { type: String, default: '8407913008' },
+  customWhatsappNumber: { type: String, default: '8275892945' },
   contactAddress: { type: String, default: 'Kalewadi, Pune, Maharashtra - 411017' }
 }, { timestamps: true });
 
@@ -106,8 +109,16 @@ const Category = mongoose.models.Category || mongoose.model('Category', Category
 const Product = mongoose.models.Product || mongoose.model('Product', ProductSchema);
 const Settings = mongoose.models.Settings || mongoose.model('Settings', SettingsSchema);
 
-// Seed Data Definition
+// Seed Data Definition (4 Official Categories & Products)
+const seedCategories = [
+  { name: 'Handmade Soaps', slug: 'soaps', description: 'Natural care, handcrafted with love.', displayOrder: 1, active: true, whatsappNumber: '8407913008' },
+  { name: 'Handcrafted Candles', slug: 'candles', description: 'Beautifully crafted candles for beautiful moments.', displayOrder: 2, active: true, whatsappNumber: '8407913008' },
+  { name: 'Customized Sup', slug: 'custom-sup', description: 'तुमच्या खास समारंभासाठी सुंदर आणि आकर्षक Customized सुप', displayOrder: 3, active: true, whatsappNumber: '8275892945' },
+  { name: 'Customized Rangoli', slug: 'custom-rangoli', description: 'सण, पूजा आणि शुभ प्रसंगांसाठी सुंदर, आकर्षक आणि पारंपरिक handmade rangoli designs.', displayOrder: 4, active: true, whatsappNumber: '8275892945' }
+];
+
 const seedProducts = [
+  // SOAPS
   {
     name: "Artisanal Natural Herbal Soap Bar",
     categoryId: "soaps",
@@ -115,6 +126,7 @@ const seedProducts = [
     price: 99,
     weight: "100 g",
     tag: "Bestseller",
+    whatsappNumber: "8407913008",
     description: "Crafted with carefully selected natural ingredients including Coffee, Turmeric, Sandalwood, Almond, Cashew, and Rice to gently cleanse, nourish, and moisturize your skin.",
     features: ["100% Natural Ingredients", "SLS Free & Paraben Free", "Nourishes & Moisturizes Skin", "Infused with Almond, Coffee & Turmeric"],
     mainImage: "assets/WhatsApp Image 2026-08-28 at 12.56.23 PM (1).jpeg",
@@ -129,6 +141,7 @@ const seedProducts = [
     price: 99,
     weight: "100 g",
     tag: "Gift Ready",
+    whatsappNumber: "8407913008",
     description: "Signature packaged 100g handmade natural soap housed in our luxury gold foil stamped box. Pure natural formulation containing Sandalwood, Cashew, Rice, and Sesame.",
     features: ["Gold Foil Stamped Box Packaging", "100g (When Packed)", "SLS Free & Paraben Free", "Ideal for Everyday Pampering & Gifting"],
     mainImage: "assets/WhatsApp Image 2026-08-28 at 12.56.25 PM.jpeg",
@@ -136,105 +149,161 @@ const seedProducts = [
     active: true,
     displayOrder: 2
   },
+
+  // CANDLES
   {
-    name: "Artisanal Pink Flower Candle Set",
+    name: "Single Handcrafted Rose & Floral Candle",
     categoryId: "candles",
     categoryLabel: "Handcrafted Candles",
-    price: 200,
-    specs: "7 Pieces Set",
-    tag: "Best Value",
-    description: "A stunning set of 7 handcrafted floral candles in vibrant and soft pink hues. Carefully hand-poured with lotus and peony petal detail for festive elegance.",
-    features: ["7 Handcrafted Pieces", "Vibrant Pink Floral Sculptures", "Long Clean Burn", "Perfect Festive Centerpiece"],
-    mainImage: "assets/WhatsApp Image 2026-08-28 at 12.56.22 PM (1).jpeg",
-    additionalImages: ["assets/WhatsApp Image 2026-08-28 at 12.56.23 PM.jpeg"],
+    price: 60,
+    specs: "1 Piece",
+    weight: "Single Candle",
+    tag: "Single Candle",
+    whatsappNumber: "8407913008",
+    description: "Handmade single rose floral candle crafted with care to add a beautiful look and a pleasant fragrance to your home.",
+    features: ["Single Handcrafted Candle", "Pleasant Soothing Fragrance", "Smokeless Eco Wick"],
+    mainImage: "assets/WhatsApp Image 2026-08-28 at 12.56.22 PM.jpeg",
+    additionalImages: ["assets/WhatsApp Image 2026-08-28 at 12.56.21 PM.jpeg"],
     active: true,
     displayOrder: 3
   },
   {
-    name: "Luxury Blossom Rose Candle Collection",
+    name: "Premium Sculpted Lotus Candle",
     categoryId: "candles",
     categoryLabel: "Handcrafted Candles",
-    price: 200,
-    specs: "5 Pieces Luxury Tray Set",
-    tag: "Luxury Gift",
-    description: "Exquisitely detailed rose and peony flower candles presented on a golden luxury tray. Handcrafted with gold leaf accents for grand celebrations and home decor.",
-    features: ["5 Sculpted Rose & Peony Candles", "Gold Flake Petal Accents", "Luxury Presentation", "Warm Natural Glow"],
-    mainImage: "assets/WhatsApp Image 2026-08-28 at 12.56.18 PM.jpeg",
-    additionalImages: ["assets/WhatsApp Image 2026-08-28 at 12.56.19 PM.jpeg"],
+    price: 99,
+    specs: "1 Piece Premium",
+    weight: "Premium Candle",
+    tag: "Premium Candle",
+    whatsappNumber: "8407913008",
+    description: "Exquisitely hand-sculpted premium lotus candle in deep crimson and dual-tone hues.",
+    features: ["1 Premium Sculpted Candle", "Intricate Lotus Carving", "Long Clean Burn"],
+    mainImage: "assets/WhatsApp Image 2026-08-28 at 12.56.16 PM.jpeg",
+    additionalImages: ["assets/WhatsApp Image 2026-08-28 at 12.56.20 PM (1).jpeg"],
     active: true,
     displayOrder: 4
   },
   {
-    name: "Handcrafted Crimson Lotus Candle",
+    name: "Candle Combo – 7 Pcs Floral Set",
     categoryId: "candles",
     categoryLabel: "Handcrafted Candles",
     price: 200,
-    specs: "Sculpted Lotus Candle",
-    tag: "Artisanal Pick",
-    description: "Intricately hand-sculpted lotus petal candle in deep crimson red. Symbolizes warmth, purity, and spiritual radiance in sacred home spaces.",
-    features: ["Deep Crimson Red Petals", "Intricate Lotus Carving", "Eco Wax Blend", "Smokeless Wick"],
-    mainImage: "assets/WhatsApp Image 2026-08-28 at 12.56.16 PM.jpeg",
-    additionalImages: ["assets/WhatsApp Image 2026-08-28 at 12.56.20 PM (1).jpeg"],
+    specs: "7 Pieces Set",
+    weight: "7 pcs Combo",
+    tag: "Best Value Combo",
+    whatsappNumber: "8407913008",
+    description: "A stunning combo set of 7 handcrafted floral candles in vibrant pink and rose tones.",
+    features: ["7 Handcrafted Pieces Set", "Vibrant Floral Sculptures", "Best Value Festival Combo"],
+    mainImage: "assets/WhatsApp Image 2026-08-28 at 12.56.22 PM (1).jpeg",
+    additionalImages: ["assets/WhatsApp Image 2026-08-28 at 12.56.23 PM.jpeg"],
     active: true,
     displayOrder: 5
   },
+
+  // CUSTOMIZED SUP
   {
-    name: "Royal Dual-Tone Crimson & Dark Lotus Candle",
-    categoryId: "candles",
-    categoryLabel: "Handcrafted Candles",
-    price: 200,
-    specs: "Dual-Tone Sculpted Lotus",
-    tag: "Dual-Tone",
-    description: "Unique hand-poured lotus candle featuring rich crimson red inner petals transitioning into obsidian dark base petals for a striking aesthetic.",
-    features: ["Dual-Tone Color Gradient", "Handcrafted Petal Alignment", "Premium Wax Blend", "Dramatic Ambient Glow"],
-    mainImage: "assets/WhatsApp Image 2026-08-28 at 12.56.20 PM (1).jpeg",
-    additionalImages: ["assets/WhatsApp Image 2026-08-28 at 12.56.16 PM.jpeg"],
+    name: "डोहाळे जेवण सुप (Dohale Jevan Customized Sup)",
+    categoryId: "custom-sup",
+    categoryLabel: "Customized Sup",
+    price: 500,
+    weight: "Customized Sup",
+    tag: "डोहाळे जेवण Special",
+    whatsappNumber: "8275892945",
+    description: "तुमच्या खास डोहाळे जेवण समारंभासाठी सुंदर, आकर्षक आणि पारंपरिक Handmade Customized सुप. फोटो, नाव व कार्यक्रमाचे नाव तुमच्या आवडीनुसार Customize करून मिळेल.",
+    features: ["✨ सुंदर Handmade Decoration", "✨ आकर्षक Traditional Design", "📸 Photo & Name Customization", "🎨 तुमच्या पसंतीनुसार रंग व सजावट"],
+    mainImage: "assets/custom sups/WhatsApp Image 2026-08-28 at 5.38.06 PM.jpeg",
+    additionalImages: ["assets/custom sups/WhatsApp Image 2026-08-28 at 5.38.06 PM (1).jpeg", "assets/custom sups/WhatsApp Image 2026-08-28 at 5.38.06 PM (2).jpeg"],
     active: true,
     displayOrder: 6
   },
   {
-    name: "Handcrafted Floral Ambient Table Candle Set",
-    categoryId: "candles",
-    categoryLabel: "Handcrafted Candles",
-    price: 200,
-    specs: "7 Lit Flower Candles Set",
-    tag: "Festive Favorite",
-    description: "Assorted handcrafted blooming flower candles designed to illuminate dinner tables, diwali rangolis, and intimate celebrations with cozy floral radiance.",
-    features: ["7 Assorted Floral Candles", "Floating / Tabletop Suitable", "Warm Soft Light", "Artisanal Craftsmanship"],
-    mainImage: "assets/WhatsApp Image 2026-08-28 at 12.56.19 PM.jpeg",
-    additionalImages: ["assets/WhatsApp Image 2026-08-28 at 12.56.22 PM (1).jpeg"],
+    name: "पहिली मंगळागौर सुप - Crimson Red (Pahili Mangalagaur Customized Sup)",
+    categoryId: "custom-sup",
+    categoryLabel: "Customized Sup",
+    price: 500,
+    weight: "Customized Sup",
+    tag: "मंगळागौर Special",
+    whatsappNumber: "8275892945",
+    description: "खास पहिली मंगळागौर व मंगळागौर पूजेसाठी पारंपरिक लाल बांबू सुप. श्री व सौ. यांच्या फोटो व नावासह सुंदर फुले, मोती आणि गोटा-पट्टी सजावट.",
+    features: ["📸 फोटो व नाव Customization", "🌸 सुरेख मोती व Floral बॉर्डर", "✨ मंगळागौर व सण-समारंभासाठी उपयुक्त"],
+    mainImage: "assets/custom sups/WhatsApp Image 2026-08-28 at 5.38.06 PM (1).jpeg",
+    additionalImages: ["assets/custom sups/WhatsApp Image 2026-08-28 at 5.38.06 PM.jpeg", "assets/custom sups/WhatsApp Image 2026-08-28 at 5.38.06 PM (2).jpeg"],
     active: true,
     displayOrder: 7
   },
   {
-    name: "Sculpted Blooming Rose & Botanical Leaf Candle",
-    categoryId: "candles",
-    categoryLabel: "Handcrafted Candles",
-    price: 200,
-    specs: "Blooming Rose Candle",
-    tag: "Botanical",
-    description: "A lifelike blooming rose candle in romantic pink tones resting gracefully on a sculpted green leafy base. Adds romantic elegance to any bedside or mantelpiece.",
-    features: ["Detailed Rose & Leaf Base", "Soft Pink Rose Wax", "Gentle Ambient Flame", "Thoughtful Favor & Gift"],
-    mainImage: "assets/WhatsApp Image 2026-08-28 at 12.56.22 PM.jpeg",
-    additionalImages: ["assets/WhatsApp Image 2026-08-28 at 12.56.21 PM.jpeg"],
+    name: "पहिली मंगळागौर सुप - Festive Yellow (Pahili Mangalagaur Customized Sup)",
+    categoryId: "custom-sup",
+    categoryLabel: "Customized Sup",
+    price: 500,
+    weight: "Customized Sup",
+    tag: "Festive Favorite",
+    whatsappNumber: "8275892945",
+    description: "तेजस्वी पिवळ्या रंगात सजवलेले मंगळागौर सुप. सुंदर फोटो प्रिंट, सोनेरी बॉर्डर व रंगीबेरंगी गोंडे (tassels) सजावटीसह.",
+    features: ["💛 Radiant Yellow Traditional Base", "📸 Photo & Name Customization", "🎀 Gota Patti & Tassel Accents"],
+    mainImage: "assets/custom sups/WhatsApp Image 2026-08-28 at 5.38.06 PM (2).jpeg",
+    additionalImages: ["assets/custom sups/WhatsApp Image 2026-08-28 at 5.38.06 PM.jpeg", "assets/custom sups/WhatsApp Image 2026-08-28 at 5.38.06 PM (1).jpeg"],
     active: true,
     displayOrder: 8
+  },
+
+  // CUSTOMIZED RANGOLI
+  {
+    name: "कमळ Rangoli (Handcrafted Pink Lotus Rangoli Mat Pair)",
+    categoryId: "custom-rangoli",
+    categoryLabel: "Customized Rangoli",
+    price: 0,
+    weight: "Pair of Lotus Rangolis",
+    tag: "Bestseller Rangoli",
+    whatsappNumber: "8275892945",
+    description: "सण, पूजा आणि शुभ प्रसंगांसाठी सुंदर, आकर्षक आणि पारंपरिक handmade कमळ rangoli designs. Design आणि size नुसार Price उपलब्ध.",
+    features: ["🪷 सुंदर कमळ Petal Design", "✨ 100% Reusable Handmade Rangoli", "🎨 Size & Color Customization Available"],
+    mainImage: "assets/custom rangoli/WhatsApp Image 2026-08-28 at 4.53.19 PM (1).jpeg",
+    additionalImages: ["assets/custom rangoli/WhatsApp Image 2026-08-28 at 4.53.19 PM (3).jpeg", "assets/custom rangoli/WhatsApp Image 2026-08-28 at 4.53.20 PM.jpeg"],
+    active: true,
+    displayOrder: 9
+  },
+  {
+    name: "देवी / गौराई Rangoli (\"गौराई आली\" Handmade Festive Set)",
+    categoryId: "custom-rangoli",
+    categoryLabel: "Customized Rangoli",
+    price: 0,
+    weight: "Gaurai Rangoli Backdrop Set",
+    tag: "गौराई विशेष",
+    whatsappNumber: "8275892945",
+    description: "गौरी आगमन, गणपती व नवरात्र पूजेसाठी पारंपरिक \"गौराई आली\" हस्तकला रांगोळी सेट. देवीचे सुरेख मुखवटे व कमळ पाकळ्यांची आकर्षक मांडणी.",
+    features: ["🌺 देवी / गौराई विशेष Design", "🎨 Hand-Painted & Embellished Details", "📐 Design आणि size नुसार Price"],
+    mainImage: "assets/custom rangoli/WhatsApp Image 2026-08-28 at 4.53.19 PM (2).jpeg",
+    additionalImages: ["assets/custom rangoli/WhatsApp Image 2026-08-28 at 4.53.19 PM.jpeg", "assets/custom rangoli/WhatsApp Image 2026-08-28 at 4.53.20 PM (1).jpeg"],
+    active: true,
+    displayOrder: 10
+  },
+  {
+    name: "शुभ चिन्ह श्री गणेश Rangoli (Ganesha Shubh Chinh Rangoli)",
+    categoryId: "custom-rangoli",
+    categoryLabel: "Customized Rangoli",
+    price: 0,
+    weight: "Embossed Ganesha Rangoli",
+    tag: "Shubh Chinh",
+    whatsappNumber: "8275892945",
+    description: "गणेशोत्सव, दिवाळी व गृहप्रवेशासाठी शुभ श्री गणेश चिन्ह असलेली लाल व सोनेरी हस्तकला रांगोळी plate.",
+    features: ["🕉️ शुभ गणेश चिन्ह Motif", "✨ Rich Textured Red & Gold Finish", "🚪 दारासमोर व पूजेच्या चौरंगावर उत्तम"],
+    mainImage: "assets/custom rangoli/WhatsApp Image 2026-08-28 at 4.53.18 PM.jpeg",
+    additionalImages: [],
+    active: true,
+    displayOrder: 11
   }
 ];
 
 async function autoSeedIfEmpty() {
   try {
     const prodCount = await Product.countDocuments();
-    if (prodCount === 0) {
-      const catCount = await Category.countDocuments();
-      if (catCount === 0) {
-        await Category.insertMany([
-          { name: 'Handmade Soaps', slug: 'soaps', description: 'Natural care, handcrafted with love.', displayOrder: 1, active: true },
-          { name: 'Handcrafted Candles', slug: 'candles', description: 'Beautifully crafted candles for beautiful moments.', displayOrder: 2, active: true }
-        ]);
-      }
+    if (prodCount < 10) {
+      await Category.deleteMany({});
+      await Product.deleteMany({});
+      await Category.insertMany(seedCategories);
       await Product.insertMany(seedProducts);
-      console.log('Auto-seeded initial database records successfully.');
+      console.log('Database seeded with 4 official categories and products successfully.');
     }
   } catch (err) {
     console.error('Auto seed error:', err);
@@ -327,7 +396,6 @@ app.post('/api/upload', authenticateAdmin, upload.single('image'), async (req, r
       return res.status(400).json({ error: 'No image file or base64 data provided' });
     }
 
-    // Upload to Cloudinary stream
     const uploadStream = cloudinary.uploader.upload_stream(
       {
         folder: 'madhuri_creation_products',
@@ -370,7 +438,7 @@ app.get('/api/categories', async (req, res) => {
 // POST /api/categories (Protected)
 app.post('/api/categories', authenticateAdmin, async (req, res) => {
   try {
-    const { name, description, image, displayOrder, active } = req.body;
+    const { name, description, image, displayOrder, active, whatsappNumber } = req.body;
     if (!name) return res.status(400).json({ error: 'Category name is required' });
 
     const slug = name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
@@ -381,7 +449,8 @@ app.post('/api/categories', authenticateAdmin, async (req, res) => {
       description: description || '',
       image: image || '',
       displayOrder: displayOrder || 0,
-      active: active !== undefined ? active : true
+      active: active !== undefined ? active : true,
+      whatsappNumber: whatsappNumber || '8407913008'
     });
 
     await category.save();
@@ -394,7 +463,7 @@ app.post('/api/categories', authenticateAdmin, async (req, res) => {
 // PUT /api/categories/:id (Protected)
 app.put('/api/categories/:id', authenticateAdmin, async (req, res) => {
   try {
-    const { name, description, image, displayOrder, active } = req.body;
+    const { name, description, image, displayOrder, active, whatsappNumber } = req.body;
     const category = await Category.findById(req.params.id);
     if (!category) return res.status(404).json({ error: 'Category not found' });
 
@@ -406,6 +475,7 @@ app.put('/api/categories/:id', authenticateAdmin, async (req, res) => {
     if (image !== undefined) category.image = image;
     if (displayOrder !== undefined) category.displayOrder = displayOrder;
     if (active !== undefined) category.active = active;
+    if (whatsappNumber !== undefined) category.whatsappNumber = whatsappNumber;
 
     await category.save();
     res.json(category);
@@ -502,7 +572,8 @@ app.post('/api/products', authenticateAdmin, async (req, res) => {
       featured,
       tag,
       features,
-      displayOrder
+      displayOrder,
+      whatsappNumber
     } = req.body;
 
     if (!name || price === undefined || price === null || !mainImage) {
@@ -532,7 +603,8 @@ app.post('/api/products', authenticateAdmin, async (req, res) => {
       featured: Boolean(featured),
       tag: tag || '',
       features: features || [],
-      displayOrder: displayOrder !== undefined ? Number(displayOrder) : 0
+      displayOrder: displayOrder !== undefined ? Number(displayOrder) : 0,
+      whatsappNumber: whatsappNumber || (categoryId === 'custom-sup' || categoryId === 'custom-rangoli' ? '8275892945' : '8407913008')
     });
 
     await product.save();
@@ -549,7 +621,7 @@ app.put('/api/products/:id', authenticateAdmin, async (req, res) => {
     if (!product) return res.status(404).json({ error: 'Product not found' });
 
     const updateData = { ...req.body };
-    if (updateData.price) updateData.price = Number(updateData.price);
+    if (updateData.price !== undefined) updateData.price = Number(updateData.price);
     if (updateData.name) updateData.slug = updateData.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
 
     const updatedProduct = await Product.findByIdAndUpdate(req.params.id, updateData, { new: true, runValidators: true });
@@ -586,22 +658,11 @@ app.delete('/api/products/:id', authenticateAdmin, async (req, res) => {
 app.post('/api/products/seed', async (req, res) => {
   try {
     await connectDB();
-    
-    const catCount = await Category.countDocuments();
-    if (catCount === 0) {
-      await Category.insertMany([
-        { name: 'Handmade Soaps', slug: 'soaps', description: 'Natural care, handcrafted with love.', displayOrder: 1, active: true },
-        { name: 'Handcrafted Candles', slug: 'candles', description: 'Beautifully crafted candles for beautiful moments.', displayOrder: 2, active: true }
-      ]);
-    }
-
-    const prodCount = await Product.countDocuments();
-    if (prodCount > 0) {
-      return res.json({ message: 'Database already contains products. Skipping seed.', count: prodCount });
-    }
-
+    await Category.deleteMany({});
+    await Product.deleteMany({});
+    await Category.insertMany(seedCategories);
     await Product.insertMany(seedProducts);
-    res.json({ success: true, message: 'Database seeded successfully with initial products!', count: seedProducts.length });
+    res.json({ success: true, message: 'Database re-seeded successfully with 4 official categories and products!', count: seedProducts.length });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
@@ -617,6 +678,7 @@ app.get('/api/settings', async (req, res) => {
       settings = await Settings.create({
         businessName: 'MADHURI CREATION',
         whatsappNumber: '8407913008',
+        customWhatsappNumber: '8275892945',
         contactAddress: 'Kalewadi, Pune, Maharashtra - 411017'
       });
     }
@@ -629,19 +691,20 @@ app.get('/api/settings', async (req, res) => {
 // PUT /api/settings (Protected)
 app.put('/api/settings', authenticateAdmin, async (req, res) => {
   try {
-    const { businessName, whatsappNumber, contactAddress } = req.body;
+    const { businessName, whatsappNumber, customWhatsappNumber, contactAddress } = req.body;
     let settings = await Settings.findOne();
     if (!settings) {
       settings = new Settings();
     }
     if (businessName) settings.businessName = businessName;
     if (whatsappNumber) settings.whatsappNumber = whatsappNumber;
+    if (customWhatsappNumber) settings.customWhatsappNumber = customWhatsappNumber;
     if (contactAddress) settings.contactAddress = contactAddress;
 
     await settings.save();
     res.json(settings);
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(400).json({ error: err.message });
   }
 });
 

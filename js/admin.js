@@ -1,4 +1,4 @@
-// Madhuri Creation - Admin Panel Client Engine
+// Madhuri Creation - Admin Panel Client Engine (4 Categories + Per-Product WhatsApp & Price-on-Request)
 
 let allProducts = [];
 let allCategories = [];
@@ -116,7 +116,7 @@ async function loadDashboardData() {
  * Seed Default Data
  */
 async function seedInitialData() {
-  if (!confirm('Seed default soaps and candles into database?')) return;
+  if (!confirm('Re-seed default 4 categories (Soaps, Candles, Customized Sup & Rangoli) into database?')) return;
   try {
     const res = await fetch('/api/products/seed', { method: 'POST' });
     const data = await res.json();
@@ -132,14 +132,16 @@ async function seedInitialData() {
  */
 function renderMetrics() {
   const totalProducts = allProducts.length;
-  const soaps = allProducts.filter(p => p.categoryId === 'soaps' || p.categoryLabel.toLowerCase().includes('soap'));
-  const candles = allProducts.filter(p => p.categoryId === 'candles' || p.categoryLabel.toLowerCase().includes('candle'));
-  const other = totalProducts - (soaps.length + candles.length);
+  const soaps = allProducts.filter(p => p.categoryId === 'soaps' || (p.categoryLabel && p.categoryLabel.toLowerCase().includes('soap')));
+  const candles = allProducts.filter(p => p.categoryId === 'candles' || (p.categoryLabel && p.categoryLabel.toLowerCase().includes('candle')));
+  const sups = allProducts.filter(p => p.categoryId === 'custom-sup' || (p.categoryLabel && p.categoryLabel.toLowerCase().includes('sup')));
+  const rangolis = allProducts.filter(p => p.categoryId === 'custom-rangoli' || (p.categoryLabel && p.categoryLabel.toLowerCase().includes('rangoli')));
 
-  document.getElementById('stat-total-products').textContent = totalProducts;
-  document.getElementById('stat-total-soaps').textContent = soaps.length;
-  document.getElementById('stat-total-candles').textContent = candles.length;
-  document.getElementById('stat-total-other').textContent = Math.max(0, other);
+  if (document.getElementById('stat-total-products')) document.getElementById('stat-total-products').textContent = totalProducts;
+  if (document.getElementById('stat-total-soaps')) document.getElementById('stat-total-soaps').textContent = soaps.length;
+  if (document.getElementById('stat-total-candles')) document.getElementById('stat-total-candles').textContent = candles.length;
+  if (document.getElementById('stat-total-sup')) document.getElementById('stat-total-sup').textContent = sups.length;
+  if (document.getElementById('stat-total-rangoli')) document.getElementById('stat-total-rangoli').textContent = rangolis.length;
 }
 
 /**
@@ -158,7 +160,12 @@ function populateCategoryDropdowns() {
   }
 
   if (formSelect) {
-    formSelect.innerHTML = optionsHTML || `<option value="soaps">Handmade Soaps</option><option value="candles">Handcrafted Candles</option>`;
+    formSelect.innerHTML = optionsHTML || `
+      <option value="soaps">Handmade Soaps</option>
+      <option value="candles">Handcrafted Candles</option>
+      <option value="custom-sup">Customized Sup</option>
+      <option value="custom-rangoli">Customized Rangoli</option>
+    `;
   }
 }
 
@@ -189,24 +196,27 @@ function renderRecentProductsTable() {
     return;
   }
 
-  tbody.innerHTML = recent.map(p => `
-    <tr class="hover:bg-stone-50">
-      <td class="p-3 font-medium flex items-center gap-3">
-        <img src="${p.mainImage}" class="w-10 h-10 object-cover rounded-lg bg-stone-200" alt="" />
-        <span>${p.name}</span>
-      </td>
-      <td class="p-3 text-stone-600">${p.categoryLabel}</td>
-      <td class="p-3 font-semibold">₹${p.price}</td>
-      <td class="p-3">
-        <span class="px-2 py-0.5 rounded text-[10px] font-bold ${p.active ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800'}">
-          ${p.active ? 'Active' : 'Inactive'}
-        </span>
-      </td>
-      <td class="p-3">
-        <button onclick="openEditProductModal('${p._id}')" class="text-amber-900 font-semibold hover:underline mr-2">Edit</button>
-      </td>
-    </tr>
-  `).join('');
+  tbody.innerHTML = recent.map(p => {
+    const displayPrice = (!p.price || p.price === 0) ? 'Price on Request' : `₹${p.price}`;
+    return `
+      <tr class="hover:bg-stone-50">
+        <td class="p-3 font-medium flex items-center gap-3">
+          <img src="${p.mainImage}" class="w-10 h-10 object-contain rounded-lg bg-stone-100 border border-stone-200" alt="" />
+          <span>${p.name}</span>
+        </td>
+        <td class="p-3 text-stone-600">${p.categoryLabel}</td>
+        <td class="p-3 font-semibold">${displayPrice}</td>
+        <td class="p-3">
+          <span class="px-2 py-0.5 rounded text-[10px] font-bold ${p.active ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800'}">
+            ${p.active ? 'Active' : 'Inactive'}
+          </span>
+        </td>
+        <td class="p-3">
+          <button onclick="openEditProductModal('${p._id}')" class="text-amber-900 font-semibold hover:underline mr-2">Edit</button>
+        </td>
+      </tr>
+    `;
+  }).join('');
 }
 
 /**
@@ -223,13 +233,13 @@ function filterProducts() {
   if (search) {
     filtered = filtered.filter(p => 
       p.name.toLowerCase().includes(search) || 
-      p.categoryLabel.toLowerCase().includes(search) ||
+      (p.categoryLabel && p.categoryLabel.toLowerCase().includes(search)) ||
       (p.description && p.description.toLowerCase().includes(search))
     );
   }
 
   if (categoryFilter !== 'all') {
-    filtered = filtered.filter(p => p.categoryId === categoryFilter || p.categoryLabel.toLowerCase().includes(categoryFilter));
+    filtered = filtered.filter(p => p.categoryId === categoryFilter || (p.categoryLabel && p.categoryLabel.toLowerCase().includes(categoryFilter)));
   }
 
   if (statusFilter === 'active') {
@@ -260,39 +270,38 @@ function renderAllProductsTable(products = allProducts) {
     return;
   }
 
-  tbody.innerHTML = products.map(p => `
-    <tr class="hover:bg-stone-50 transition-colors border-b border-stone-100">
-      <td class="p-4">
-        <img src="${p.mainImage}" class="w-12 h-12 object-cover rounded-xl bg-stone-200 border border-stone-300" alt="" />
-      </td>
-      <td class="p-4">
-        <div class="font-bold text-stone-900">${p.name}</div>
-        <div class="text-[11px] text-stone-400">${p.weight || p.specs || ''}</div>
-      </td>
-      <td class="p-4 text-stone-600 font-medium">${p.categoryLabel}</td>
-      <td class="p-4 font-bold text-stone-900">₹${p.price}</td>
-      <td class="p-4">
-        <button 
-          onclick="toggleProductActive('${p._id}', ${p.active})" 
-          class="px-2.5 py-1 rounded-full text-[10px] font-bold tracking-wider ${p.active ? 'bg-emerald-100 text-emerald-800 border border-emerald-300' : 'bg-stone-200 text-stone-600'}"
-        >
-          ${p.active ? '● ACTIVE' : '○ INACTIVE'}
-        </button>
-      </td>
-      <td class="p-4">
-        <button 
-          onclick="toggleProductFeatured('${p._id}', ${p.featured})"
-          class="px-2.5 py-1 rounded-full text-[10px] font-bold ${p.featured ? 'bg-amber-100 text-amber-900 border border-amber-300' : 'bg-stone-100 text-stone-400'}"
-        >
-          ${p.featured ? '★ FEATURED' : '☆ Normal'}
-        </button>
-      </td>
-      <td class="p-4 text-right space-x-2">
-        <button onclick="openEditProductModal('${p._id}')" class="px-3 py-1.5 rounded-lg bg-stone-100 hover:bg-stone-200 text-stone-800 font-semibold text-xs transition-colors">Edit</button>
-        <button onclick="confirmDeleteProduct('${p._id}', '${p.name.replace(/'/g, "\\'")}')" class="px-3 py-1.5 rounded-lg bg-rose-50 hover:bg-rose-100 text-rose-700 font-semibold text-xs transition-colors">Delete</button>
-      </td>
-    </tr>
-  `).join('');
+  tbody.innerHTML = products.map(p => {
+    const displayPrice = (!p.price || p.price === 0) ? '<span class="text-amber-800 font-bold">Price on Request</span>' : `₹${p.price}`;
+
+    return `
+      <tr class="hover:bg-stone-50 transition-colors border-b border-stone-100">
+        <td class="p-4">
+          <img src="${p.mainImage}" class="w-12 h-12 object-contain rounded-xl bg-white border border-stone-300 p-1" alt="" />
+        </td>
+        <td class="p-4">
+          <div class="font-bold text-stone-900">${p.name}</div>
+          <div class="text-[11px] text-stone-400">${p.weight || p.specs || ''}</div>
+        </td>
+        <td class="p-4 text-stone-600 font-medium">${p.categoryLabel}</td>
+        <td class="p-4 font-bold text-stone-900">${displayPrice}</td>
+        <td class="p-4">
+          <button 
+            onclick="toggleProductActive('${p._id}', ${p.active})" 
+            class="px-2.5 py-1 rounded-full text-[10px] font-bold tracking-wider ${p.active ? 'bg-emerald-100 text-emerald-800 border border-emerald-300' : 'bg-stone-200 text-stone-600'}"
+          >
+            ${p.active ? '● ACTIVE' : '○ INACTIVE'}
+          </button>
+        </td>
+        <td class="p-4 text-xs font-mono text-stone-500">
+          ${p.whatsappNumber || '8407913008'}
+        </td>
+        <td class="p-4 text-right space-x-2">
+          <button onclick="openEditProductModal('${p._id}')" class="px-3 py-1.5 rounded-lg bg-stone-100 hover:bg-stone-200 text-stone-800 font-semibold text-xs transition-colors">Edit</button>
+          <button onclick="confirmDeleteProduct('${p._id}', '${p.name.replace(/'/g, "\\'")}')" class="px-3 py-1.5 rounded-lg bg-rose-50 hover:bg-rose-100 text-rose-700 font-semibold text-xs transition-colors">Delete</button>
+        </td>
+      </tr>
+    `;
+  }).join('');
 }
 
 /**
@@ -341,7 +350,7 @@ function renderUploadedThumbnails() {
 
   container.innerHTML = uploadedImages.map((img, idx) => `
     <div class="relative group w-20 h-20 rounded-xl overflow-hidden border-2 ${idx === 0 ? 'border-amber-700' : 'border-stone-200'} bg-stone-100 shadow-sm">
-      <img src="${img.url}" class="w-full h-full object-cover" alt="" />
+      <img src="${img.url}" class="w-full h-full object-contain p-1 bg-white" alt="" />
       ${idx === 0 ? `<span class="absolute top-1 left-1 bg-amber-900 text-white text-[9px] font-bold px-1 rounded">MAIN</span>` : ''}
       <button type="button" onclick="removeUploadedImage(${idx})" class="absolute top-1 right-1 bg-rose-800 text-white w-5 h-5 rounded-full text-xs flex items-center justify-center opacity-80 hover:opacity-100">✕</button>
     </div>
@@ -382,11 +391,12 @@ function openEditProductModal(id) {
 
   document.getElementById('form-product-name').value = product.name;
   document.getElementById('form-product-category').value = product.categoryId;
-  document.getElementById('form-product-price').value = product.price;
+  document.getElementById('form-product-price').value = product.price !== undefined ? product.price : 0;
   document.getElementById('form-product-weight').value = product.weight || product.specs || '';
   document.getElementById('form-product-tag').value = product.tag || '';
   document.getElementById('form-product-desc').value = product.description || '';
   document.getElementById('form-product-features').value = (product.features || []).join(', ');
+  document.getElementById('form-product-whatsapp').value = product.whatsappNumber || (product.categoryId === 'custom-sup' || product.categoryId === 'custom-rangoli' ? '8275892945' : '8407913008');
   document.getElementById('form-product-order').value = product.displayOrder || 0;
   document.getElementById('form-product-active').checked = product.active;
   document.getElementById('form-product-featured').checked = product.featured;
@@ -412,9 +422,25 @@ function closeProductFormModal() {
 function handleCategoryFormChange() {
   const catSelect = document.getElementById('form-product-category');
   const priceInput = document.getElementById('form-product-price');
-  
-  if (catSelect && catSelect.value === 'soaps' && !document.getElementById('form-product-id').value) {
-    priceInput.value = 99;
+  const whatsappInput = document.getElementById('form-product-whatsapp');
+
+  if (!catSelect) return;
+
+  const catVal = catSelect.value;
+  if (!document.getElementById('form-product-id').value) {
+    if (catVal === 'custom-sup') {
+      priceInput.value = 500;
+      if (whatsappInput) whatsappInput.value = '8275892945';
+    } else if (catVal === 'custom-rangoli') {
+      priceInput.value = 0; // 0 indicates Price on Request
+      if (whatsappInput) whatsappInput.value = '8275892945';
+    } else if (catVal === 'soaps') {
+      priceInput.value = 99;
+      if (whatsappInput) whatsappInput.value = '8407913008';
+    } else if (catVal === 'candles') {
+      priceInput.value = 200;
+      if (whatsappInput) whatsappInput.value = '8407913008';
+    }
   }
 }
 
@@ -426,8 +452,10 @@ function updateLivePreview() {
   if (!container) return;
 
   const name = document.getElementById('form-product-name').value || 'Product Title Preview';
-  const price = document.getElementById('form-product-price').value || '99';
-  const weight = document.getElementById('form-product-weight').value || '100 g';
+  const priceVal = Number(document.getElementById('form-product-price').value || 0);
+  const displayPrice = priceVal === 0 ? 'Price on Request' : `₹${priceVal}`;
+
+  const weight = document.getElementById('form-product-weight').value || 'Standard';
   const tag = document.getElementById('form-product-tag').value;
   const desc = document.getElementById('form-product-desc').value || 'Product description preview...';
   const categorySelect = document.getElementById('form-product-category');
@@ -436,8 +464,8 @@ function updateLivePreview() {
 
   container.innerHTML = `
     <div class="bg-white rounded-2xl overflow-hidden border border-amber-900/10 shadow-md">
-      <div class="relative aspect-square overflow-hidden bg-stone-100">
-        <img src="${mainImg}" class="w-full h-full object-cover" alt="" />
+      <div class="relative aspect-square overflow-hidden bg-stone-50 p-2">
+        <img src="${mainImg}" class="w-full h-full object-contain" alt="" />
         ${tag ? `<span class="absolute top-2 left-2 bg-stone-900 text-white text-[9px] font-bold px-2 py-0.5 rounded-full">${tag}</span>` : ''}
       </div>
       <div class="p-4 space-y-2">
@@ -448,7 +476,7 @@ function updateLivePreview() {
         <h4 class="font-serif font-bold text-stone-900 text-base leading-tight">${name}</h4>
         <p class="text-xs text-stone-500 line-clamp-2 font-light">${desc}</p>
         <div class="pt-2 flex justify-between items-center border-t border-amber-900/10">
-          <span class="font-serif font-bold text-stone-900 text-base">₹${price}</span>
+          <span class="font-serif font-bold text-stone-900 text-base">${displayPrice}</span>
           <span class="bg-emerald-800 text-white text-[10px] font-bold px-3 py-1 rounded-lg uppercase">WhatsApp</span>
         </div>
       </div>
@@ -473,6 +501,7 @@ async function handleProductFormSubmit(e) {
   const description = document.getElementById('form-product-desc').value;
   const featuresRaw = document.getElementById('form-product-features').value;
   const features = featuresRaw ? featuresRaw.split(',').map(f => f.trim()).filter(Boolean) : [];
+  const whatsappNumber = document.getElementById('form-product-whatsapp').value || (categoryId === 'custom-sup' || categoryId === 'custom-rangoli' ? '8275892945' : '8407913008');
   const displayOrder = document.getElementById('form-product-order').value;
   const active = document.getElementById('form-product-active').checked;
   const featured = document.getElementById('form-product-featured').checked;
@@ -491,6 +520,7 @@ async function handleProductFormSubmit(e) {
     tag,
     description,
     features,
+    whatsappNumber,
     displayOrder: Number(displayOrder),
     active,
     featured,
@@ -547,22 +577,6 @@ async function toggleProductActive(id, currentActive) {
 }
 
 /**
- * Toggle Product Featured Status
- */
-async function toggleProductFeatured(id, currentFeatured) {
-  try {
-    const res = await fetch(`/api/products/${id}`, {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ featured: !currentFeatured })
-    });
-    if (res.ok) loadDashboardData();
-  } catch (err) {
-    console.error('Toggle featured error:', err);
-  }
-}
-
-/**
  * Confirm & Delete Product
  */
 function confirmDeleteProduct(id, name) {
@@ -611,7 +625,7 @@ function renderCategoriesTable() {
   }
 
   tbody.innerHTML = allCategories.map(c => {
-    const prodCount = allProducts.filter(p => p.categoryId === c.slug || p.categoryLabel.toLowerCase() === c.name.toLowerCase()).length;
+    const prodCount = allProducts.filter(p => p.categoryId === c.slug || (p.categoryLabel && p.categoryLabel.toLowerCase() === c.name.toLowerCase())).length;
 
     return `
       <tr class="hover:bg-stone-50 border-b border-stone-100">

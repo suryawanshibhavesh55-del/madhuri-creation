@@ -1,18 +1,38 @@
 [
   {
-    "_id": "cat_1",
+    "_id": "cat_soaps",
     "name": "Handmade Soaps",
     "slug": "soaps",
     "description": "Natural care, handcrafted with love.",
     "active": true,
-    "displayOrder": 1
+    "displayOrder": 1,
+    "whatsappNumber": "8407913008"
   },
   {
-    "_id": "cat_2",
+    "_id": "cat_candles",
     "name": "Handcrafted Candles",
     "slug": "candles",
     "description": "Beautifully crafted candles for beautiful moments.",
     "active": true,
-    "displayOrder": 2
+    "displayOrder": 2,
+    "whatsappNumber": "8407913008"
+  },
+  {
+    "_id": "cat_sup",
+    "name": "Customized Sup",
+    "slug": "custom-sup",
+    "description": "तुमच्या खास समारंभासाठी सुंदर आणि आकर्षक Customized सुप",
+    "active": true,
+    "displayOrder": 3,
+    "whatsappNumber": "8275892945"
+  },
+  {
+    "_id": "cat_rangoli",
+    "name": "Customized Rangoli",
+    "slug": "custom-rangoli",
+    "description": "सण, पूजा आणि शुभ प्रसंगांसाठी सुंदर, आकर्षक आणि पारंपरिक handmade rangoli designs.",
+    "active": true,
+    "displayOrder": 4,
+    "whatsappNumber": "8275892945"
   }
 ]

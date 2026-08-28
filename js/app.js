@@ -1,4 +1,4 @@
-// Madhuri Creation - Main Application Script (Integrated with MongoDB API)
+// Madhuri Creation - Main Application Script (4 Categories + Dynamic API & Fallback)
 
 document.addEventListener('DOMContentLoaded', async () => {
   setupNavigation();
@@ -21,7 +21,6 @@ async function loadDynamicData() {
     if (prodRes.ok) {
       const dbProducts = await prodRes.json();
       if (Array.isArray(dbProducts) && dbProducts.length > 0) {
-        // Map database products into window.PRODUCT_CATALOG
         window.PRODUCT_CATALOG = dbProducts.map(p => ({
           id: p._id || p.id,
           name: p.name,
@@ -35,7 +34,8 @@ async function loadDynamicData() {
           description: p.description,
           features: p.features || [],
           mainImage: p.mainImage,
-          additionalImages: p.additionalImages || []
+          additionalImages: p.additionalImages || [],
+          whatsappNumber: p.whatsappNumber
         }));
       }
     }
@@ -55,30 +55,44 @@ async function loadDynamicData() {
 }
 
 /**
- * Render Category Sections (Dynamic & Default)
+ * Render Category Sections
  */
 function renderCategorySections() {
   const soapGrid = document.getElementById('soap-products-grid');
   const candleGrid = document.getElementById('candle-products-grid');
+  const supGrid = document.getElementById('sup-products-grid');
+  const rangoliGrid = document.getElementById('rangoli-products-grid');
   const dynamicContainer = document.getElementById('dynamic-categories-container');
 
   if (!window.PRODUCT_CATALOG) return;
 
   // Render Soaps
   if (soapGrid) {
-    const soaps = window.PRODUCT_CATALOG.filter(p => p.category === 'soaps' || p.categoryLabel.toLowerCase().includes('soap'));
+    const soaps = window.PRODUCT_CATALOG.filter(p => p.category === 'soaps' || (p.categoryLabel && p.categoryLabel.toLowerCase().includes('soap')));
     soapGrid.innerHTML = soaps.map(product => createProductCardHTML(product)).join('');
   }
 
   // Render Candles
   if (candleGrid) {
-    const candles = window.PRODUCT_CATALOG.filter(p => p.category === 'candles' || p.categoryLabel.toLowerCase().includes('candle'));
+    const candles = window.PRODUCT_CATALOG.filter(p => p.category === 'candles' || (p.categoryLabel && p.categoryLabel.toLowerCase().includes('candle')));
     candleGrid.innerHTML = candles.map(product => createProductCardHTML(product)).join('');
   }
 
-  // Render Custom/Newly Created Admin Categories (e.g. Gift Hampers, Bath Products, etc.)
+  // Render Customized Sup
+  if (supGrid) {
+    const sups = window.PRODUCT_CATALOG.filter(p => p.category === 'custom-sup' || (p.categoryLabel && p.categoryLabel.toLowerCase().includes('sup')));
+    supGrid.innerHTML = sups.map(product => createProductCardHTML(product)).join('');
+  }
+
+  // Render Customized Rangoli
+  if (rangoliGrid) {
+    const rangolis = window.PRODUCT_CATALOG.filter(p => p.category === 'custom-rangoli' || (p.categoryLabel && p.categoryLabel.toLowerCase().includes('rangoli')));
+    rangoliGrid.innerHTML = rangolis.map(product => createProductCardHTML(product)).join('');
+  }
+
+  // Render Custom/Newly Created Admin Categories
   if (dynamicContainer && window.DYNAMIC_CATEGORIES) {
-    const defaultSlugs = ['soaps', 'candles'];
+    const defaultSlugs = ['soaps', 'candles', 'custom-sup', 'custom-rangoli'];
     const customCategories = window.DYNAMIC_CATEGORIES.filter(c => !defaultSlugs.includes(c.slug));
 
     if (customCategories.length > 0) {
@@ -117,29 +131,35 @@ function renderCategorySections() {
  */
 function createProductCardHTML(product) {
   const specBadge = product.weight ? product.weight : (product.specs || '');
+  const category = (product.category || product.categoryId || '').toLowerCase();
+  const isCustomSup = category === 'custom-sup' || category.includes('sup');
+  const isCustomRangoli = category === 'custom-rangoli' || category.includes('rangoli');
+  const isPriceOnRequest = !product.price || product.price === 0;
+
+  const displayPrice = isPriceOnRequest ? 'Price on Request' : `₹${product.price}`;
+  const buttonText = isCustomSup ? 'Customize / Order' : (isCustomRangoli ? 'Enquire / Customize' : 'Order on WhatsApp');
 
   return `
     <div class="product-card group bg-amber-50/40 rounded-2xl overflow-hidden border border-amber-900/10 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full">
-      <!-- Image Container -->
-      <div class="relative aspect-square overflow-hidden bg-stone-100 cursor-pointer" onclick="openProductModal('${product.id}')">
+      <!-- Image Container with object-contain for Sup and Rangoli -->
+      <div class="relative aspect-square overflow-hidden bg-white cursor-pointer p-2 border-b border-amber-900/5" onclick="openProductModal('${product.id}')">
         <img 
           src="${product.mainImage}" 
           alt="${product.name}" 
           loading="lazy"
-          class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+          class="w-full h-full ${isCustomSup || isCustomRangoli ? 'object-contain' : 'object-cover'} object-center group-hover:scale-105 transition-transform duration-500 rounded-xl"
         />
-        <div class="absolute inset-0 bg-stone-900/10 group-hover:bg-transparent transition-colors duration-300"></div>
         
         <!-- Tag Badge -->
         ${product.tag ? `
-          <span class="absolute top-3 left-3 bg-stone-900/80 backdrop-blur-md text-amber-100 text-[10px] uppercase tracking-wider font-semibold px-3 py-1 rounded-full border border-amber-500/30">
+          <span class="absolute top-4 left-4 bg-stone-900/85 backdrop-blur-md text-amber-100 text-[10px] uppercase tracking-wider font-semibold px-3 py-1 rounded-full border border-amber-500/30 shadow">
             ${product.tag}
           </span>
         ` : ''}
 
         <!-- Quick View Overlay Button -->
         <button 
-          class="absolute bottom-3 right-3 bg-white/90 hover:bg-white text-stone-800 p-2.5 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0"
+          class="absolute bottom-4 right-4 bg-white/90 hover:bg-white text-stone-800 p-2.5 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0"
           title="Quick View"
           onclick="event.stopPropagation(); openProductModal('${product.id}')"
         >
@@ -151,21 +171,21 @@ function createProductCardHTML(product) {
       </div>
 
       <!-- Card Body -->
-      <div class="p-5 flex flex-col flex-grow justify-between bg-white/80 backdrop-blur-sm">
+      <div class="p-5 flex flex-col flex-grow justify-between bg-white/90 backdrop-blur-sm">
         <div>
-          <div class="flex items-center justify-between text-xs text-amber-800/80 mb-1.5 font-medium tracking-wide">
-            <span class="uppercase tracking-wider text-[11px]">${product.categoryLabel}</span>
-            ${specBadge ? `<span class="bg-amber-100/70 text-amber-900 px-2 py-0.5 rounded text-[11px] font-semibold">${specBadge}</span>` : ''}
+          <div class="flex items-center justify-between text-xs text-amber-900 mb-1.5 font-medium tracking-wide">
+            <span class="uppercase tracking-wider text-[11px] font-bold">${product.categoryLabel}</span>
+            ${specBadge ? `<span class="bg-amber-100/80 text-amber-900 px-2 py-0.5 rounded text-[11px] font-semibold">${specBadge}</span>` : ''}
           </div>
 
           <h3 
-            class="text-lg font-serif font-medium text-stone-900 group-hover:text-amber-900 transition-colors duration-200 line-clamp-1 cursor-pointer"
+            class="text-base sm:text-lg font-serif font-medium text-stone-900 group-hover:text-amber-900 transition-colors duration-200 line-clamp-1 cursor-pointer leading-tight"
             onclick="openProductModal('${product.id}')"
           >
             ${product.name}
           </h3>
 
-          <p class="text-xs text-stone-600 mt-2 line-clamp-2 leading-relaxed">
+          <p class="text-xs text-stone-600 mt-2 line-clamp-2 leading-relaxed font-light">
             ${product.description}
           </p>
         </div>
@@ -174,8 +194,8 @@ function createProductCardHTML(product) {
         <div class="mt-4 pt-3 border-t border-amber-900/5 flex flex-col gap-3">
           <div class="flex items-baseline justify-between">
             <span class="text-xs text-stone-500">Price</span>
-            <div class="text-lg font-serif font-bold text-stone-900">
-              ₹${product.price}
+            <div class="text-base sm:text-lg font-serif font-bold text-stone-900">
+              ${displayPrice}
             </div>
           </div>
 
@@ -187,7 +207,7 @@ function createProductCardHTML(product) {
             <svg class="w-4 h-4 fill-current text-white flex-shrink-0" viewBox="0 0 24 24">
               <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-1.151 4.202 4.294-1.127z"/>
             </svg>
-            <span>Order on WhatsApp</span>
+            <span>${buttonText}</span>
           </button>
         </div>
       </div>

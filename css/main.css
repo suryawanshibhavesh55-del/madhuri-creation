@@ -1,4 +1,4 @@
-/* Madhuri Creation - Premium Indian Handcrafted & Festive Theme */
+/* Madhuri Creation - Premium Indian Handcrafted Theme (Clean & Balanced Redesign) */
 
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Mukta:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Tiro+Devanagari+Marathi:ital@0;1&display=swap');
 
@@ -30,13 +30,9 @@ body {
   font-family: 'Tiro Devanagari Marathi', 'Mukta', 'Playfair Display', serif;
 }
 
-/* Subtle Rangoli / Mandala Watermark Background Pattern */
+/* Clean Warm Background (No Noisy Dots) */
 .bg-rangoli-pattern {
   background-color: #FFFDF9;
-  background-image: radial-gradient(#D97706 0.75px, transparent 0.75px), radial-gradient(#C2185B 0.75px, #FFFDF9 0.75px);
-  background-size: 30px 30px;
-  background-position: 0 0, 15px 15px;
-  opacity: 0.98;
 }
 
 .bg-festive-maroon {
@@ -44,7 +40,7 @@ body {
 }
 
 .bg-festive-card {
-  background: linear-gradient(180deg, #FFFFFF 0%, #FAF6EE 100%);
+  background: #FFFFFF;
 }
 
 /* Gold Filigree & Ornate Borders */
@@ -53,23 +49,23 @@ body {
 }
 
 .shadow-gold-glow {
-  box-shadow: 0 10px 30px -10px rgba(212, 175, 55, 0.25);
+  box-shadow: 0 10px 30px -10px rgba(212, 175, 55, 0.2);
 }
 
 .shadow-festive {
-  box-shadow: 0 15px 35px -10px rgba(107, 29, 47, 0.12);
+  box-shadow: 0 10px 25px -5px rgba(107, 29, 47, 0.08);
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 ::-webkit-scrollbar-track {
   background: #FAF6EE;
 }
 ::-webkit-scrollbar-thumb {
   background: #8A243B;
-  border-radius: 5px;
+  border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #6B1D2F;
@@ -77,15 +73,15 @@ body {
 
 /* Glassmorphism Navigation */
 .nav-festive-glass {
-  background: rgba(255, 253, 249, 0.92);
+  background: rgba(255, 253, 249, 0.96);
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
 }
 
 /* Pulse animation for WhatsApp ordering */
 @keyframes whatsappPulse {
-  0% { box-shadow: 0 0 0 0 rgba(4, 120, 87, 0.6); }
-  70% { box-shadow: 0 0 0 14px rgba(4, 120, 87, 0); }
+  0% { box-shadow: 0 0 0 0 rgba(4, 120, 87, 0.5); }
+  70% { box-shadow: 0 0 0 12px rgba(4, 120, 87, 0); }
   100% { box-shadow: 0 0 0 0 rgba(4, 120, 87, 0); }
 }
 
@@ -100,15 +96,15 @@ body {
   justify-content: center;
   gap: 12px;
   color: #D97706;
-  margin: 1rem 0;
+  margin: 0.75rem 0;
 }
 .divider-ornate::before,
 .divider-ornate::after {
   content: '';
   flex: 1;
-  max-width: 80px;
+  max-width: 60px;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.6), transparent);
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.5), transparent);
 }
 
 /* Line clamp helpers */

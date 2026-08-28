@@ -1,13 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" class="h-full scroll-smooth">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Madhuri Creation | Premium Indian Handcrafted Soaps, Candles, Customized Sup & Rangoli</title>
-
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="Madhuri Creation - Premium Indian handcrafted natural soaps, floral candles, customized sup for Dohale Jevan & Mangalagaur, and reusable handmade rangoli creations. Handcrafted with love in Pune." />
-  <meta name="keywords" content="Madhuri Creation, Madhuri Naturals, Handcrafted Soaps, Sculpted Candles, Customized Sup, Dohale Jevan Sup, Mangalagaur Sup, Handmade Rangoli, Pune, Festival Gifting" />
+  <title>Madhuri Creation | Handcrafted Soaps, Candles, Customized Sup & Rangoli</title>
+  <meta name="description" content="Discover luxury handcrafted soaps, artisanal candles, customized traditional sup, and handmade rangoli designs by Madhuri Creation." />
   
   <!-- Favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌸</text></svg>">
@@ -23,6 +20,11 @@
     })();
   </script>
 
+  <!-- Google Fonts: Devanagari & Latin -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Mukta:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Tiro+Devanagari+Marathi:ital@0;1&display=swap" rel="stylesheet">
+
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -30,29 +32,23 @@
       theme: {
         extend: {
           colors: {
-            maroon: {
-              800: '#7A1E32',
-              900: '#5C1625',
-              950: '#4A111E',
-            },
-            saffron: {
-              500: '#E67E22',
-              600: '#D97706',
-              700: '#B45309',
-            },
             cream: {
               50: '#FFFDF9',
-              100: '#FAF6EE',
-              200: '#F4E8C1',
+              100: '#FAF7F2',
+              200: '#F4EFE6',
+              300: '#E8DEC9',
             },
-            gold: {
-              400: '#E5C158',
-              500: '#D4AF37',
-              600: '#B8860B',
+            amber: {
+              750: '#8C6D46',
+              850: '#634A2E',
+            },
+            stone: {
+              850: '#231F1D',
             }
           },
           fontFamily: {
-            serif: ['"Playfair Display"', '"Cormorant Garamond"', 'Georgia', 'serif'],
+            serif: ['"Playfair Display"', '"Tiro Devanagari Marathi"', '"Cormorant Garamond"', 'serif'],
+            display: ['"Cormorant Garamond"', '"Tiro Devanagari Marathi"', 'serif'],
             sans: ['"Plus Jakarta Sans"', '"Mukta"', 'sans-serif'],
             devanagari: ['"Tiro Devanagari Marathi"', '"Mukta"', 'serif']
           }
@@ -61,584 +57,532 @@
     }
   </script>
 
-  <!-- Custom Styles (Clean Warm Theme) -->
+  <!-- Custom Stylesheet -->
   <link rel="stylesheet" href="css/main.css" />
 </head>
-<body class="h-full bg-rangoli-pattern text-stone-800 antialiased selection:bg-amber-900 selection:text-amber-100 flex flex-col">
+<body class="bg-cream-100 text-stone-800 font-sans antialiased flex flex-col min-h-screen">
 
-  <!-- ================= NAVBAR ================= -->
-  <header id="navbar" class="fixed top-0 left-0 right-0 z-40 transition-all duration-300 py-3.5 bg-white/95 backdrop-blur-md border-b border-stone-200/80 shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-8 flex items-center justify-between">
+  <!-- ================= HEADER / STICKY NAVBAR ================= -->
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-40 transition-all duration-300 py-4 px-4 sm:px-8">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
       
-      <!-- Brand Logo -->
-      <a href="#" class="flex items-center gap-3 group">
-        <div class="w-10 h-10 rounded-full bg-maroon-900 text-amber-200 flex items-center justify-center font-serif text-xl border border-amber-400/40 shadow-sm group-hover:scale-105 transition-transform">
-          🌸
+      <!-- Brand Logo / Wordmark -->
+      <a href="#" class="flex items-center gap-2 group">
+        <div class="w-9 h-9 rounded-full bg-amber-900/10 flex items-center justify-center border border-amber-800/20 group-hover:bg-amber-900/20 transition-colors">
+          <svg class="w-5 h-5 text-amber-900" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2L9.5 7.5L4 8L8 12L7 17.5L12 15L17 17.5L16 12L20 8L14.5 7.5L12 2Z"/>
+          </svg>
         </div>
-        <div>
-          <span class="font-serif text-xl sm:text-2xl font-bold tracking-wider text-maroon-900 block leading-none">MADHURI CREATION</span>
-          <span class="text-[10px] uppercase tracking-[0.25em] text-saffron-700 font-semibold mt-1 block">HANDMADE WITH LOVE</span>
+        <div class="flex flex-col">
+          <span class="font-serif text-xl sm:text-2xl font-bold tracking-wider text-stone-900 leading-tight">
+            MADHURI CREATION
+          </span>
+          <span class="text-[10px] uppercase tracking-[0.25em] text-amber-800 font-medium -mt-0.5">
+            Handmade With Love
+          </span>
         </div>
       </a>
 
-      <!-- Desktop Links -->
-      <nav class="hidden lg:flex items-center gap-7 text-xs font-semibold uppercase tracking-wider text-stone-700">
-        <a href="#soaps" class="hover:text-maroon-900 transition-colors py-1 relative group">
-          <span>SOAPS</span>
-          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-saffron-600 group-hover:w-full transition-all duration-300"></span>
-        </a>
-        <a href="#candles" class="hover:text-maroon-900 transition-colors py-1 relative group">
-          <span>CANDLES</span>
-          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-saffron-600 group-hover:w-full transition-all duration-300"></span>
-        </a>
-        <a href="#custom-sup" class="hover:text-maroon-900 transition-colors py-1 relative group">
-          <span class="text-maroon-900 font-bold">CUSTOMIZED SUP</span>
-          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-maroon-800 group-hover:w-full transition-all duration-300"></span>
-        </a>
-        <a href="#custom-rangoli" class="hover:text-maroon-900 transition-colors py-1 relative group">
-          <span class="text-purple-900 font-bold">RANGOLI</span>
-          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-purple-800 group-hover:w-full transition-all duration-300"></span>
-        </a>
-        <a href="#about" class="hover:text-maroon-900 transition-colors py-1 relative group">
-          <span>ABOUT US</span>
-          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-saffron-600 group-hover:w-full transition-all duration-300"></span>
-        </a>
+      <!-- Desktop Nav Links -->
+      <nav class="hidden md:flex items-center space-x-6 lg:space-x-8 text-xs font-semibold uppercase tracking-widest text-stone-700">
+        <a href="#" class="hover:text-amber-900 transition-colors py-1">Home</a>
+        <a href="#soaps" class="hover:text-amber-900 transition-colors py-1">Soaps</a>
+        <a href="#candles" class="hover:text-amber-900 transition-colors py-1">Candles</a>
+        <a href="#custom-sup" class="hover:text-amber-900 transition-colors py-1">Customized Sup</a>
+        <a href="#custom-rangoli" class="hover:text-amber-900 transition-colors py-1">Rangoli</a>
+        <a href="#about" class="hover:text-amber-900 transition-colors py-1">About Us</a>
       </nav>
 
-      <!-- Primary CTA & Mobile Toggle -->
+      <!-- Header Action: WhatsApp Order Button -->
       <div class="flex items-center gap-3">
-        <a 
-          href="https://wa.me/918407913008?text=Hello%20Madhuri%20Creation,%20I%20would%20like%20to%20enquire%20about%20your%20handcrafted%20products." 
-          target="_blank"
-          class="hidden sm:flex items-center gap-2 bg-emerald-800 hover:bg-emerald-700 text-white text-xs font-bold uppercase tracking-wider px-5 py-2.5 rounded-full shadow transition-all duration-200 border border-emerald-500/30 btn-whatsapp-pulse"
+        <button 
+          onclick="handleGeneralWhatsApp()" 
+          class="hidden sm:flex items-center gap-2 bg-emerald-800 hover:bg-emerald-700 text-white text-xs font-semibold uppercase tracking-wider py-2.5 px-4 rounded-full shadow-sm hover:shadow-md transition-all duration-200"
         >
-          <svg class="w-4 h-4 fill-current text-white" viewBox="0 0 24 24">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
             <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-1.151 4.202 4.294-1.127z"/>
           </svg>
-          <span>ORDER / CONTACT</span>
-        </a>
+          <span>Order / Contact</span>
+        </button>
 
+        <!-- Mobile Drawer Toggle -->
         <button 
           id="mobile-menu-btn" 
-          class="lg:hidden p-2 text-stone-800 hover:text-maroon-900 rounded-lg"
-          aria-label="Toggle navigation menu"
+          class="md:hidden p-2 rounded-xl text-stone-800 hover:bg-stone-200/60 focus:outline-none"
+          aria-label="Toggle menu"
         >
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
         </button>
       </div>
 
     </div>
   </header>
 
-  <!-- ================= MOBILE DRAWER MENU ================= -->
-  <div id="mobile-drawer" class="fixed inset-0 z-50 transform translate-x-full transition-transform duration-300 ease-in-out lg:hidden">
-    <div class="fixed inset-0 bg-stone-950/60 backdrop-blur-sm" onclick="closeMobileDrawer()"></div>
-    <div class="relative w-80 max-w-[85vw] ml-auto h-full bg-cream-50 shadow-2xl flex flex-col justify-between p-6 overflow-y-auto border-l border-stone-200">
-      
+  <!-- Mobile Navigation Drawer -->
+  <div id="mobile-drawer" class="fixed inset-0 z-50 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden">
+    <div class="fixed inset-0 bg-stone-900/50 backdrop-blur-sm" onclick="closeMobileDrawer()"></div>
+    <div class="relative w-4/5 max-w-xs bg-cream-50 h-full shadow-2xl p-6 flex flex-col justify-between ml-auto">
       <div>
-        <div class="flex items-center justify-between pb-6 border-b border-stone-200">
-          <div>
-            <h2 class="font-serif text-lg font-bold text-maroon-900">MADHURI CREATION</h2>
-            <p class="text-[10px] text-saffron-700 uppercase tracking-widest">Madhuri Naturals ❤️</p>
-          </div>
-          <button id="close-drawer-btn" class="p-2 text-stone-500 hover:text-stone-900">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-          </button>
+        <div class="flex items-center justify-between pb-6 border-b border-amber-900/10">
+          <span class="font-serif text-lg font-bold text-stone-900">MADHURI CREATION</span>
+          <button id="close-drawer-btn" class="p-2 text-stone-600 hover:text-stone-900">✕</button>
         </div>
-
-        <nav class="py-6 flex flex-col gap-4 text-sm font-semibold uppercase tracking-wider text-stone-800">
-          <a href="#soaps" class="hover:text-maroon-900 py-1">🧼 Handmade Soaps</a>
-          <a href="#candles" class="hover:text-maroon-900 py-1">🕯️ Handcrafted Candles</a>
-          <a href="#custom-sup" class="hover:text-maroon-900 py-1 text-maroon-900 font-bold">🌸 Customized Sup</a>
-          <a href="#custom-rangoli" class="hover:text-maroon-900 py-1 text-purple-900 font-bold">🎨 Customized Rangoli</a>
-          <a href="#special-moments" class="hover:text-maroon-900 py-1">✨ Special Moments</a>
-          <a href="#about" class="hover:text-maroon-900 py-1">ℹ️ About Us</a>
+        <nav class="flex flex-col space-y-4 pt-6 text-sm font-semibold uppercase tracking-wider text-stone-700">
+          <a href="#" onclick="closeMobileDrawer()" class="hover:text-amber-900 py-1 border-b border-stone-100">Home</a>
+          <a href="#soaps" onclick="closeMobileDrawer()" class="hover:text-amber-900 py-1 border-b border-stone-100">Handmade Soaps</a>
+          <a href="#candles" onclick="closeMobileDrawer()" class="hover:text-amber-900 py-1 border-b border-stone-100">Handcrafted Candles</a>
+          <a href="#custom-sup" onclick="closeMobileDrawer()" class="hover:text-amber-900 py-1 border-b border-stone-100">Customized Sup</a>
+          <a href="#custom-rangoli" onclick="closeMobileDrawer()" class="hover:text-amber-900 py-1 border-b border-stone-100">Customized Rangoli</a>
+          <a href="#about" onclick="closeMobileDrawer()" class="hover:text-amber-900 py-1 border-b border-stone-100">About Us</a>
+          <a href="/admin" target="_blank" class="text-amber-700 py-1 font-bold">🔒 Owner Admin Panel</a>
         </nav>
       </div>
 
-      <div class="pt-6 border-t border-stone-200 space-y-4">
-        <a 
-          href="https://wa.me/918407913008?text=Hello%20Madhuri%20Creation,%20I%20would%20like%20to%20order%20products." 
-          target="_blank"
-          class="w-full bg-emerald-800 text-white font-bold text-xs uppercase tracking-wider py-3.5 px-4 rounded-xl flex items-center justify-center gap-2 shadow"
+      <div class="pt-6 border-t border-amber-900/10 space-y-3">
+        <button 
+          onclick="handleGeneralWhatsApp()" 
+          class="w-full bg-emerald-800 text-white font-semibold text-xs uppercase tracking-wider py-3 rounded-xl flex items-center justify-center gap-2 shadow"
         >
-          <span>ORDER ON WHATSAPP</span>
-        </a>
-        <p class="text-[11px] text-stone-500 text-center">Handcrafted in Kalewadi, Pune, Maharashtra</p>
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-1.151 4.202 4.294-1.127z"/>
+          </svg>
+          <span>WhatsApp Enquiry</span>
+        </button>
       </div>
-
     </div>
   </div>
 
-  <!-- ================= HERO SECTION (FIXED HEIGHT & ZERO OVERLAP) ================= -->
-  <section class="relative pt-32 pb-16 lg:pt-36 lg:pb-24 bg-cream-50 border-b border-stone-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-8 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+  <!-- ================= HERO SECTION ================= -->
+  <section class="relative pt-32 pb-16 lg:pt-40 lg:pb-24 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
       
-      <!-- Text Column Left -->
-      <div class="lg:col-span-6 space-y-6 text-center lg:text-left">
-        
-        <!-- Ornate Category Badge -->
-        <div class="inline-flex items-center gap-2 bg-amber-100 text-maroon-900 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full border border-amber-300/60 shadow-sm">
-          <span>✨</span>
-          <span>PURE NATURAL FORMULATION & ARTISANAL CRAFT</span>
-          <span>✨</span>
-        </div>
-
-        <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-stone-900 leading-[1.15] tracking-tight">
-          Handcrafted With <span class="text-maroon-800 italic">Love</span>, Made To Make You <span class="text-saffron-600">Smile</span>.
-        </h1>
-
-        <p class="text-base sm:text-lg text-stone-600 max-w-xl mx-auto lg:mx-0 font-light leading-relaxed">
-          Discover our luxury collection of natural herbal soaps, sculpted floral candles, personalized traditional customized sups, and reusable handmade rangoli creations.
-        </p>
-
-        <!-- CTAs -->
-        <div class="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-4">
-          <a 
-            href="#custom-sup" 
-            class="bg-maroon-900 hover:bg-maroon-800 text-amber-100 text-xs sm:text-sm font-bold uppercase tracking-widest px-7 py-4 rounded-2xl shadow-md hover:shadow-lg transition-all duration-200 border border-amber-400/30 flex items-center gap-2"
-          >
-            <span>EXPLORE CUSTOMIZED SUP</span>
-            <span>→</span>
-          </a>
-
-          <a 
-            href="#candles" 
-            class="bg-white hover:bg-cream-100 text-stone-800 text-xs sm:text-sm font-bold uppercase tracking-widest px-7 py-4 rounded-2xl border border-stone-300 shadow-sm hover:shadow transition-all duration-200"
-          >
-            VIEW CANDLES
-          </a>
-        </div>
-
-        <!-- Trust Highlights -->
-        <div class="pt-6 grid grid-cols-3 gap-4 border-t border-stone-200 text-center">
-          <div>
-            <span class="block text-lg sm:text-xl font-serif font-bold text-maroon-900">100%</span>
-            <span class="text-[11px] text-stone-500 font-medium">Natural & SLS Free</span>
-          </div>
-          <div>
-            <span class="block text-lg sm:text-xl font-serif font-bold text-saffron-600">Handmade</span>
-            <span class="text-[11px] text-stone-500 font-medium">With Loving Care</span>
-          </div>
-          <div>
-            <span class="block text-lg sm:text-xl font-serif font-bold text-purple-900">Custom</span>
-            <span class="text-[11px] text-stone-500 font-medium">Name & Photo Print</span>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Hero Visual Showcase Column Right -->
-      <div class="lg:col-span-6 relative">
-        <div class="relative rounded-3xl overflow-hidden shadow-xl border-4 border-white bg-stone-100 aspect-[4/3] group shadow-gold-glow">
-          <img 
-            src="assets/WhatsApp Image 2026-08-28 at 12.56.18 PM.jpeg" 
-            alt="Madhuri Creation Luxury Handcrafted Candle Collection" 
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-          />
-          <div class="absolute inset-0 bg-gradient-to-t from-maroon-950/70 via-transparent to-transparent"></div>
-          
-          <div class="absolute bottom-6 left-6 right-6 text-white p-4 rounded-2xl bg-white/20 backdrop-blur-md border border-white/30 shadow">
-            <div class="flex items-center justify-between">
-              <div>
-                <span class="text-[10px] uppercase tracking-widest text-amber-200 font-bold flex items-center gap-1">
-                  <span>✦</span> FEATURED HANDCRAFTED COLLECTION
-                </span>
-                <h3 class="font-serif text-lg font-bold text-white mt-0.5">Luxury Blossom Rose Candle Collection</h3>
-              </div>
-              <span class="bg-saffron-600 text-white text-xs px-3.5 py-1.5 rounded-full font-serif font-bold shadow">₹200</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ================= 4 CURATED CATEGORIES SHOWCASE ================= -->
-  <section class="py-16 bg-white border-b border-stone-200 relative">
-    <div class="max-w-7xl mx-auto px-4 sm:px-8 space-y-10">
-      
-      <div class="text-center space-y-2">
-        <div class="divider-ornate">
-          <span class="text-xs uppercase tracking-[0.25em] font-bold text-saffron-700">✦ OUR HANDCRAFTED COLLECTIONS ✦</span>
-        </div>
-        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-stone-900">Explore Our Festive World</h2>
-        <p class="text-xs sm:text-sm text-stone-600 max-w-xl mx-auto font-light">From fragrant natural soaps to customized traditional sups and vibrant rangoli mats.</p>
-      </div>
-
-      <!-- 4 Category Cards Grid (White / Warm Cream Canvas with Refined Accents) -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        
-        <!-- Card 1: Soaps -->
-        <a href="#soaps" class="group relative rounded-3xl overflow-hidden bg-white border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 p-5 flex flex-col justify-between transform hover:-translate-y-1">
-          <div class="aspect-square rounded-2xl overflow-hidden bg-cream-50 mb-4 border border-stone-100 p-2 flex items-center justify-center">
-            <img src="assets/WhatsApp Image 2026-08-28 at 12.56.23 PM (1).jpeg" class="w-full h-full object-cover rounded-xl group-hover:scale-105 transition-transform duration-500" alt="Handmade Soaps" />
-          </div>
-          <div class="space-y-1">
-            <span class="text-[10px] font-bold uppercase tracking-wider text-rose-800 bg-rose-100 px-2.5 py-0.5 rounded-full border border-rose-200">Natural Care</span>
-            <h3 class="font-serif text-xl font-bold text-stone-900 group-hover:text-rose-800 transition-colors">🧼 Handmade Soaps</h3>
-            <p class="text-xs text-stone-600 line-clamp-2 font-light">Coffee, Turmeric, Sandalwood & Almond nourish skin.</p>
-          </div>
-          <div class="mt-4 pt-3 border-t border-stone-100 flex justify-between items-center text-xs font-bold text-rose-900">
-            <span>₹99 / Bar</span>
-            <span>View Collection →</span>
-          </div>
-        </a>
-
-        <!-- Card 2: Candles -->
-        <a href="#candles" class="group relative rounded-3xl overflow-hidden bg-white border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 p-5 flex flex-col justify-between transform hover:-translate-y-1">
-          <div class="aspect-square rounded-2xl overflow-hidden bg-cream-50 mb-4 border border-stone-100 p-2 flex items-center justify-center">
-            <img src="assets/WhatsApp Image 2026-08-28 at 12.56.16 PM.jpeg" class="w-full h-full object-cover rounded-xl group-hover:scale-105 transition-transform duration-500" alt="Handcrafted Candles" />
-          </div>
-          <div class="space-y-1">
-            <span class="text-[10px] font-bold uppercase tracking-wider text-saffron-700 bg-amber-100 px-2.5 py-0.5 rounded-full border border-amber-200">Ambient Glow</span>
-            <h3 class="font-serif text-xl font-bold text-stone-900 group-hover:text-saffron-700 transition-colors">🕯️ Handcrafted Candles</h3>
-            <p class="text-xs text-stone-600 line-clamp-2 font-light">Rose, Lotus & Peony sculpted candles in vibrant hues.</p>
-          </div>
-          <div class="mt-4 pt-3 border-t border-stone-100 flex justify-between items-center text-xs font-bold text-saffron-700">
-            <span>From ₹60</span>
-            <span>View Collection →</span>
-          </div>
-        </a>
-
-        <!-- Card 3: Customized Sup -->
-        <a href="#custom-sup" class="group relative rounded-3xl overflow-hidden bg-white border border-amber-900/20 shadow-sm hover:shadow-xl transition-all duration-300 p-5 flex flex-col justify-between transform hover:-translate-y-1">
-          <div class="aspect-square rounded-2xl overflow-hidden bg-cream-50 mb-4 border border-stone-100 p-2 flex items-center justify-center">
-            <img src="assets/custom sups/WhatsApp Image 2026-08-28 at 5.38.06 PM.jpeg" class="w-full h-full object-contain rounded-xl group-hover:scale-105 transition-transform duration-500" alt="Customized Sup" />
-          </div>
-          <div class="space-y-1">
-            <span class="text-[10px] font-bold uppercase tracking-wider text-maroon-900 bg-amber-100 px-2.5 py-0.5 rounded-full border border-amber-300">डोहाळे जेवण & मंगळागौर</span>
-            <h3 class="font-serif text-xl font-bold text-stone-900 group-hover:text-maroon-900 transition-colors">🌸 Customized Sup</h3>
-            <p class="text-xs text-stone-600 line-clamp-2 font-light">Customized with Photo, Name & Event Details.</p>
-          </div>
-          <div class="mt-4 pt-3 border-t border-stone-100 flex justify-between items-center text-xs font-bold text-maroon-900">
-            <span>₹500 / Piece</span>
-            <span>Customize / Order →</span>
-          </div>
-        </a>
-
-        <!-- Card 4: Rangoli (Proper Image Framing) -->
-        <a href="#custom-rangoli" class="group relative rounded-3xl overflow-hidden bg-white border border-purple-900/20 shadow-sm hover:shadow-xl transition-all duration-300 p-5 flex flex-col justify-between transform hover:-translate-y-1">
-          <div class="aspect-square rounded-2xl overflow-hidden bg-cream-50 mb-4 border border-stone-100 p-2 flex items-center justify-center">
-            <img src="assets/custom rangoli/WhatsApp Image 2026-08-28 at 4.53.19 PM (1).jpeg" class="w-full h-full object-contain p-1 rounded-xl group-hover:scale-105 transition-transform duration-500" alt="Customized Rangoli" />
-          </div>
-          <div class="space-y-1">
-            <span class="text-[10px] font-bold uppercase tracking-wider text-purple-900 bg-purple-100 px-2.5 py-0.5 rounded-full border border-purple-200">100% Reusable Mat</span>
-            <h3 class="font-serif text-xl font-bold text-stone-900 group-hover:text-purple-900 transition-colors">🎨 Handmade Rangoli</h3>
-            <p class="text-xs text-stone-600 line-clamp-2 font-light">Traditional and customizable handmade rangoli designs.</p>
-          </div>
-          <div class="mt-4 pt-3 border-t border-stone-100 flex justify-between items-center text-xs font-bold text-purple-900">
-            <span>Price on Request</span>
-            <span>Enquire on WhatsApp →</span>
-          </div>
-        </a>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ================= EDITORIAL SECTION: SPECIAL MOMENTS ================= -->
-  <section id="special-moments" class="py-20 bg-cream-50 border-b border-stone-200 relative overflow-hidden">
-    <div class="max-w-7xl mx-auto px-4 sm:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         
-        <!-- Collage Left -->
-        <div class="lg:col-span-6 grid grid-cols-2 gap-4">
-          <div class="space-y-4">
-            <div class="aspect-square rounded-2xl overflow-hidden shadow-sm border border-stone-200 bg-white p-2 flex items-center justify-center">
-              <img src="assets/custom sups/WhatsApp Image 2026-08-28 at 5.38.06 PM (1).jpeg" class="w-full h-full object-contain rounded-xl" alt="" />
-            </div>
-            <div class="aspect-[4/5] rounded-2xl overflow-hidden shadow-sm border border-stone-200 bg-white">
-              <img src="assets/WhatsApp Image 2026-08-28 at 12.56.22 PM (1).jpeg" class="w-full h-full object-cover" alt="" />
-            </div>
-          </div>
-          <div class="space-y-4 pt-8">
-            <div class="aspect-[4/5] rounded-2xl overflow-hidden shadow-sm border border-stone-200 bg-white">
-              <img src="assets/custom rangoli/WhatsApp Image 2026-08-28 at 4.53.19 PM (2).jpeg" class="w-full h-full object-cover" alt="" />
-            </div>
-            <div class="aspect-square rounded-2xl overflow-hidden shadow-sm border border-stone-200 bg-white p-2 flex items-center justify-center">
-              <img src="assets/WhatsApp Image 2026-08-28 at 12.56.25 PM.jpeg" class="w-full h-full object-contain rounded-xl" alt="" />
-            </div>
-          </div>
-        </div>
-
-        <!-- Text Right -->
-        <div class="lg:col-span-6 space-y-6">
-          <div class="inline-flex items-center gap-2 bg-saffron-50 text-saffron-700 text-xs font-bold uppercase tracking-widest px-3.5 py-1 rounded-full border border-saffron-200">
-            <span>🌸</span> <span>CRAFTED FOR CELEBRATIONS</span>
+        <!-- Hero Text Column -->
+        <div class="lg:col-span-6 space-y-6 text-center lg:text-left">
+          <div class="inline-flex items-center gap-2 bg-amber-900/10 border border-amber-800/20 px-3.5 py-1.5 rounded-full text-xs text-amber-900 font-semibold uppercase tracking-wider">
+            <span>✨ Pure Natural Formulation & Artisanal Craft</span>
           </div>
 
-          <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-stone-900 leading-tight">
-            Made For Your <span class="text-maroon-800 italic">Special Moments</span>
-          </h2>
+          <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-normal leading-[1.15] text-stone-900">
+            Handcrafted With Love, Made To Make You Smile.
+          </h1>
 
-          <p class="text-stone-600 text-sm sm:text-base font-light leading-relaxed">
-            From festive celebrations to thoughtful gifting, every creation by Madhuri Creation is handcrafted to make your moments memorable and beautiful.
+          <p class="text-stone-600 text-sm sm:text-base font-light leading-relaxed max-w-xl mx-auto lg:mx-0">
+            Discover our luxury collection of natural herbal soaps, sculpted floral candles, personalized traditional customized sup, and reusable handmade rangoli creations.
           </p>
 
-          <div class="space-y-3 pt-2 text-xs sm:text-sm text-stone-700 font-medium">
-            <div class="flex items-center gap-3">
-              <span class="w-6 h-6 rounded-full bg-maroon-100 text-maroon-900 flex items-center justify-center font-bold">✔</span>
-              <span><strong>Dohale Jevan & Mangalagaur</strong> — Personalized Sup with couple photo & name</span>
-            </div>
-            <div class="flex items-center gap-3">
-              <span class="w-6 h-6 rounded-full bg-amber-100 text-saffron-700 flex items-center justify-center font-bold">✔</span>
-              <span><strong>Festive Rangoli Decor</strong> — Reusable mats for Gaurai Aali, Ganpati & Diwali</span>
-            </div>
-            <div class="flex items-center gap-3">
-              <span class="w-6 h-6 rounded-full bg-purple-100 text-purple-900 flex items-center justify-center font-bold">✔</span>
-              <span><strong>Return Gifts & Favors</strong> — Sculpted lotus candles & signature packaged soaps</span>
-            </div>
-          </div>
-
-          <div class="pt-4">
+          <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
             <a 
-              href="https://wa.me/918275892945?text=Hello%20Madhuri%20Creation,%20I%20would%20like%20to%20discuss%20customized%20gifting." 
-              target="_blank"
-              class="inline-flex items-center gap-2 bg-maroon-900 hover:bg-maroon-800 text-amber-100 font-bold text-xs uppercase tracking-widest px-7 py-3.5 rounded-2xl shadow border border-amber-400/30"
+              href="#custom-sup" 
+              class="w-full sm:w-auto bg-amber-900 hover:bg-amber-850 text-cream-50 font-semibold text-xs uppercase tracking-widest py-3.5 px-8 rounded-full shadow-md hover:shadow-lg transition-all duration-200 text-center"
             >
-              <span>DISCUSS CUSTOM GIFTING ON WHATSAPP</span>
-              <span>→</span>
+              Explore Customized Sup
+            </a>
+            <a 
+              href="#candles" 
+              class="w-full sm:w-auto bg-white hover:bg-stone-50 border border-amber-900/20 text-stone-800 font-semibold text-xs uppercase tracking-widest py-3.5 px-8 rounded-full shadow-sm hover:shadow transition-all duration-200 text-center"
+            >
+              View Candles
             </a>
           </div>
+
+          <!-- Trust Badges -->
+          <div class="pt-6 border-t border-amber-900/10 grid grid-cols-3 gap-4 text-center max-w-md mx-auto lg:mx-0">
+            <div>
+              <span class="block text-lg font-serif font-bold text-amber-900">100%</span>
+              <span class="text-[11px] text-stone-500 font-light">Natural & SLS Free</span>
+            </div>
+            <div>
+              <span class="block text-lg font-serif font-bold text-amber-900">Handmade</span>
+              <span class="text-[11px] text-stone-500 font-light">With Loving Care</span>
+            </div>
+            <div>
+              <span class="block text-lg font-serif font-bold text-amber-900">Custom</span>
+              <span class="text-[11px] text-stone-500 font-light">Name & Photo Print</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Visual Column -->
+        <div class="lg:col-span-6 relative">
+          <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white/60 bg-stone-200 aspect-[4/3] group">
+            <img 
+              src="assets/WhatsApp Image 2026-08-28 at 12.56.18 PM.jpeg" 
+              alt="Madhuri Creation Luxury Handcrafted Candle Collection" 
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-stone-950/60 via-transparent to-transparent"></div>
+            
+            <div class="absolute bottom-6 left-6 right-6 text-white p-4 rounded-2xl bg-white/15 backdrop-blur-md border border-white/20">
+              <div class="flex items-center justify-between">
+                <div>
+                  <span class="text-[10px] uppercase tracking-widest text-amber-200 font-semibold">Featured Handcrafted Collection</span>
+                  <h3 class="font-serif text-lg font-medium text-white">Luxury Blossom Rose Candle Collection</h3>
+                </div>
+                <span class="bg-amber-800/80 text-amber-100 text-xs px-3 py-1 rounded-full font-serif font-bold">₹200</span>
+              </div>
+            </div>
+          </div>
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- ================= SECTION 1: HANDMADE SOAPS ================= -->
-  <section id="soaps" class="py-20 bg-white border-b border-stone-200 scroll-mt-20">
+  <!-- ================= CATEGORY SHOWCASE ================= -->
+  <section class="py-16 bg-cream-200/50 border-y border-amber-900/10">
     <div class="max-w-7xl mx-auto px-4 sm:px-8">
       
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-6 border-b border-rose-200 gap-4">
-        <div>
-          <div class="text-xs uppercase tracking-[0.2em] text-rose-800 font-bold flex items-center gap-1.5 mb-1">
-            <span>🧼</span><span>Madhuri Naturals Collection</span>
-          </div>
-          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-stone-900">Handmade Soaps</h2>
-          <p class="text-xs sm:text-sm text-stone-600 mt-2 font-light max-w-2xl">
-            Natural care, handcrafted with love. Infused with Coffee, Sandalwood, Almond, Cashew, and Rice for gentle, nourishing skin hydration.
-          </p>
-        </div>
-        <div class="flex items-center gap-2 bg-rose-100 text-rose-900 px-4 py-2 rounded-xl text-xs font-bold border border-rose-200">
-          <span>₹99 / 100g Bar</span>
-        </div>
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs uppercase tracking-widest text-amber-900 font-bold">Curated Collections</span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-normal text-stone-900 mt-2">Explore Our Four Main Crafts</h2>
+        <div class="w-12 h-0.5 bg-amber-700/40 mx-auto mt-4"></div>
       </div>
 
-      <div id="soap-products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Rendered dynamically via js/app.js -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Category Card 1: Soaps -->
+        <a href="#soaps" class="group relative rounded-3xl overflow-hidden shadow-lg border border-amber-900/10 bg-white aspect-[4/5] flex flex-col justify-end p-6">
+          <img 
+            src="assets/WhatsApp Image 2026-08-28 at 12.56.24 PM (1).jpeg" 
+            alt="Handmade Soaps" 
+            class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-stone-950/85 via-stone-950/40 to-transparent"></div>
+
+          <div class="relative z-10 text-white space-y-1.5">
+            <span class="bg-white/20 backdrop-blur-md text-white text-[10px] uppercase tracking-widest font-semibold px-2.5 py-0.5 rounded-full border border-white/30">
+              ₹99 / Piece
+            </span>
+            <h3 class="font-serif text-xl font-medium tracking-wide text-white">HANDMADE SOAPS</h3>
+            <p class="text-xs text-stone-200 font-light line-clamp-2">Natural care, SLS & Paraben free formulation.</p>
+          </div>
+        </a>
+
+        <!-- Category Card 2: Candles -->
+        <a href="#candles" class="group relative rounded-3xl overflow-hidden shadow-lg border border-amber-900/10 bg-white aspect-[4/5] flex flex-col justify-end p-6">
+          <img 
+            src="assets/WhatsApp Image 2026-08-28 at 12.56.22 PM (1).jpeg" 
+            alt="Handcrafted Candles" 
+            class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-stone-950/85 via-stone-950/40 to-transparent"></div>
+
+          <div class="relative z-10 text-white space-y-1.5">
+            <span class="bg-white/20 backdrop-blur-md text-white text-[10px] uppercase tracking-widest font-semibold px-2.5 py-0.5 rounded-full border border-white/30">
+              ₹60 / ₹99 / ₹200
+            </span>
+            <h3 class="font-serif text-xl font-medium tracking-wide text-white">HANDCRAFTED CANDLES</h3>
+            <p class="text-xs text-stone-200 font-light line-clamp-2">Sculpted floral elegance & fragrance.</p>
+          </div>
+        </a>
+
+        <!-- Category Card 3: Customized Sup -->
+        <a href="#custom-sup" class="group relative rounded-3xl overflow-hidden shadow-lg border border-amber-900/10 bg-white aspect-[4/5] flex flex-col justify-end p-6">
+          <img 
+            src="assets/custom sups/WhatsApp Image 2026-08-28 at 5.38.06 PM (1).jpeg" 
+            alt="Customized Sup" 
+            class="absolute inset-0 w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-700 bg-amber-50/80"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-stone-950/90 via-stone-950/40 to-transparent"></div>
+
+          <div class="relative z-10 text-white space-y-1.5">
+            <span class="bg-amber-600/90 backdrop-blur-md text-white text-[10px] uppercase tracking-widest font-bold px-2.5 py-0.5 rounded-full border border-amber-400/30">
+              ₹500 • Customized
+            </span>
+            <h3 class="font-serif text-xl font-medium tracking-wide text-white">CUSTOMIZED SUP</h3>
+            <p class="text-xs text-amber-200 font-light line-clamp-2">डोहाळे जेवण & मंगळागौर विशेष सुप.</p>
+          </div>
+        </a>
+
+        <!-- Category Card 4: Customized Rangoli -->
+        <a href="#custom-rangoli" class="group relative rounded-3xl overflow-hidden shadow-lg border border-amber-900/10 bg-white aspect-[4/5] flex flex-col justify-end p-6">
+          <img 
+            src="assets/custom rangoli/WhatsApp Image 2026-08-28 at 4.53.19 PM (2).jpeg" 
+            alt="Customized Rangoli" 
+            class="absolute inset-0 w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-700 bg-amber-50/80"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-stone-950/90 via-stone-950/40 to-transparent"></div>
+
+          <div class="relative z-10 text-white space-y-1.5">
+            <span class="bg-white/20 backdrop-blur-md text-white text-[10px] uppercase tracking-widest font-semibold px-2.5 py-0.5 rounded-full border border-white/30">
+              Price on Request
+            </span>
+            <h3 class="font-serif text-xl font-medium tracking-wide text-white">CUSTOMIZED RANGOLI</h3>
+            <p class="text-xs text-amber-200 font-light line-clamp-2">गौरी आगमन, गणपती & पूजेसाठी हस्तकला रांगोळी.</p>
+          </div>
+        </a>
+
       </div>
 
     </div>
   </section>
 
-  <!-- ================= SECTION 2: HANDCRAFTED CANDLES ================= -->
-  <section id="candles" class="py-20 bg-cream-50 border-b border-stone-200 scroll-mt-20">
+  <!-- ================= 1. HANDMADE SOAPS SECTION ================= -->
+  <section id="soaps" class="py-20 bg-cream-50 scroll-mt-24">
     <div class="max-w-7xl mx-auto px-4 sm:px-8">
       
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-6 border-b border-amber-200 gap-4">
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-6 border-b border-amber-900/10 gap-4">
         <div>
-          <div class="text-xs uppercase tracking-[0.2em] text-saffron-700 font-bold flex items-center gap-1.5 mb-1">
-            <span>🕯️</span><span>Ambient Sculpted Candles</span>
-          </div>
-          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-stone-900">Handcrafted Candles</h2>
-          <p class="text-xs sm:text-sm text-stone-600 mt-2 font-light max-w-2xl font-devanagari">
+          <span class="text-xs uppercase tracking-widest text-amber-900 font-bold">Collection 01</span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-normal text-stone-900 mt-1">Handmade Soaps</h2>
+          <p class="text-sm text-stone-600 mt-2 font-light">Natural care, handcrafted with love. Pure ingredients & skin-nourishing moisture.</p>
+        </div>
+
+        <div class="inline-flex items-center gap-3 bg-amber-100/60 border border-amber-900/10 px-4 py-2 rounded-2xl text-xs text-stone-800 font-medium">
+          <span class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
+          <span>Standard Soap Price: <strong>₹99 / piece</strong> (100 g)</span>
+        </div>
+      </div>
+
+      <!-- Products Grid -->
+      <div id="soap-products-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <!-- Rendered via js/app.js -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= 2. HANDCRAFTED CANDLES SECTION ================= -->
+  <section id="candles" class="py-20 bg-cream-200/40 border-t border-amber-900/10 scroll-mt-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-6 border-b border-amber-900/10 gap-4">
+        <div>
+          <span class="text-xs uppercase tracking-widest text-amber-900 font-bold">Collection 02</span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-normal text-stone-900 mt-1">Handcrafted Candles Collection</h2>
+          <p class="text-sm text-stone-700 mt-2 font-light max-w-3xl leading-relaxed">
             "तुमच्या घराला सुंदर look आणि मनाला प्रसन्न करणारा fragrance देणाऱ्या handmade candles. प्रेमाने आणि काळजीपूर्वक तयार केलेल्या आमच्या candles gifting, पूजा, decoration आणि रोजच्या वापरासाठी योग्य आहेत."
           </p>
         </div>
-        <div class="flex flex-wrap items-center gap-2 text-xs font-bold">
-          <span class="bg-amber-100 text-amber-900 px-3 py-1.5 rounded-lg border border-amber-300">Single: ₹60</span>
-          <span class="bg-amber-100 text-amber-900 px-3 py-1.5 rounded-lg border border-amber-300">Premium: ₹99</span>
-          <span class="bg-saffron-600 text-white px-3.5 py-1.5 rounded-lg shadow">7 Pcs Combo: ₹200</span>
+
+        <!-- Official Pricing Badges -->
+        <div class="flex flex-wrap gap-2 text-xs font-semibold">
+          <span class="bg-white border border-amber-900/20 text-stone-800 px-3 py-1.5 rounded-xl shadow-sm">Single Candle: <strong>₹60</strong></span>
+          <span class="bg-amber-100/80 border border-amber-900/20 text-amber-950 px-3 py-1.5 rounded-xl shadow-sm">Premium Candle: <strong>₹99</strong></span>
+          <span class="bg-stone-900 text-amber-200 px-3 py-1.5 rounded-xl shadow-sm">7 Pcs Combo: <strong>₹200</strong></span>
         </div>
       </div>
 
+      <!-- Products Grid -->
       <div id="candle-products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Rendered dynamically via js/app.js -->
+        <!-- Rendered via js/app.js -->
       </div>
 
     </div>
   </section>
 
-  <!-- ================= SECTION 3: CUSTOMIZED SUP ================= -->
-  <section id="custom-sup" class="py-20 bg-white border-b border-stone-200 scroll-mt-20">
+  <!-- ================= 3. CUSTOMIZED SUP SECTION ================= -->
+  <section id="custom-sup" class="py-20 bg-amber-50/70 border-t border-amber-900/10 scroll-mt-24">
     <div class="max-w-7xl mx-auto px-4 sm:px-8">
       
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-6 border-b border-maroon-900/20 gap-4">
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-6 border-b border-amber-900/15 gap-4">
         <div>
-          <div class="text-xs uppercase tracking-[0.2em] text-maroon-900 font-bold flex items-center gap-1.5 mb-1">
-            <span>🌸</span><span>विशेष हस्तकला सजावट</span>
-          </div>
-          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-maroon-900">Customized Sup (डोहाळे जेवण & मंगळागौर)</h2>
-          <p class="text-xs sm:text-sm text-stone-600 mt-2 font-light max-w-2xl font-devanagari">
-            तुमच्या खास समारंभासाठी सुंदर, आकर्षक आणि पारंपरिक Handmade Customized सुप. फोटो, नाव व कार्यक्रमाचे नाव तुमच्या आवडीनुसार Customize करून मिळेल.
+          <span class="text-xs uppercase tracking-widest text-amber-900 font-bold">Collection 03 • Madhuri Naturals ❤️</span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-normal text-stone-900 mt-1">
+            🌸 Customized सुप – डोहाळे जेवण & मंगळागौर
+          </h2>
+          <p class="text-sm text-stone-700 mt-2 font-light max-w-2xl leading-relaxed">
+            तुमच्या खास समारंभासाठी सुंदर आणि आकर्षक Customized सुप तयार करून दिले जाते. (डोहाळे जेवण सुप, मंगळागौर सुप & पहिली मंगळागौर सुप)
           </p>
         </div>
-        <div class="flex items-center gap-3 bg-maroon-900 text-amber-200 px-4 py-2.5 rounded-xl text-xs font-bold border border-amber-400/40 shadow">
-          <span>Fixed Price: ₹500</span>
-          <span class="text-amber-400">|</span>
-          <span>WhatsApp: 8275892945</span>
+
+        <div class="inline-flex items-center gap-3 bg-amber-900 text-cream-50 px-4 py-2.5 rounded-2xl text-xs font-medium shadow-md">
+          <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+          <span>Fixed Price: <strong>₹500 /-</strong> | Contact: <strong>8275892945</strong></span>
         </div>
       </div>
 
+      <!-- Features Callout Banner -->
+      <div class="mb-10 p-6 bg-white rounded-3xl border border-amber-900/10 shadow-sm grid grid-cols-1 md:grid-cols-4 gap-4 text-xs">
+        <div class="flex items-center gap-3">
+          <span class="text-xl text-amber-800">📸</span>
+          <span><strong>Customization:</strong> तुमचा फोटो + नाव + कार्यक्रमाचे नाव</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="text-xl text-amber-800">✨</span>
+          <span><strong>Handmade:</strong> सुंदर मोती, फुले व गोटा-पट्टी सजावट</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="text-xl text-amber-800">🎨</span>
+          <span><strong>Colors:</strong> तुमच्या पसंतीनुसार रंग व सजावट</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="text-xl text-amber-800">🎁</span>
+          <span><strong>Perfect For:</strong> डोहाळे जेवण, मंगळागौर & Special Gifting</span>
+        </div>
+      </div>
+
+      <!-- Products Grid -->
       <div id="sup-products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Rendered dynamically via js/app.js -->
+        <!-- Rendered via js/app.js -->
       </div>
 
     </div>
   </section>
 
-  <!-- ================= SECTION 4: CUSTOMIZED RANGOLI ================= -->
-  <section id="custom-rangoli" class="py-20 bg-cream-50 border-b border-stone-200 scroll-mt-20">
+  <!-- ================= 4. CUSTOMIZED RANGOLI SECTION ================= -->
+  <section id="custom-rangoli" class="py-20 bg-cream-100 border-t border-amber-900/10 scroll-mt-24">
     <div class="max-w-7xl mx-auto px-4 sm:px-8">
       
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-6 border-b border-purple-200 gap-4">
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-6 border-b border-amber-900/10 gap-4">
         <div>
-          <div class="text-xs uppercase tracking-[0.2em] text-purple-900 font-bold flex items-center gap-1.5 mb-1">
-            <span>🎨</span><span>Handmade Reusable Rangoli Collection</span>
-          </div>
-          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-stone-900">Customized Rangoli</h2>
-          <p class="text-xs sm:text-sm text-stone-600 mt-2 font-light max-w-2xl font-devanagari">
-            सण, पूजा आणि शुभ प्रसंगांसाठी सुंदर, आकर्षक आणि पारंपरिक handmade rangoli designs. (गौरी आगमन, गणपती, नवरात्र, दिवाळी, मंगळागौर, लक्ष्मीपूजन, गृहप्रवेश).
+          <span class="text-xs uppercase tracking-widest text-amber-900 font-bold">Collection 04 • Madhuri Naturals ❤️</span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-normal text-stone-900 mt-1">
+            🌸 Handmade Rangoli Collection 🌸
+          </h2>
+          <p class="text-sm text-stone-700 mt-2 font-light max-w-2xl leading-relaxed">
+            सण, पूजा आणि शुभ प्रसंगांसाठी सुंदर, आकर्षक आणि पारंपरिक handmade rangoli designs. (कमळ, देवी/गौराई, शुभ चिन्ह & Festival Special)
           </p>
         </div>
-        <div class="flex items-center gap-3 bg-purple-900 text-pink-200 px-4 py-2.5 rounded-xl text-xs font-bold border border-pink-400/40 shadow">
-          <span>Price on Request</span>
-          <span class="text-pink-300">|</span>
-          <span>WhatsApp: 8275892945</span>
+
+        <div class="inline-flex items-center gap-3 bg-emerald-900 text-white px-4 py-2.5 rounded-2xl text-xs font-medium shadow-md">
+          <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+          <span>Price: <strong>Design & Size नुसार</strong> | Contact: <strong>8275892945</strong></span>
         </div>
       </div>
 
-      <div id="rangoli-products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Rendered dynamically via js/app.js -->
+      <!-- Perfect For Occasions Tags -->
+      <div class="mb-10 flex flex-wrap gap-2 text-xs font-medium">
+        <span class="text-stone-500 py-1 font-semibold">🙏 Perfect For:</span>
+        <span class="bg-amber-100/70 text-amber-900 px-3 py-1 rounded-full border border-amber-800/10">गौरी आगमन</span>
+        <span class="bg-amber-100/70 text-amber-900 px-3 py-1 rounded-full border border-amber-800/10">गणपती</span>
+        <span class="bg-amber-100/70 text-amber-900 px-3 py-1 rounded-full border border-amber-800/10">नवरात्र</span>
+        <span class="bg-amber-100/70 text-amber-900 px-3 py-1 rounded-full border border-amber-800/10">दिवाळी</span>
+        <span class="bg-amber-100/70 text-amber-900 px-3 py-1 rounded-full border border-amber-800/10">मंगळागौर</span>
+        <span class="bg-amber-100/70 text-amber-900 px-3 py-1 rounded-full border border-amber-800/10">लक्ष्मीपूजन</span>
+        <span class="bg-amber-100/70 text-amber-900 px-3 py-1 rounded-full border border-amber-800/10">गृहप्रवेश</span>
+        <span class="bg-amber-100/70 text-amber-900 px-3 py-1 rounded-full border border-amber-800/10">पूजा</span>
+      </div>
+
+      <!-- Products Grid -->
+      <div id="rangoli-products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Rendered via js/app.js -->
       </div>
 
     </div>
   </section>
 
-  <!-- Dynamic Categories Container for Admin Created Categories -->
+  <!-- ================= DYNAMIC ADMIN CREATED CATEGORIES ================= -->
   <div id="dynamic-categories-container"></div>
 
-  <!-- ================= FESTIVE OCCASIONS GRID ================= -->
-  <section class="py-16 bg-white border-b border-stone-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-8 space-y-10">
+  <!-- ================= MADE TO BE GIFTED SECTION ================= -->
+  <section id="gifting" class="py-20 bg-stone-900 text-cream-50 overflow-hidden relative scroll-mt-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
       
-      <div class="text-center space-y-2">
-        <div class="divider-ornate">
-          <span class="text-xs uppercase tracking-[0.25em] font-bold text-saffron-700">✦ OCCASIONS & CELEBRATIONS ✦</span>
-        </div>
-        <h2 class="font-serif text-3xl font-bold text-stone-900">Perfect For Every Special Moment</h2>
-      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-6 space-y-6">
+          <span class="text-xs uppercase tracking-[0.3em] text-amber-300 font-semibold">Artisanal Gifting</span>
+          <h2 class="font-serif text-4xl sm:text-5xl font-normal leading-tight text-white">
+            Thoughtfully Crafted For Special Celebrations
+          </h2>
+          <p class="text-stone-300 text-sm sm:text-base font-light leading-relaxed">
+            Whether pampering yourself with pure herbal soaps, illuminating sacred moments with floral candles, or celebrating Maharashtrian traditions with customized sup & rangoli creations, every Madhuri Creation product is packaged to make you smile.
+          </p>
 
-      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 text-center">
-        <div class="p-4 bg-cream-50 rounded-2xl border border-stone-200 shadow-sm hover:border-amber-700/30 transition-all">
-          <span class="text-2xl block mb-1">👶</span>
-          <span class="font-serif text-sm font-bold text-stone-900 block">डोहाळे जेवण</span>
-          <span class="text-[10px] text-stone-500">Customized Sup</span>
+          <div class="pt-4 flex items-center gap-6">
+            <button 
+              onclick="handleGeneralWhatsApp()"
+              class="bg-amber-400 hover:bg-amber-300 text-stone-950 font-bold text-xs uppercase tracking-widest py-3.5 px-8 rounded-full shadow-lg transition-all"
+            >
+              Order Custom Hampers
+            </button>
+          </div>
         </div>
-        <div class="p-4 bg-cream-50 rounded-2xl border border-stone-200 shadow-sm hover:border-amber-700/30 transition-all">
-          <span class="text-2xl block mb-1">🌺</span>
-          <span class="font-serif text-sm font-bold text-stone-900 block">मंगळागौर</span>
-          <span class="text-[10px] text-stone-500">Pahili Mangalagaur</span>
+
+        <div class="lg:col-span-6 relative">
+          <div class="rounded-3xl overflow-hidden shadow-2xl border-4 border-stone-800 aspect-[4/3]">
+            <img 
+              src="assets/custom rangoli/WhatsApp Image 2026-08-28 at 4.53.19 PM (2).jpeg" 
+              alt="Artisanal Gifting Madhuri Creation" 
+              class="w-full h-full object-contain bg-stone-950 p-4"
+            />
+          </div>
         </div>
-        <div class="p-4 bg-cream-50 rounded-2xl border border-stone-200 shadow-sm hover:border-amber-700/30 transition-all">
-          <span class="text-2xl block mb-1">👑</span>
-          <span class="font-serif text-sm font-bold text-stone-900 block">गौरी आगमन</span>
-          <span class="text-[10px] text-stone-500">Gaurai Aali Set</span>
-        </div>
-        <div class="p-4 bg-cream-50 rounded-2xl border border-stone-200 shadow-sm hover:border-amber-700/30 transition-all">
-          <span class="text-2xl block mb-1">🪔</span>
-          <span class="font-serif text-sm font-bold text-stone-900 block">दिवाळी & पूजा</span>
-          <span class="text-[10px] text-stone-500">Floral Candles</span>
-        </div>
-        <div class="p-4 bg-cream-50 rounded-2xl border border-stone-200 shadow-sm hover:border-amber-700/30 transition-all">
-          <span class="text-2xl block mb-1">🎁</span>
-          <span class="font-serif text-sm font-bold text-stone-900 block">Return Gifts</span>
-          <span class="text-[10px] text-stone-500">Soap & Candle Combos</span>
-        </div>
-        <div class="p-4 bg-cream-50 rounded-2xl border border-stone-200 shadow-sm hover:border-amber-700/30 transition-all">
-          <span class="text-2xl block mb-1">✨</span>
-          <span class="font-serif text-sm font-bold text-stone-900 block">गृहप्रवेश</span>
-          <span class="text-[10px] text-stone-500">Rangoli Mats</span>
-        </div>
+
       </div>
 
     </div>
   </section>
 
-  <!-- ================= ABOUT SECTION ================= -->
-  <section id="about" class="py-20 bg-maroon-950 text-white relative overflow-hidden">
-    <div class="max-w-7xl mx-auto px-4 sm:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-      
-      <div class="lg:col-span-6 space-y-6">
-        <div class="inline-flex items-center gap-2 bg-amber-900/60 text-amber-200 text-xs font-bold uppercase tracking-widest px-3.5 py-1 rounded-full border border-amber-500/30">
-          <span>🌸</span> <span>OUR BRAND STORY</span>
-        </div>
-
-        <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
-          Handcrafted With Care, Pure By Nature.
-        </h2>
-
-        <p class="text-amber-100/80 text-sm sm:text-base font-light leading-relaxed">
-          <strong>MADHURI CREATION</strong> (Madhuri Naturals ❤️) is dedicated to crafting premium natural soaps, sculpted ambient candles, customized festive sups, and handmade rangolis.
-        </p>
-
-        <p class="text-amber-100/70 text-xs sm:text-sm font-light leading-relaxed font-devanagari">
-          "तुमच्या घराला सुंदर look आणि मनाला प्रसन्न करणारा fragrance देणाऱ्या handmade candles आणि नैसर्गिक काळजी घेणारे soaps. प्रेमाने आणि काळजीपूर्वक तयार केलेल्या आमच्या वस्तू gifting, पूजा, decoration आणि रोजच्या वापरासाठी योग्य आहेत."
-        </p>
-
-        <div class="pt-2 flex flex-wrap gap-6 text-xs text-amber-200 font-medium">
-          <div>📍 Kalewadi, Pune, Maharashtra - 411017</div>
-          <div>📞 Direct Orders: 8407913008 / 8275892945</div>
-        </div>
-      </div>
-
-      <div class="lg:col-span-6 relative">
-        <div class="relative aspect-square rounded-3xl overflow-hidden border-2 border-amber-400/40 shadow-2xl bg-stone-900 p-2">
-          <img src="assets/soap_box_ingredients.jpg" alt="Madhuri Creation Handcrafted Artisanal Process" class="w-full h-full object-cover rounded-2xl" />
-        </div>
-      </div>
-
+  <!-- ================= OUR STORY / BRAND ETHOS ================= -->
+  <section id="about" class="py-20 bg-cream-50 border-b border-amber-900/10">
+    <div class="max-w-5xl mx-auto px-4 sm:px-8 text-center space-y-6">
+      <span class="text-xs uppercase tracking-[0.25em] text-amber-900 font-bold">Our Philosophy</span>
+      <h2 class="font-serif text-3xl sm:text-4xl font-normal text-stone-900">
+        "Pure Natural Care & Traditional Artistry"
+      </h2>
+      <p class="text-sm sm:text-base text-stone-600 font-light leading-relaxed max-w-3xl mx-auto">
+        At <strong class="text-stone-900 font-medium">MADHURI CREATION</strong>, every item is lovingly created by hand in Kalewadi, Pune. We combine skin-loving natural botanicals (Coffee, Turmeric, Sandalwood, Almond) with traditional Maharashtrian festive craftsmanship (Customized Sup & Handmade Reusable Rangolis).
+      </p>
     </div>
   </section>
 
   <!-- ================= FOOTER ================= -->
-  <footer class="bg-maroon-950 text-amber-100/80 py-12 border-t border-amber-500/20 text-xs">
-    <div class="max-w-7xl mx-auto px-4 sm:px-8 space-y-8">
+  <footer id="contact" class="bg-stone-900 text-cream-100 pt-16 pb-12 border-t border-stone-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8 grid grid-cols-1 md:grid-cols-12 gap-12 pb-12 border-b border-stone-800">
       
-      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-amber-500/20">
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-full bg-amber-900 text-amber-200 flex items-center justify-center text-xl border border-amber-400/40">🌸</div>
-          <div>
-            <h3 class="font-serif text-xl font-bold text-white tracking-wider">MADHURI CREATION</h3>
-            <p class="text-[10px] text-amber-300 uppercase tracking-widest">Madhuri Naturals ❤️</p>
-          </div>
-        </div>
-
-        <div class="flex flex-wrap items-center gap-6 font-semibold uppercase tracking-wider text-[11px] text-amber-200">
-          <a href="#soaps" class="hover:text-white">Soaps</a>
-          <a href="#candles" class="hover:text-white">Candles</a>
-          <a href="#custom-sup" class="hover:text-white">Customized Sup</a>
-          <a href="#custom-rangoli" class="hover:text-white">Rangoli</a>
-          <a href="/admin" target="_blank" class="hover:text-white">Admin Login</a>
-        </div>
+      <!-- Brand Col -->
+      <div class="md:col-span-5 space-y-4">
+        <h3 class="font-serif text-2xl font-bold tracking-wider text-white">MADHURI CREATION</h3>
+        <p class="text-xs text-stone-400 font-light leading-relaxed max-w-sm">
+          Handcrafted with love. Discover natural soaps, sculpted floral candles, personalized customized sup, and reusable handmade rangoli creations.
+        </p>
       </div>
 
-      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left text-[11px] text-amber-200/60">
-        <p>© 2026 Madhuri Creation. All rights reserved. Handcrafted in Kalewadi, Pune, Maharashtra.</p>
-        <p>Made with ❤️ for Indian Celebrations</p>
+      <!-- Links Col -->
+      <div class="md:col-span-3 space-y-3">
+        <h4 class="text-xs uppercase tracking-widest text-amber-300 font-semibold">Collections</h4>
+        <ul class="text-xs text-stone-400 space-y-2 font-light">
+          <li><a href="#soaps" class="hover:text-white transition-colors">Handmade Soaps (₹99)</a></li>
+          <li><a href="#candles" class="hover:text-white transition-colors">Handcrafted Candles (₹60 / ₹99 / ₹200)</a></li>
+          <li><a href="#custom-sup" class="hover:text-white transition-colors">Customized Sup (₹500)</a></li>
+          <li><a href="#custom-rangoli" class="hover:text-white transition-colors">Customized Rangoli</a></li>
+          <li><a href="/admin" target="_blank" class="text-amber-400 hover:text-amber-300 font-semibold transition-colors">🔒 Owner Admin Panel</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="md:col-span-4 space-y-3">
+        <h4 class="text-xs uppercase tracking-widest text-amber-300 font-semibold">Direct Order Contacts</h4>
+        <div class="text-xs text-stone-400 space-y-2 font-light">
+          <p><strong class="text-white font-medium">Soaps & Candles:</strong> 8407913008</p>
+          <p><strong class="text-white font-medium">Customized Sup & Rangoli:</strong> 8275892945</p>
+          <p><strong class="text-white font-medium">Location:</strong> Kalewadi, Pune, Maharashtra - 411017</p>
+        </div>
       </div>
 
     </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-8 pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-stone-500">
+      <p>© 2026 Madhuri Creation. All rights reserved. Handcrafted with love.</p>
+      <p class="mt-2 sm:mt-0">Madhuri Naturals ❤️ Authentic Handmade Products</p>
+    </div>
   </footer>
 
-  <!-- ================= PRODUCT QUICK VIEW MODAL ================= -->
-  <div id="product-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-stone-950/70 backdrop-blur-sm overflow-y-auto">
-    <div id="modal-content" class="w-full">
-      <!-- Rendered dynamically via js/modal.js -->
+  <!-- ================= FLOATING WHATSAPP BUTTON ================= -->
+  <button 
+    onclick="handleGeneralWhatsApp()"
+    class="fixed bottom-6 right-6 z-40 bg-emerald-800 hover:bg-emerald-700 text-white p-4 rounded-full shadow-2xl flex items-center justify-center btn-whatsapp-pulse transition-transform hover:scale-110 focus:outline-none"
+    title="Order on WhatsApp"
+  >
+    <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24">
+      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-1.151 4.202 4.294-1.127z"/>
+    </svg>
+  </button>
+
+  <!-- Quick View Product Modal Container -->
+  <div id="product-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-stone-950/70 backdrop-blur-sm transition-opacity">
+    <div id="modal-content" class="w-full flex justify-center">
+      <!-- Modal Content Rendered Dynamically -->
     </div>
   </div>
 

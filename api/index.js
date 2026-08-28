@@ -65,8 +65,8 @@ const CategorySchema = new mongoose.Schema({
 const ProductSchema = new mongoose.Schema({
   name: { type: String, required: true },
   slug: { type: String },
-  categoryId: { type: String, required: true }, // category slug or name e.g. "soaps", "candles"
-  categoryLabel: { type: String, required: true }, // e.g. "Handmade Soaps"
+  categoryId: { type: String, required: true },
+  categoryLabel: { type: String, required: true },
   price: { type: Number, required: true, min: 0 },
   originalPrice: { type: Number, default: null },
   weight: { type: String, default: '' },
@@ -96,6 +96,141 @@ const Category = mongoose.models.Category || mongoose.model('Category', Category
 const Product = mongoose.models.Product || mongoose.model('Product', ProductSchema);
 const Settings = mongoose.models.Settings || mongoose.model('Settings', SettingsSchema);
 
+// Seed Data Definition
+const seedProducts = [
+  {
+    name: "Artisanal Natural Herbal Soap Bar",
+    categoryId: "soaps",
+    categoryLabel: "Handmade Soaps",
+    price: 99,
+    weight: "100 g",
+    tag: "Bestseller",
+    description: "Crafted with carefully selected natural ingredients including Coffee, Turmeric, Sandalwood, Almond, Cashew, and Rice to gently cleanse, nourish, and moisturize your skin.",
+    features: ["100% Natural Ingredients", "SLS Free & Paraben Free", "Nourishes & Moisturizes Skin", "Infused with Almond, Coffee & Turmeric"],
+    mainImage: "assets/WhatsApp Image 2026-08-28 at 12.56.23 PM (1).jpeg",
+    additionalImages: ["assets/soap_box_ingredients.jpg", "assets/WhatsApp Image 2026-08-28 at 12.56.24 PM (1).jpeg", "assets/WhatsApp Image 2026-08-28 at 12.56.25 PM.jpeg"],
+    active: true,
+    displayOrder: 1
+  },
+  {
+    name: "Madhuri Naturals Signature Packaged Soap Bar",
+    categoryId: "soaps",
+    categoryLabel: "Handmade Soaps",
+    price: 99,
+    weight: "100 g",
+    tag: "Gift Ready",
+    description: "Signature packaged 100g handmade natural soap housed in our luxury gold foil stamped box. Pure natural formulation containing Sandalwood, Cashew, Rice, and Sesame.",
+    features: ["Gold Foil Stamped Box Packaging", "100g (When Packed)", "SLS Free & Paraben Free", "Ideal for Everyday Pampering & Gifting"],
+    mainImage: "assets/WhatsApp Image 2026-08-28 at 12.56.25 PM.jpeg",
+    additionalImages: ["assets/soap_box_ingredients.jpg", "assets/WhatsApp Image 2026-08-28 at 12.56.26 PM.jpeg", "assets/WhatsApp Image 2026-08-28 at 12.56.23 PM (1).jpeg"],
+    active: true,
+    displayOrder: 2
+  },
+  {
+    name: "Artisanal Pink Flower Candle Set",
+    categoryId: "candles",
+    categoryLabel: "Handcrafted Candles",
+    price: 200,
+    specs: "7 Pieces Set",
+    tag: "Best Value",
+    description: "A stunning set of 7 handcrafted floral candles in vibrant and soft pink hues. Carefully hand-poured with lotus and peony petal detail for festive elegance.",
+    features: ["7 Handcrafted Pieces", "Vibrant Pink Floral Sculptures", "Long Clean Burn", "Perfect Festive Centerpiece"],
+    mainImage: "assets/WhatsApp Image 2026-08-28 at 12.56.22 PM (1).jpeg",
+    additionalImages: ["assets/WhatsApp Image 2026-08-28 at 12.56.23 PM.jpeg"],
+    active: true,
+    displayOrder: 3
+  },
+  {
+    name: "Luxury Blossom Rose Candle Collection",
+    categoryId: "candles",
+    categoryLabel: "Handcrafted Candles",
+    price: 200,
+    specs: "5 Pieces Luxury Tray Set",
+    tag: "Luxury Gift",
+    description: "Exquisitely detailed rose and peony flower candles presented on a golden luxury tray. Handcrafted with gold leaf accents for grand celebrations and home decor.",
+    features: ["5 Sculpted Rose & Peony Candles", "Gold Flake Petal Accents", "Luxury Presentation", "Warm Natural Glow"],
+    mainImage: "assets/WhatsApp Image 2026-08-28 at 12.56.18 PM.jpeg",
+    additionalImages: ["assets/WhatsApp Image 2026-08-28 at 12.56.19 PM.jpeg"],
+    active: true,
+    displayOrder: 4
+  },
+  {
+    name: "Handcrafted Crimson Lotus Candle",
+    categoryId: "candles",
+    categoryLabel: "Handcrafted Candles",
+    price: 200,
+    specs: "Sculpted Lotus Candle",
+    tag: "Artisanal Pick",
+    description: "Intricately hand-sculpted lotus petal candle in deep crimson red. Symbolizes warmth, purity, and spiritual radiance in sacred home spaces.",
+    features: ["Deep Crimson Red Petals", "Intricate Lotus Carving", "Eco Wax Blend", "Smokeless Wick"],
+    mainImage: "assets/WhatsApp Image 2026-08-28 at 12.56.16 PM.jpeg",
+    additionalImages: ["assets/WhatsApp Image 2026-08-28 at 12.56.20 PM (1).jpeg"],
+    active: true,
+    displayOrder: 5
+  },
+  {
+    name: "Royal Dual-Tone Crimson & Dark Lotus Candle",
+    categoryId: "candles",
+    categoryLabel: "Handcrafted Candles",
+    price: 200,
+    specs: "Dual-Tone Sculpted Lotus",
+    tag: "Dual-Tone",
+    description: "Unique hand-poured lotus candle featuring rich crimson red inner petals transitioning into obsidian dark base petals for a striking aesthetic.",
+    features: ["Dual-Tone Color Gradient", "Handcrafted Petal Alignment", "Premium Wax Blend", "Dramatic Ambient Glow"],
+    mainImage: "assets/WhatsApp Image 2026-08-28 at 12.56.20 PM (1).jpeg",
+    additionalImages: ["assets/WhatsApp Image 2026-08-28 at 12.56.16 PM.jpeg"],
+    active: true,
+    displayOrder: 6
+  },
+  {
+    name: "Handcrafted Floral Ambient Table Candle Set",
+    categoryId: "candles",
+    categoryLabel: "Handcrafted Candles",
+    price: 200,
+    specs: "7 Lit Flower Candles Set",
+    tag: "Festive Favorite",
+    description: "Assorted handcrafted blooming flower candles designed to illuminate dinner tables, diwali rangolis, and intimate celebrations with cozy floral radiance.",
+    features: ["7 Assorted Floral Candles", "Floating / Tabletop Suitable", "Warm Soft Light", "Artisanal Craftsmanship"],
+    mainImage: "assets/WhatsApp Image 2026-08-28 at 12.56.19 PM.jpeg",
+    additionalImages: ["assets/WhatsApp Image 2026-08-28 at 12.56.22 PM (1).jpeg"],
+    active: true,
+    displayOrder: 7
+  },
+  {
+    name: "Sculpted Blooming Rose & Botanical Leaf Candle",
+    categoryId: "candles",
+    categoryLabel: "Handcrafted Candles",
+    price: 200,
+    specs: "Blooming Rose Candle",
+    tag: "Botanical",
+    description: "A lifelike blooming rose candle in romantic pink tones resting gracefully on a sculpted green leafy base. Adds romantic elegance to any bedside or mantelpiece.",
+    features: ["Detailed Rose & Leaf Base", "Soft Pink Rose Wax", "Gentle Ambient Flame", "Thoughtful Favor & Gift"],
+    mainImage: "assets/WhatsApp Image 2026-08-28 at 12.56.22 PM.jpeg",
+    additionalImages: ["assets/WhatsApp Image 2026-08-28 at 12.56.21 PM.jpeg"],
+    active: true,
+    displayOrder: 8
+  }
+];
+
+async function autoSeedIfEmpty() {
+  try {
+    const prodCount = await Product.countDocuments();
+    if (prodCount === 0) {
+      const catCount = await Category.countDocuments();
+      if (catCount === 0) {
+        await Category.insertMany([
+          { name: 'Handmade Soaps', slug: 'soaps', description: 'Natural care, handcrafted with love.', displayOrder: 1, active: true },
+          { name: 'Handcrafted Candles', slug: 'candles', description: 'Beautifully crafted candles for beautiful moments.', displayOrder: 2, active: true }
+        ]);
+      }
+      await Product.insertMany(seedProducts);
+      console.log('Auto-seeded initial database records successfully.');
+    }
+  } catch (err) {
+    console.error('Auto seed error:', err);
+  }
+}
+
 // ================= AUTH MIDDLEWARE =================
 function authenticateAdmin(req, res, next) {
   const token = req.cookies.admin_token || (req.headers.authorization && req.headers.authorization.split(' ')[1]);
@@ -124,7 +259,7 @@ app.post('/api/auth/login', (req, res) => {
 
     res.cookie('admin_token', token, {
       httpOnly: true,
-      secure: false, // set true on HTTPS production
+      secure: false,
       sameSite: 'lax',
       maxAge: 7 * 24 * 60 * 60 * 1000
     });
@@ -214,6 +349,7 @@ app.post('/api/upload', authenticateAdmin, upload.single('image'), async (req, r
 // GET /api/categories
 app.get('/api/categories', async (req, res) => {
   try {
+    await autoSeedIfEmpty();
     const categories = await Category.find().sort({ displayOrder: 1, createdAt: 1 });
     res.json(categories);
   } catch (err) {
@@ -274,7 +410,6 @@ app.delete('/api/categories/:id', authenticateAdmin, async (req, res) => {
     const category = await Category.findById(req.params.id);
     if (!category) return res.status(404).json({ error: 'Category not found' });
 
-    // Check if any products belong to this category
     const productCount = await Product.countDocuments({ 
       $or: [{ categoryId: category.slug }, { categoryId: category._id.toString() }, { categoryLabel: category.name }]
     });
@@ -297,10 +432,11 @@ app.delete('/api/categories/:id', authenticateAdmin, async (req, res) => {
 // GET /api/products
 app.get('/api/products', async (req, res) => {
   try {
+    await autoSeedIfEmpty();
+
     const { category, search, active, featured, includeInactive } = req.query;
     const query = {};
 
-    // Filter by active status
     if (includeInactive !== 'true') {
       query.active = true;
     } else if (active !== undefined) {
@@ -419,7 +555,6 @@ app.delete('/api/products/:id', authenticateAdmin, async (req, res) => {
     const product = await Product.findById(req.params.id);
     if (!product) return res.status(404).json({ error: 'Product not found' });
 
-    // Clean up Cloudinary images if public IDs exist
     if (product.cloudinaryPublicIds && product.cloudinaryPublicIds.length > 0) {
       for (const publicId of product.cloudinaryPublicIds) {
         try {
@@ -442,7 +577,6 @@ app.post('/api/products/seed', async (req, res) => {
   try {
     await connectDB();
     
-    // Seed Categories if empty
     const catCount = await Category.countDocuments();
     if (catCount === 0) {
       await Category.insertMany([
@@ -455,122 +589,6 @@ app.post('/api/products/seed', async (req, res) => {
     if (prodCount > 0) {
       return res.json({ message: 'Database already contains products. Skipping seed.', count: prodCount });
     }
-
-    // Seed default products
-    const seedProducts = [
-      {
-        name: "Artisanal Natural Herbal Soap Bar",
-        categoryId: "soaps",
-        categoryLabel: "Handmade Soaps",
-        price: 99,
-        weight: "100 g",
-        tag: "Bestseller",
-        description: "Crafted with carefully selected natural ingredients including Coffee, Turmeric, Sandalwood, Almond, Cashew, and Rice to gently cleanse, nourish, and moisturize your skin.",
-        features: ["100% Natural Ingredients", "SLS Free & Paraben Free", "Nourishes & Moisturizes Skin", "Infused with Almond, Coffee & Turmeric"],
-        mainImage: "assets/WhatsApp Image 2026-08-28 at 12.56.23 PM (1).jpeg",
-        additionalImages: ["assets/soap_box_ingredients.jpg", "assets/WhatsApp Image 2026-08-28 at 12.56.24 PM (1).jpeg", "assets/WhatsApp Image 2026-08-28 at 12.56.25 PM.jpeg"],
-        active: true,
-        displayOrder: 1
-      },
-      {
-        name: "Madhuri Naturals Signature Packaged Soap Bar",
-        categoryId: "soaps",
-        categoryLabel: "Handmade Soaps",
-        price: 99,
-        weight: "100 g",
-        tag: "Gift Ready",
-        description: "Signature packaged 100g handmade natural soap housed in our luxury gold foil stamped box. Pure natural formulation containing Sandalwood, Cashew, Rice, and Sesame.",
-        features: ["Gold Foil Stamped Box Packaging", "100g (When Packed)", "SLS Free & Paraben Free", "Ideal for Everyday Pampering & Gifting"],
-        mainImage: "assets/WhatsApp Image 2026-08-28 at 12.56.25 PM.jpeg",
-        additionalImages: ["assets/soap_box_ingredients.jpg", "assets/WhatsApp Image 2026-08-28 at 12.56.26 PM.jpeg", "assets/WhatsApp Image 2026-08-28 at 12.56.23 PM (1).jpeg"],
-        active: true,
-        displayOrder: 2
-      },
-      {
-        name: "Artisanal Pink Flower Candle Set",
-        categoryId: "candles",
-        categoryLabel: "Handcrafted Candles",
-        price: 200,
-        specs: "7 Pieces Set",
-        tag: "Best Value",
-        description: "A stunning set of 7 handcrafted floral candles in vibrant and soft pink hues. Carefully hand-poured with lotus and peony petal detail for festive elegance.",
-        features: ["7 Handcrafted Pieces", "Vibrant Pink Floral Sculptures", "Long Clean Burn", "Perfect Festive Centerpiece"],
-        mainImage: "assets/WhatsApp Image 2026-08-28 at 12.56.22 PM (1).jpeg",
-        additionalImages: ["assets/WhatsApp Image 2026-08-28 at 12.56.23 PM.jpeg"],
-        active: true,
-        displayOrder: 3
-      },
-      {
-        name: "Luxury Blossom Rose Candle Collection",
-        categoryId: "candles",
-        categoryLabel: "Handcrafted Candles",
-        price: 200,
-        specs: "5 Pieces Luxury Tray Set",
-        tag: "Luxury Gift",
-        description: "Exquisitely detailed rose and peony flower candles presented on a golden luxury tray. Handcrafted with gold leaf accents for grand celebrations and home decor.",
-        features: ["5 Sculpted Rose & Peony Candles", "Gold Flake Petal Accents", "Luxury Presentation", "Warm Natural Glow"],
-        mainImage: "assets/WhatsApp Image 2026-08-28 at 12.56.18 PM.jpeg",
-        additionalImages: ["assets/WhatsApp Image 2026-08-28 at 12.56.19 PM.jpeg"],
-        active: true,
-        displayOrder: 4
-      },
-      {
-        name: "Handcrafted Crimson Lotus Candle",
-        categoryId: "candles",
-        categoryLabel: "Handcrafted Candles",
-        price: 200,
-        specs: "Sculpted Lotus Candle",
-        tag: "Artisanal Pick",
-        description: "Intricately hand-sculpted lotus petal candle in deep crimson red. Symbolizes warmth, purity, and spiritual radiance in sacred home spaces.",
-        features: ["Deep Crimson Red Petals", "Intricate Lotus Carving", "Eco Wax Blend", "Smokeless Wick"],
-        mainImage: "assets/WhatsApp Image 2026-08-28 at 12.56.16 PM.jpeg",
-        additionalImages: ["assets/WhatsApp Image 2026-08-28 at 12.56.20 PM (1).jpeg"],
-        active: true,
-        displayOrder: 5
-      },
-      {
-        name: "Royal Dual-Tone Crimson & Dark Lotus Candle",
-        categoryId: "candles",
-        categoryLabel: "Handcrafted Candles",
-        price: 200,
-        specs: "Dual-Tone Sculpted Lotus",
-        tag: "Dual-Tone",
-        description: "Unique hand-poured lotus candle featuring rich crimson red inner petals transitioning into obsidian dark base petals for a striking aesthetic.",
-        features: ["Dual-Tone Color Gradient", "Handcrafted Petal Alignment", "Premium Wax Blend", "Dramatic Ambient Glow"],
-        mainImage: "assets/WhatsApp Image 2026-08-28 at 12.56.20 PM (1).jpeg",
-        additionalImages: ["assets/WhatsApp Image 2026-08-28 at 12.56.16 PM.jpeg"],
-        active: true,
-        displayOrder: 6
-      },
-      {
-        name: "Handcrafted Floral Ambient Table Candle Set",
-        categoryId: "candles",
-        categoryLabel: "Handcrafted Candles",
-        price: 200,
-        specs: "7 Lit Flower Candles Set",
-        tag: "Festive Favorite",
-        description: "Assorted handcrafted blooming flower candles designed to illuminate dinner tables, diwali rangolis, and intimate celebrations with cozy floral radiance.",
-        features: ["7 Assorted Floral Candles", "Floating / Tabletop Suitable", "Warm Soft Light", "Artisanal Craftsmanship"],
-        mainImage: "assets/WhatsApp Image 2026-08-28 at 12.56.19 PM.jpeg",
-        additionalImages: ["assets/WhatsApp Image 2026-08-28 at 12.56.22 PM (1).jpeg"],
-        active: true,
-        displayOrder: 7
-      },
-      {
-        name: "Sculpted Blooming Rose & Botanical Leaf Candle",
-        categoryId: "candles",
-        categoryLabel: "Handcrafted Candles",
-        price: 200,
-        specs: "Blooming Rose Candle",
-        tag: "Botanical",
-        description: "A lifelike blooming rose candle in romantic pink tones resting gracefully on a sculpted green leafy base. Adds romantic elegance to any bedside or mantelpiece.",
-        features: ["Detailed Rose & Leaf Base", "Soft Pink Rose Wax", "Gentle Ambient Flame", "Thoughtful Favor & Gift"],
-        mainImage: "assets/WhatsApp Image 2026-08-28 at 12.56.22 PM.jpeg",
-        additionalImages: ["assets/WhatsApp Image 2026-08-28 at 12.56.21 PM.jpeg"],
-        active: true,
-        displayOrder: 8
-      }
-    ];
 
     await Product.insertMany(seedProducts);
     res.json({ success: true, message: 'Database seeded successfully with initial products!', count: seedProducts.length });
@@ -617,5 +635,4 @@ app.put('/api/settings', authenticateAdmin, async (req, res) => {
   }
 });
 
-// Export App for Vercel Serverless Function & Local server
 module.exports = app;

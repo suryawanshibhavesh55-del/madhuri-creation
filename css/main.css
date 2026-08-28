@@ -1,127 +1,123 @@
-/* Madhuri Creation - Luxury Design System Stylesheet */
+/* Madhuri Creation - Premium Indian Handcrafted & Festive Theme */
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Mukta:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Tiro+Devanagari+Marathi:ital@0;1&display=swap');
 
 :root {
-  --bg-canvas: #FAF7F2;
-  --bg-surface: #FFFDF9;
-  --bg-card: #FAF5EE;
-  --color-brand-gold: #C5A059;
-  --color-brand-amber: #946B38;
-  --color-brand-dark: #231F1D;
-  --color-text-body: #4A4441;
-  --color-whatsapp: #128C7E;
-  --color-whatsapp-hover: #075E54;
-}
-
-html {
-  scroll-behavior: smooth;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  background-color: var(--bg-canvas);
-  color: var(--color-text-body);
-  -webkit-font-smoothing: antialiased;
+  --color-maroon-900: #5C1625;
+  --color-maroon-800: #7A1E32;
+  --color-maroon-700: #982941;
+  --color-rani-pink: #C2185B;
+  --color-saffron-600: #D97706;
+  --color-saffron-500: #E67E22;
+  --color-emerald-800: #064E3B;
+  --color-emerald-600: #047857;
+  --color-purple-900: #581C87;
+  --color-ivory: #FFFDF9;
+  --color-cream-100: #FAF6EE;
+  --color-gold: #D4AF37;
+  --color-gold-light: #F4E8C1;
 }
 
 body {
+  background-color: var(--color-ivory);
+  color: #2D2424;
+  font-family: 'Plus Jakarta Sans', 'Mukta', sans-serif;
   overflow-x: hidden;
-  background-color: var(--bg-canvas);
 }
 
-.font-serif {
-  font-family: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+/* Devanagari & Marathi Typography */
+.font-devanagari {
+  font-family: 'Tiro Devanagari Marathi', 'Mukta', 'Playfair Display', serif;
 }
 
-.font-display {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+/* Subtle Rangoli / Mandala Watermark Background Pattern */
+.bg-rangoli-pattern {
+  background-color: #FFFDF9;
+  background-image: radial-gradient(#D97706 0.75px, transparent 0.75px), radial-gradient(#C2185B 0.75px, #FFFDF9 0.75px);
+  background-size: 30px 30px;
+  background-position: 0 0, 15px 15px;
+  opacity: 0.98;
+}
+
+.bg-festive-maroon {
+  background: linear-gradient(135deg, #4A111E 0%, #6B1D2F 50%, #4A111E 100%);
+}
+
+.bg-festive-card {
+  background: linear-gradient(180deg, #FFFFFF 0%, #FAF6EE 100%);
+}
+
+/* Gold Filigree & Ornate Borders */
+.border-gold-trim {
+  border: 1px solid rgba(212, 175, 55, 0.4);
+}
+
+.shadow-gold-glow {
+  box-shadow: 0 10px 30px -10px rgba(212, 175, 55, 0.25);
+}
+
+.shadow-festive {
+  box-shadow: 0 15px 35px -10px rgba(107, 29, 47, 0.12);
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #FAF7F2;
+  background: #FAF6EE;
 }
 ::-webkit-scrollbar-thumb {
-  background: #D8CBBA;
-  border-radius: 4px;
+  background: #8A243B;
+  border-radius: 5px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #C5B39C;
+  background: #6B1D2F;
 }
 
-/* Glassmorphism Navbar */
-.nav-glass {
-  background-color: rgba(250, 247, 242, 0.85);
+/* Glassmorphism Navigation */
+.nav-festive-glass {
+  background: rgba(255, 253, 249, 0.92);
   backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(197, 160, 89, 0.15);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.25);
 }
 
-/* Luxury Gradient Overlays */
-.hero-gradient {
-  background: linear-gradient(180deg, rgba(250, 247, 242, 0.4) 0%, rgba(250, 247, 242, 0.9) 100%);
-}
-
-.card-shadow {
-  box-shadow: 0 10px 30px -5px rgba(44, 38, 35, 0.05);
-}
-
-.card-shadow-hover {
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.card-shadow-hover:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 40px -10px rgba(44, 38, 35, 0.12);
-}
-
-/* Subtle animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fade-in {
-  animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-/* WhatsApp Button Pulse Effect */
-@keyframes pulseGlow {
-  0% {
-    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4);
-  }
-  70% {
-    box-shadow: 0 0 0 12px rgba(37, 211, 102, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
-  }
+/* Pulse animation for WhatsApp ordering */
+@keyframes whatsappPulse {
+  0% { box-shadow: 0 0 0 0 rgba(4, 120, 87, 0.6); }
+  70% { box-shadow: 0 0 0 14px rgba(4, 120, 87, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(4, 120, 87, 0); }
 }
 
 .btn-whatsapp-pulse {
-  animation: pulseGlow 2.5s infinite;
+  animation: whatsappPulse 2.5s infinite;
 }
 
-/* Gold Border Accents */
-.border-gold-subtle {
-  border-color: rgba(197, 160, 89, 0.25);
+/* Ornate Section Divider Line */
+.divider-ornate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: #D97706;
+  margin: 1rem 0;
+}
+.divider-ornate::before,
+.divider-ornate::after {
+  content: '';
+  flex: 1;
+  max-width: 80px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.6), transparent);
 }
 
-/* Utilities */
+/* Line clamp helpers */
 .line-clamp-1 {
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-
 .line-clamp-2 {
   display: -webkit-box;
   -webkit-line-clamp: 2;

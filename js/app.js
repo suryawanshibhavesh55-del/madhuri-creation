@@ -1,4 +1,4 @@
-// Madhuri Creation - Main Application Script (4 Categories + Dynamic API & Fallback)
+// Madhuri Creation - Main Application Script (Premium Indian Handcrafted Redesign)
 
 document.addEventListener('DOMContentLoaded', async () => {
   setupNavigation();
@@ -101,12 +101,14 @@ function renderCategorySections() {
         if (catProducts.length === 0) return '';
 
         return `
-          <section id="${cat.slug}" class="py-20 bg-cream-50 border-t border-amber-900/10 scroll-mt-24">
+          <section id="${cat.slug}" class="py-20 bg-cream-100 border-t border-amber-900/10 scroll-mt-24">
             <div class="max-w-7xl mx-auto px-4 sm:px-8">
-              <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-6 border-b border-amber-900/10 gap-4">
+              <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-6 border-b border-amber-900/15 gap-4">
                 <div>
-                  <span class="text-xs uppercase tracking-widest text-amber-900 font-bold">Special Collection</span>
-                  <h2 class="font-serif text-3xl sm:text-4xl font-normal text-stone-900 mt-1">${cat.name}</h2>
+                  <div class="text-xs uppercase tracking-[0.2em] text-amber-900 font-bold flex items-center gap-1.5 mb-1">
+                    <span>✦</span><span>Special Collection</span><span>✦</span>
+                  </div>
+                  <h2 class="font-serif text-3xl sm:text-4xl font-normal text-stone-900">${cat.name}</h2>
                   <p class="text-sm text-stone-600 mt-2 font-light">${cat.description || 'Thoughtfully handcrafted items for special moments.'}</p>
                 </div>
               </div>
@@ -125,7 +127,7 @@ function renderCategorySections() {
 }
 
 /**
- * Generate luxury Product Card HTML string
+ * Generate Luxury Indian Product Card HTML string
  * @param {Object} product 
  * @returns {string} HTML markup
  */
@@ -139,27 +141,45 @@ function createProductCardHTML(product) {
   const displayPrice = isPriceOnRequest ? 'Price on Request' : `₹${product.price}`;
   const buttonText = isCustomSup ? 'Customize / Order' : (isCustomRangoli ? 'Enquire / Customize' : 'Order on WhatsApp');
 
+  // Category Color Accent Styling
+  let badgeColor = 'bg-stone-900 text-amber-200 border-amber-500/40';
+  let cardBorderColor = 'border-amber-900/10 hover:border-amber-700/30';
+  
+  if (isCustomSup) {
+    badgeColor = 'bg-[#6B1D2F] text-amber-200 border-amber-400/40';
+    cardBorderColor = 'border-amber-800/20 hover:border-amber-700/40 shadow-festive';
+  } else if (isCustomRangoli) {
+    badgeColor = 'bg-[#581C87] text-pink-200 border-pink-400/40';
+    cardBorderColor = 'border-purple-900/15 hover:border-purple-800/30';
+  } else if (category === 'candles' || category.includes('candle')) {
+    badgeColor = 'bg-[#D97706] text-white border-amber-400/40';
+    cardBorderColor = 'border-amber-900/15 hover:border-amber-600/30';
+  } else if (category === 'soaps' || category.includes('soap')) {
+    badgeColor = 'bg-[#C2185B] text-white border-pink-300/40';
+    cardBorderColor = 'border-rose-900/10 hover:border-rose-700/30';
+  }
+
   return `
-    <div class="product-card group bg-amber-50/40 rounded-2xl overflow-hidden border border-amber-900/10 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full">
-      <!-- Image Container with object-contain for Sup and Rangoli -->
-      <div class="relative aspect-square overflow-hidden bg-white cursor-pointer p-2 border-b border-amber-900/5" onclick="openProductModal('${product.id}')">
+    <div class="product-card group bg-festive-card rounded-3xl overflow-hidden border ${cardBorderColor} shadow-md hover:shadow-2xl transition-all duration-500 flex flex-col h-full transform hover:-translate-y-1">
+      <!-- Image Container -->
+      <div class="relative aspect-square overflow-hidden bg-white cursor-pointer p-3 border-b border-amber-900/10" onclick="openProductModal('${product.id}')">
         <img 
           src="${product.mainImage}" 
           alt="${product.name}" 
           loading="lazy"
-          class="w-full h-full ${isCustomSup || isCustomRangoli ? 'object-contain' : 'object-cover'} object-center group-hover:scale-105 transition-transform duration-500 rounded-xl"
+          class="w-full h-full ${isCustomSup || isCustomRangoli ? 'object-contain' : 'object-cover'} object-center group-hover:scale-105 transition-transform duration-700 rounded-2xl"
         />
         
         <!-- Tag Badge -->
         ${product.tag ? `
-          <span class="absolute top-4 left-4 bg-stone-900/85 backdrop-blur-md text-amber-100 text-[10px] uppercase tracking-wider font-semibold px-3 py-1 rounded-full border border-amber-500/30 shadow">
+          <span class="absolute top-4 left-4 ${badgeColor} backdrop-blur-md text-[10px] uppercase tracking-wider font-bold px-3 py-1 rounded-full border shadow-md">
             ${product.tag}
           </span>
         ` : ''}
 
         <!-- Quick View Overlay Button -->
         <button 
-          class="absolute bottom-4 right-4 bg-white/90 hover:bg-white text-stone-800 p-2.5 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0"
+          class="absolute bottom-4 right-4 bg-white/95 hover:bg-white text-stone-900 p-3 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 border border-amber-900/10"
           title="Quick View"
           onclick="event.stopPropagation(); openProductModal('${product.id}')"
         >
@@ -171,15 +191,17 @@ function createProductCardHTML(product) {
       </div>
 
       <!-- Card Body -->
-      <div class="p-5 flex flex-col flex-grow justify-between bg-white/90 backdrop-blur-sm">
+      <div class="p-5 flex flex-col flex-grow justify-between bg-white/95">
         <div>
-          <div class="flex items-center justify-between text-xs text-amber-900 mb-1.5 font-medium tracking-wide">
-            <span class="uppercase tracking-wider text-[11px] font-bold">${product.categoryLabel}</span>
-            ${specBadge ? `<span class="bg-amber-100/80 text-amber-900 px-2 py-0.5 rounded text-[11px] font-semibold">${specBadge}</span>` : ''}
+          <div class="flex items-center justify-between text-xs text-amber-950 mb-2 font-medium tracking-wide">
+            <span class="uppercase tracking-widest text-[11px] font-bold text-amber-900 flex items-center gap-1">
+              <span>✦</span> ${product.categoryLabel}
+            </span>
+            ${specBadge ? `<span class="bg-amber-100/80 text-amber-950 border border-amber-800/15 px-2.5 py-0.5 rounded-full text-[11px] font-semibold">${specBadge}</span>` : ''}
           </div>
 
           <h3 
-            class="text-base sm:text-lg font-serif font-medium text-stone-900 group-hover:text-amber-900 transition-colors duration-200 line-clamp-1 cursor-pointer leading-tight"
+            class="text-base sm:text-lg font-serif font-medium text-stone-900 group-hover:text-amber-900 transition-colors duration-200 line-clamp-1 cursor-pointer leading-snug"
             onclick="openProductModal('${product.id}')"
           >
             ${product.name}
@@ -191,9 +213,9 @@ function createProductCardHTML(product) {
         </div>
 
         <!-- Card Footer -->
-        <div class="mt-4 pt-3 border-t border-amber-900/5 flex flex-col gap-3">
+        <div class="mt-5 pt-3 border-t border-amber-900/10 flex flex-col gap-3">
           <div class="flex items-baseline justify-between">
-            <span class="text-xs text-stone-500">Price</span>
+            <span class="text-xs uppercase tracking-wider text-stone-500 font-medium">Price</span>
             <div class="text-base sm:text-lg font-serif font-bold text-stone-900">
               ${displayPrice}
             </div>
@@ -202,7 +224,7 @@ function createProductCardHTML(product) {
           <!-- WhatsApp Order Button -->
           <button 
             onclick="handleWhatsAppOrder(window.PRODUCT_CATALOG.find(p => (p.id === '${product.id}' || p._id === '${product.id}')))"
-            class="w-full bg-emerald-800 hover:bg-emerald-700 active:bg-emerald-900 text-white text-xs font-semibold uppercase tracking-wider py-2.5 px-4 rounded-xl flex items-center justify-center gap-2 shadow-sm hover:shadow-md transition-all duration-200"
+            class="w-full bg-emerald-800 hover:bg-emerald-700 active:bg-emerald-900 text-white text-xs font-semibold uppercase tracking-wider py-3 px-4 rounded-xl flex items-center justify-center gap-2 shadow hover:shadow-md transition-all duration-200 border border-emerald-600/30"
           >
             <svg class="w-4 h-4 fill-current text-white flex-shrink-0" viewBox="0 0 24 24">
               <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-1.151 4.202 4.294-1.127z"/>
@@ -223,10 +245,10 @@ function setupNavigation() {
   
   window.addEventListener('scroll', () => {
     if (window.scrollY > 40) {
-      navbar.classList.add('bg-cream-100/90', 'backdrop-blur-md', 'shadow-sm', 'border-stone-200/50');
+      navbar.classList.add('nav-festive-glass', 'shadow-sm');
       navbar.classList.remove('bg-transparent');
     } else {
-      navbar.classList.remove('bg-cream-100/90', 'backdrop-blur-md', 'shadow-sm', 'border-stone-200/50');
+      navbar.classList.remove('nav-festive-glass', 'shadow-sm');
       navbar.classList.add('bg-transparent');
     }
   });

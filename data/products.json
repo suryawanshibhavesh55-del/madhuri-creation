@@ -1,0 +1,198 @@
+﻿[
+    {
+        "_id":  "prod_1",
+        "name":  "Artisanal Natural Herbal Soap Bar",
+        "slug":  "artisanal-natural-herbal-soap-bar",
+        "categoryId":  "soaps",
+        "categoryLabel":  "Handmade Soaps",
+        "price":  99,
+        "weight":  "100 g",
+        "tag":  "Bestseller",
+        "description":  "Crafted with carefully selected natural ingredients including Coffee, Turmeric, Sandalwood, Almond, Cashew, and Rice to gently cleanse, nourish, and moisturize your skin.",
+        "features":  [
+                         "100% Natural Ingredients",
+                         "SLS Free \u0026 Paraben Free",
+                         "Nourishes \u0026 Moisturizes Skin",
+                         "Infused with Almond, Coffee \u0026 Turmeric"
+                     ],
+        "mainImage":  "assets/WhatsApp Image 2026-08-28 at 12.56.23 PM (1).jpeg",
+        "additionalImages":  [
+                                 "assets/soap_box_ingredients.jpg",
+                                 "assets/WhatsApp Image 2026-08-28 at 12.56.24 PM (1).jpeg",
+                                 "assets/WhatsApp Image 2026-08-28 at 12.56.25 PM.jpeg"
+                             ],
+        "active":  true,
+        "featured":  false,
+        "displayOrder":  1
+    },
+    {
+        "_id":  "prod_2",
+        "name":  "Madhuri Naturals Signature Packaged Soap Bar",
+        "slug":  "madhuri-naturals-signature-packaged-soap-bar",
+        "categoryId":  "soaps",
+        "categoryLabel":  "Handmade Soaps",
+        "price":  99,
+        "weight":  "100 g",
+        "tag":  "Gift Ready",
+        "description":  "Signature packaged 100g handmade natural soap housed in our luxury gold foil stamped box. Pure natural formulation containing Sandalwood, Cashew, Rice, and Sesame.",
+        "features":  [
+                         "Gold Foil Stamped Box Packaging",
+                         "100g (When Packed)",
+                         "SLS Free \u0026 Paraben Free",
+                         "Ideal for Everyday Pampering \u0026 Gifting"
+                     ],
+        "mainImage":  "assets/WhatsApp Image 2026-08-28 at 12.56.25 PM.jpeg",
+        "additionalImages":  [
+                                 "assets/soap_box_ingredients.jpg",
+                                 "assets/WhatsApp Image 2026-08-28 at 12.56.26 PM.jpeg",
+                                 "assets/WhatsApp Image 2026-08-28 at 12.56.23 PM (1).jpeg"
+                             ],
+        "active":  true,
+        "featured":  false,
+        "displayOrder":  2
+    },
+    {
+        "_id":  "prod_3",
+        "name":  "Artisanal Pink Flower Candle Set",
+        "slug":  "artisanal-pink-flower-candle-set",
+        "categoryId":  "candles",
+        "categoryLabel":  "Handcrafted Candles",
+        "price":  200,
+        "specs":  "7 Pieces Set",
+        "tag":  "Best Value",
+        "description":  "A stunning set of 7 handcrafted floral candles in vibrant and soft pink hues. Carefully hand-poured with lotus and peony petal detail for festive elegance.",
+        "features":  [
+                         "7 Handcrafted Pieces",
+                         "Vibrant Pink Floral Sculptures",
+                         "Long Clean Burn",
+                         "Perfect Festive Centerpiece"
+                     ],
+        "mainImage":  "assets/WhatsApp Image 2026-08-28 at 12.56.22 PM (1).jpeg",
+        "additionalImages":  [
+                                 "assets/WhatsApp Image 2026-08-28 at 12.56.23 PM.jpeg"
+                             ],
+        "active":  true,
+        "featured":  false,
+        "displayOrder":  3
+    },
+    {
+        "_id":  "prod_4",
+        "name":  "Luxury Blossom Rose Candle Collection",
+        "slug":  "luxury-blossom-rose-candle-collection",
+        "categoryId":  "candles",
+        "categoryLabel":  "Handcrafted Candles",
+        "price":  200,
+        "specs":  "5 Pieces Luxury Tray Set",
+        "tag":  "Luxury Gift",
+        "description":  "Exquisitely detailed rose and peony flower candles presented on a golden luxury tray. Handcrafted with gold leaf accents for grand celebrations and home decor.",
+        "features":  [
+                         "5 Sculpted Rose \u0026 Peony Candles",
+                         "Gold Flake Petal Accents",
+                         "Luxury Presentation",
+                         "Warm Natural Glow"
+                     ],
+        "mainImage":  "assets/WhatsApp Image 2026-08-28 at 12.56.18 PM.jpeg",
+        "additionalImages":  [
+                                 "assets/WhatsApp Image 2026-08-28 at 12.56.19 PM.jpeg"
+                             ],
+        "active":  true,
+        "featured":  false,
+        "displayOrder":  4
+    },
+    {
+        "_id":  "prod_5",
+        "name":  "Handcrafted Crimson Lotus Candle",
+        "slug":  "handcrafted-crimson-lotus-candle",
+        "categoryId":  "candles",
+        "categoryLabel":  "Handcrafted Candles",
+        "price":  200,
+        "specs":  "Sculpted Lotus Candle",
+        "tag":  "Artisanal Pick",
+        "description":  "Intricately hand-sculpted lotus petal candle in deep crimson red. Symbolizes warmth, purity, and spiritual radiance in sacred home spaces.",
+        "features":  [
+                         "Deep Crimson Red Petals",
+                         "Intricate Lotus Carving",
+                         "Eco Wax Blend",
+                         "Smokeless Wick"
+                     ],
+        "mainImage":  "assets/WhatsApp Image 2026-08-28 at 12.56.16 PM.jpeg",
+        "additionalImages":  [
+                                 "assets/WhatsApp Image 2026-08-28 at 12.56.20 PM (1).jpeg"
+                             ],
+        "active":  true,
+        "featured":  false,
+        "displayOrder":  5
+    },
+    {
+        "_id":  "prod_6",
+        "name":  "Royal Dual-Tone Crimson \u0026 Dark Lotus Candle",
+        "slug":  "royal-dual-tone-crimson--dark-lotus-candle",
+        "categoryId":  "candles",
+        "categoryLabel":  "Handcrafted Candles",
+        "price":  200,
+        "specs":  "Dual-Tone Sculpted Lotus",
+        "tag":  "Dual-Tone",
+        "description":  "Unique hand-poured lotus candle featuring rich crimson red inner petals transitioning into obsidian dark base petals for a striking aesthetic.",
+        "features":  [
+                         "Dual-Tone Color Gradient",
+                         "Handcrafted Petal Alignment",
+                         "Premium Wax Blend",
+                         "Dramatic Ambient Glow"
+                     ],
+        "mainImage":  "assets/WhatsApp Image 2026-08-28 at 12.56.20 PM (1).jpeg",
+        "additionalImages":  [
+                                 "assets/WhatsApp Image 2026-08-28 at 12.56.16 PM.jpeg"
+                             ],
+        "active":  true,
+        "featured":  false,
+        "displayOrder":  6
+    },
+    {
+        "_id":  "prod_7",
+        "name":  "Handcrafted Floral Ambient Table Candle Set",
+        "slug":  "handcrafted-floral-ambient-table-candle-set",
+        "categoryId":  "candles",
+        "categoryLabel":  "Handcrafted Candles",
+        "price":  200,
+        "specs":  "7 Lit Flower Candles Set",
+        "tag":  "Festive Favorite",
+        "description":  "Assorted handcrafted blooming flower candles designed to illuminate dinner tables, diwali rangolis, and intimate celebrations with cozy floral radiance.",
+        "features":  [
+                         "7 Assorted Floral Candles",
+                         "Floating / Tabletop Suitable",
+                         "Warm Soft Light",
+                         "Artisanal Craftsmanship"
+                     ],
+        "mainImage":  "assets/WhatsApp Image 2026-08-28 at 12.56.19 PM.jpeg",
+        "additionalImages":  [
+                                 "assets/WhatsApp Image 2026-08-28 at 12.56.22 PM (1).jpeg"
+                             ],
+        "active":  true,
+        "featured":  false,
+        "displayOrder":  7
+    },
+    {
+        "_id":  "prod_8",
+        "name":  "Sculpted Blooming Rose \u0026 Botanical Leaf Candle",
+        "slug":  "sculpted-blooming-rose--botanical-leaf-candle",
+        "categoryId":  "candles",
+        "categoryLabel":  "Handcrafted Candles",
+        "price":  200,
+        "specs":  "Blooming Rose Candle",
+        "tag":  "Botanical",
+        "description":  "A lifelike blooming rose candle in romantic pink tones resting gracefully on a sculpted green leafy base. Adds romantic elegance to any bedside or mantelpiece.",
+        "features":  [
+                         "Detailed Rose \u0026 Leaf Base",
+                         "Soft Pink Rose Wax",
+                         "Gentle Ambient Flame",
+                         "Thoughtful Favor \u0026 Gift"
+                     ],
+        "mainImage":  "assets/WhatsApp Image 2026-08-28 at 12.56.22 PM.jpeg",
+        "additionalImages":  [
+                                 "assets/WhatsApp Image 2026-08-28 at 12.56.21 PM.jpeg"
+                             ],
+        "active":  true,
+        "featured":  false,
+        "displayOrder":  8
+    }
+]

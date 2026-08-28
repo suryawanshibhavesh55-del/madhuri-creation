@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Madhuri Creation | Handcrafted Natural Soaps & Artisanal Candles</title>
+  <meta name="description" content="Discover luxury handcrafted soaps and artisanal candles by Madhuri Creation. 100% natural ingredients, beautifully made for everyday care and thoughtful gifting." />
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌸</text></svg>">
+
+  <!-- Suppress Tailwind CDN Console Warning -->
+  <script>
+    (function() {
+      const originalWarn = console.warn;
+      console.warn = function(...args) {
+        if (args[0] && typeof args[0] === 'string' && args[0].includes('cdn.tailwindcss.com')) return;
+        originalWarn.apply(console, args);
+      };
+    })();
+  </script>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream: {
+              50: '#FFFDF9',
+              100: '#FAF7F2',
+              200: '#F4EFE6',
+              300: '#E8DEC9',
+            },
+            amber: {
+              750: '#8C6D46',
+              850: '#634A2E',
+            },
+            stone: {
+              850: '#231F1D',
+            }
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', '"Cormorant Garamond"', 'serif'],
+            display: ['"Cormorant Garamond"', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body class="bg-cream-100 text-stone-800 font-sans antialiased flex flex-col min-h-screen">
+
+  <!-- ================= HEADER / STICKY NAVBAR ================= -->
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-40 transition-all duration-300 py-4 px-4 sm:px-8">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      
+      <!-- Brand Logo / Wordmark -->
+      <a href="#" class="flex items-center gap-2 group">
+        <div class="w-9 h-9 rounded-full bg-amber-900/10 flex items-center justify-center border border-amber-800/20 group-hover:bg-amber-900/20 transition-colors">
+          <svg class="w-5 h-5 text-amber-900" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2L9.5 7.5L4 8L8 12L7 17.5L12 15L17 17.5L16 12L20 8L14.5 7.5L12 2Z"/>
+          </svg>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-serif text-xl sm:text-2xl font-bold tracking-wider text-stone-900 leading-tight">
+            MADHURI CREATION
+          </span>
+          <span class="text-[10px] uppercase tracking-[0.25em] text-amber-800 font-medium -mt-0.5">
+            Handmade With Love
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden md:flex items-center space-x-8 text-xs font-semibold uppercase tracking-widest text-stone-700">
+        <a href="#" class="hover:text-amber-900 transition-colors py-1">Home</a>
+        <a href="#soaps" class="hover:text-amber-900 transition-colors py-1">Soaps</a>
+        <a href="#candles" class="hover:text-amber-900 transition-colors py-1">Candles</a>
+        <a href="#gifting" class="hover:text-amber-900 transition-colors py-1">Gifting</a>
+        <a href="#about" class="hover:text-amber-900 transition-colors py-1">About Us</a>
+        <a href="#contact" class="hover:text-amber-900 transition-colors py-1">Contact</a>
+      </nav>
+
+      <!-- Header Action: WhatsApp Order Button -->
+      <div class="hidden sm:flex items-center gap-3">
+        <button 
+          onclick="handleGeneralWhatsApp()" 
+          class="bg-emerald-800 hover:bg-emerald-700 text-white text-xs font-semibold uppercase tracking-wider px-4 py-2.5 rounded-full flex items-center gap-2 shadow-sm hover:shadow transition-all duration-200"
+        >
+          <svg class="w-4 h-4 fill-current text-white" viewBox="0 0 24 24">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-1.151 4.202 4.294-1.127z"/>
+          </svg>
+          <span>Order on WhatsApp</span>
+        </button>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobile-menu-btn" class="md:hidden p-2 text-stone-800 hover:text-amber-900 focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+
+    </div>
+  </header>
+
+  <!-- ================= MOBILE DRAWER MENU ================= -->
+  <div id="mobile-drawer" class="fixed inset-0 z-50 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden">
+    <div class="fixed inset-0 bg-stone-900/40 backdrop-blur-sm" onclick="closeMobileDrawer()"></div>
+    <div class="relative ml-auto w-4/5 max-w-sm h-full bg-cream-50 shadow-2xl flex flex-col justify-between p-6 overflow-y-auto">
+      <div>
+        <div class="flex items-center justify-between pb-6 border-b border-amber-900/10">
+          <span class="font-serif font-bold text-lg text-stone-900">MADHURI CREATION</span>
+          <button id="close-drawer-btn" class="text-stone-500 hover:text-stone-900 p-1">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+
+        <nav class="mt-8 flex flex-col space-y-5 text-sm font-semibold uppercase tracking-widest text-stone-700">
+          <a href="#" onclick="closeMobileDrawer()" class="hover:text-amber-900 transition-colors">Home</a>
+          <a href="#soaps" onclick="closeMobileDrawer()" class="hover:text-amber-900 transition-colors">Handmade Soaps</a>
+          <a href="#candles" onclick="closeMobileDrawer()" class="hover:text-amber-900 transition-colors">Handcrafted Candles</a>
+          <a href="#gifting" onclick="closeMobileDrawer()" class="hover:text-amber-900 transition-colors">Gifting Solutions</a>
+          <a href="#about" onclick="closeMobileDrawer()" class="hover:text-amber-900 transition-colors">About Us</a>
+          <a href="#contact" onclick="closeMobileDrawer()" class="hover:text-amber-900 transition-colors">Contact</a>
+        </nav>
+      </div>
+
+      <div class="pt-6 border-t border-amber-900/10 flex flex-col gap-3">
+        <button 
+          onclick="handleGeneralWhatsApp()" 
+          class="w-full bg-emerald-800 hover:bg-emerald-700 text-white text-xs font-semibold uppercase tracking-wider py-3 rounded-xl flex items-center justify-center gap-2 shadow"
+        >
+          <svg class="w-4 h-4 fill-current text-white" viewBox="0 0 24 24">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-1.151 4.202 4.294-1.127z"/>
+          </svg>
+          <span>Order on WhatsApp (8407913008)</span>
+        </button>
+        <p class="text-[11px] text-center text-stone-500">Pure. Natural. Handcrafted with Care.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= HERO SECTION ================= -->
+  <section class="relative pt-32 pb-16 lg:pt-40 lg:pb-24 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      
+      <!-- Hero Text Column -->
+      <div class="lg:col-span-6 space-y-6 text-center lg:text-left z-10">
+        <div class="inline-flex items-center gap-2 bg-amber-900/10 border border-amber-900/20 text-amber-900 text-xs font-semibold px-4 py-1.5 rounded-full uppercase tracking-widest">
+          <span>✨ Artisanal Luxury & Natural Care</span>
+        </div>
+
+        <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-normal text-stone-900 leading-tight">
+          Handcrafted With Love,<br />
+          <span class="italic text-amber-900">Made To Make You Smile.</span>
+        </h1>
+
+        <p class="text-base sm:text-lg text-stone-600 max-w-xl mx-auto lg:mx-0 font-light leading-relaxed">
+          Discover beautifully handcrafted soaps and candles, thoughtfully made for everyday indulgence and special moments. Pure natural care, crafted in small batches.
+        </p>
+
+        <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+          <a 
+            href="#soaps" 
+            class="w-full sm:w-auto bg-stone-900 hover:bg-stone-800 text-cream-50 text-xs font-semibold uppercase tracking-widest px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 text-center"
+          >
+            EXPLORE SOAPS
+          </a>
+          <a 
+            href="#candles" 
+            class="w-full sm:w-auto bg-cream-200 hover:bg-cream-300 text-stone-900 border border-amber-900/20 text-xs font-semibold uppercase tracking-widest px-8 py-4 rounded-xl transition-all duration-300 text-center"
+          >
+            EXPLORE CANDLES
+          </a>
+        </div>
+
+        <!-- Trust Highlights -->
+        <div class="pt-8 border-t border-amber-900/10 grid grid-cols-3 gap-4 text-center lg:text-left">
+          <div>
+            <div class="font-serif text-xl sm:text-2xl font-semibold text-stone-900">100%</div>
+            <div class="text-[11px] uppercase tracking-wider text-stone-500 font-medium mt-0.5">Natural Ingredients</div>
+          </div>
+          <div>
+            <div class="font-serif text-xl sm:text-2xl font-semibold text-stone-900">Pure</div>
+            <div class="text-[11px] uppercase tracking-wider text-stone-500 font-medium mt-0.5">Chemical Free</div>
+          </div>
+          <div>
+            <div class="font-serif text-xl sm:text-2xl font-semibold text-stone-900">Custom</div>
+            <div class="text-[11px] uppercase tracking-wider text-stone-500 font-medium mt-0.5">Gift Options</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Visual Column -->
+      <div class="lg:col-span-6 relative">
+        <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white/60 bg-stone-200 aspect-[4/3] group">
+          <img 
+            src="assets/WhatsApp Image 2026-08-28 at 12.56.18 PM.jpeg" 
+            alt="Madhuri Creation Handcrafted Collection" 
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-stone-950/60 via-transparent to-transparent"></div>
+          
+          <div class="absolute bottom-6 left-6 right-6 text-white p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20">
+            <div class="flex items-center justify-between">
+              <div>
+                <span class="text-[10px] uppercase tracking-widest text-amber-200 font-semibold">Artisanal Masterpiece</span>
+                <h3 class="font-serif text-lg font-medium text-white">Luxury Blossom Candle Tray</h3>
+              </div>
+              <span class="bg-amber-800/80 text-amber-100 text-xs px-3 py-1 rounded-full font-serif font-bold">₹200 / Item</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= CATEGORY SHOWCASE ================= -->
+  <section class="py-16 bg-cream-200/50 border-y border-amber-900/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs uppercase tracking-widest text-amber-900 font-bold">Curated Collections</span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-normal text-stone-900 mt-2">Explore Our Craft</h2>
+        <div class="w-12 h-0.5 bg-amber-700/40 mx-auto mt-4"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <!-- Category Card 1: Soaps -->
+        <a href="#soaps" class="group relative rounded-3xl overflow-hidden shadow-lg border border-amber-900/10 bg-white aspect-[16/10] flex flex-col justify-end p-8">
+          <img 
+            src="assets/WhatsApp Image 2026-08-28 at 12.56.24 PM (1).jpeg" 
+            alt="Handmade Soaps" 
+            class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-stone-950/30 to-transparent"></div>
+
+          <div class="relative z-10 text-white space-y-2">
+            <span class="bg-white/20 backdrop-blur-md text-white text-[10px] uppercase tracking-widest font-semibold px-3 py-1 rounded-full border border-white/30">
+              Collection One • ₹99 / Piece
+            </span>
+            <h3 class="font-serif text-3xl font-medium tracking-wide text-white">HANDMADE SOAPS</h3>
+            <p class="text-xs text-stone-200 font-light">Natural care, handcrafted with love. Pure ingredients & 100g weight.</p>
+            <div class="pt-2 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-amber-200 group-hover:translate-x-2 transition-transform duration-300">
+              <span>EXPLORE SOAPS</span>
+              <span>→</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Category Card 2: Candles -->
+        <a href="#candles" class="group relative rounded-3xl overflow-hidden shadow-lg border border-amber-900/10 bg-white aspect-[16/10] flex flex-col justify-end p-8">
+          <img 
+            src="assets/WhatsApp Image 2026-08-28 at 12.56.22 PM (1).jpeg" 
+            alt="Handcrafted Candles" 
+            class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-stone-950/30 to-transparent"></div>
+
+          <div class="relative z-10 text-white space-y-2">
+            <span class="bg-white/20 backdrop-blur-md text-white text-[10px] uppercase tracking-widest font-semibold px-3 py-1 rounded-full border border-white/30">
+              Collection Two • ₹200 / Item or Set
+            </span>
+            <h3 class="font-serif text-3xl font-medium tracking-wide text-white">HANDCRAFTED CANDLES</h3>
+            <p class="text-xs text-stone-200 font-light">Beautifully crafted candles for beautiful moments. Sculpted floral elegance.</p>
+            <div class="pt-2 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-amber-200 group-hover:translate-x-2 transition-transform duration-300">
+              <span>EXPLORE CANDLES</span>
+              <span>→</span>
+            </div>
+          </div>
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= HANDMADE SOAPS SECTION ================= -->
+  <section id="soaps" class="py-20 bg-cream-50 scroll-mt-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-6 border-b border-amber-900/10 gap-4">
+        <div>
+          <span class="text-xs uppercase tracking-widest text-amber-900 font-bold">Collection 01</span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-normal text-stone-900 mt-1">Handmade Soaps</h2>
+          <p class="text-sm text-stone-600 mt-2 font-light">Natural care, handcrafted with love. Pure ingredients & skin-nourishing moisture.</p>
+        </div>
+
+        <div class="inline-flex items-center gap-3 bg-amber-100/60 border border-amber-900/10 px-4 py-2 rounded-2xl text-xs text-stone-800 font-medium">
+          <span class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
+          <span>Standard Soap Price: <strong>₹99 / piece</strong> (100 g)</span>
+        </div>
+      </div>
+
+      <!-- Products Grid -->
+      <div id="soap-products-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <!-- Rendered via js/app.js -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= HANDCRAFTED CANDLES SECTION ================= -->
+  <section id="candles" class="py-20 bg-cream-200/40 border-t border-amber-900/10 scroll-mt-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-6 border-b border-amber-900/10 gap-4">
+        <div>
+          <span class="text-xs uppercase tracking-widest text-amber-900 font-bold">Collection 02</span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-normal text-stone-900 mt-1">Handcrafted Candles</h2>
+          <p class="text-sm text-stone-600 mt-2 font-light">Beautifully crafted candles for beautiful moments. Sculpted petals & warm ambient radiance.</p>
+        </div>
+
+        <div class="inline-flex items-center gap-3 bg-amber-100/60 border border-amber-900/10 px-4 py-2 rounded-2xl text-xs text-stone-800 font-medium">
+          <span class="w-2 h-2 rounded-full bg-amber-600 animate-pulse"></span>
+          <span>Standard Candle Price: <strong>₹200</strong> per item / set</span>
+        </div>
+      </div>
+
+      <!-- Products Grid -->
+      <div id="candle-products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Rendered via js/app.js -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= DYNAMIC ADMIN CREATED CATEGORIES ================= -->
+  <div id="dynamic-categories-container"></div>
+
+  <!-- ================= MADE TO BE GIFTED SECTION ================= -->
+  <section id="gifting" class="py-20 bg-stone-900 text-cream-50 overflow-hidden relative scroll-mt-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-6 space-y-6">
+          <span class="text-xs uppercase tracking-[0.3em] text-amber-300 font-semibold">Artisanal Gifting</span>
+          <h2 class="font-serif text-4xl sm:text-5xl font-normal leading-tight text-white">
+            Made To Be Gifted.
+          </h2>
+          <p class="text-stone-300 font-light leading-relaxed text-sm sm:text-base">
+            Whether celebrating birthdays, festive occasions, corporate milestones, or simple tokens of gratitude—our handcrafted soaps and sculpted floral candles make unforgettable, heartfelt gifts.
+          </p>
+
+          <div class="space-y-4 pt-2">
+            <div class="flex items-start gap-4 p-4 rounded-2xl bg-white/5 border border-white/10">
+              <div class="w-10 h-10 rounded-full bg-amber-400/10 flex items-center justify-center text-amber-300 flex-shrink-0">
+                ✨
+              </div>
+              <div>
+                <h4 class="font-serif text-base text-white">Festive & Special Occasions</h4>
+                <p class="text-xs text-stone-400 font-light mt-0.5">Diwali, birthdays, anniversaries, and housewarmings filled with natural warmth.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4 p-4 rounded-2xl bg-white/5 border border-white/10">
+              <div class="w-10 h-10 rounded-full bg-amber-400/10 flex items-center justify-center text-amber-300 flex-shrink-0">
+                🎁
+              </div>
+              <div>
+                <h4 class="font-serif text-base text-white">Luxury Gold Box Presentation</h4>
+                <p class="text-xs text-stone-400 font-light mt-0.5">Elegantly packaged in signature gold foil boxes ready to present directly.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-4">
+            <button 
+              onclick="handleGeneralWhatsApp()"
+              class="bg-amber-700 hover:bg-amber-600 text-stone-950 text-xs font-bold uppercase tracking-widest px-8 py-4 rounded-xl shadow-lg transition-all duration-300 flex items-center gap-3"
+            >
+              <span>DISCUSS CUSTOM GIFT PACKS ON WHATSAPP</span>
+              <span>→</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="lg:col-span-6">
+          <div class="grid grid-cols-2 gap-4">
+            <div class="rounded-2xl overflow-hidden border border-white/10 aspect-[3/4] shadow-xl">
+              <img src="assets/WhatsApp Image 2026-08-28 at 12.56.18 PM.jpeg" alt="Luxury Gifting Tray" class="w-full h-full object-cover" />
+            </div>
+            <div class="rounded-2xl overflow-hidden border border-white/10 aspect-[3/4] shadow-xl mt-8">
+              <img src="assets/WhatsApp Image 2026-08-28 at 12.56.25 PM.jpeg" alt="Gold Packaged Soap" class="w-full h-full object-cover" />
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= WHY CHOOSE US ================= -->
+  <section class="py-20 bg-cream-100 border-b border-amber-900/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-xs uppercase tracking-widest text-amber-900 font-bold">The Madhuri Promise</span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-normal text-stone-900 mt-2">Why Choose Madhuri Creation</h2>
+        <div class="w-12 h-0.5 bg-amber-700/40 mx-auto mt-4"></div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        
+        <!-- Pillar 1 -->
+        <div class="bg-white p-8 rounded-3xl border border-amber-900/10 shadow-sm text-center space-y-4 hover:-translate-y-1 transition-transform duration-300">
+          <div class="w-14 h-14 bg-amber-900/10 text-amber-900 rounded-2xl mx-auto flex items-center justify-center">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4" />
+            </svg>
+          </div>
+          <h3 class="font-serif text-lg font-semibold text-stone-900">100% Handmade</h3>
+          <p class="text-xs text-stone-600 leading-relaxed font-light">Every single soap bar and candle is handcrafted in small batches with personal care and detail.</p>
+        </div>
+
+        <!-- Pillar 2 -->
+        <div class="bg-white p-8 rounded-3xl border border-amber-900/10 shadow-sm text-center space-y-4 hover:-translate-y-1 transition-transform duration-300">
+          <div class="w-14 h-14 bg-amber-900/10 text-amber-900 rounded-2xl mx-auto flex items-center justify-center">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+            </svg>
+          </div>
+          <h3 class="font-serif text-lg font-semibold text-stone-900">Natural Ingredients</h3>
+          <p class="text-xs text-stone-600 leading-relaxed font-light">Formulated with natural botanical oils, herbal powders, and skin-friendly ingredients.</p>
+        </div>
+
+        <!-- Pillar 3 -->
+        <div class="bg-white p-8 rounded-3xl border border-amber-900/10 shadow-sm text-center space-y-4 hover:-translate-y-1 transition-transform duration-300">
+          <div class="w-14 h-14 bg-amber-900/10 text-amber-900 rounded-2xl mx-auto flex items-center justify-center">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+            </svg>
+          </div>
+          <h3 class="font-serif text-lg font-semibold text-stone-900">Made With Care</h3>
+          <p class="text-xs text-stone-600 leading-relaxed font-light">Chemical-free, gentle on skin, and thoughtfully designed to bring joy to your routine.</p>
+        </div>
+
+        <!-- Pillar 4 -->
+        <div class="bg-white p-8 rounded-3xl border border-amber-900/10 shadow-sm text-center space-y-4 hover:-translate-y-1 transition-transform duration-300">
+          <div class="w-14 h-14 bg-amber-900/10 text-amber-900 rounded-2xl mx-auto flex items-center justify-center">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 00-2 2v6a2 2 0 002 2h14a2 2 0 002-2v-6a2 2 0 00-2-2H5z" />
+            </svg>
+          </div>
+          <h3 class="font-serif text-lg font-semibold text-stone-900">Perfect For Gifting</h3>
+          <p class="text-xs text-stone-600 leading-relaxed font-light">Stunning visual presentation that makes every piece a meaningful present for loved ones.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= OUR STORY / CRAFTSMANSHIP SECTION ================= -->
+  <section id="about" class="py-20 bg-cream-50 scroll-mt-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      
+      <div class="lg:col-span-6 relative">
+        <div class="rounded-3xl overflow-hidden shadow-xl border border-amber-900/10 aspect-square">
+          <img src="assets/WhatsApp Image 2026-08-28 at 12.56.26 PM.jpeg" alt="Batch Craftsmanship at Madhuri Creation" class="w-full h-full object-cover" />
+        </div>
+        <div class="absolute -bottom-6 -right-6 bg-amber-900 text-cream-50 p-6 rounded-2xl shadow-xl max-w-xs hidden sm:block border border-amber-500/20">
+          <p class="font-serif text-sm italic">"At Madhuri Creation, every piece is thoughtfully handcrafted with care."</p>
+        </div>
+      </div>
+
+      <div class="lg:col-span-6 space-y-6">
+        <span class="text-xs uppercase tracking-widest text-amber-900 font-bold">Our Philosophy</span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-normal text-stone-900">
+          Crafting Quiet Moments of Pure Joy.
+        </h2>
+
+        <p class="text-sm text-stone-600 leading-relaxed font-light">
+          At Madhuri Creation, every piece is thoughtfully handcrafted with care, bringing together beautiful design, a personal touch, and the joy of handmade creations.
+        </p>
+
+        <p class="text-sm text-stone-600 leading-relaxed font-light">
+          From pouring natural botanicals into rich herbal soaps to sculpting intricate rose and lotus candle petals, we prioritize purity, authenticity, and visual grace in everything we make.
+        </p>
+
+        <div class="pt-4 flex items-center gap-6">
+          <div>
+            <div class="font-serif text-xl font-bold text-stone-900">Pune, India</div>
+            <div class="text-xs text-stone-500 font-medium">Artisanal Studio Location</div>
+          </div>
+          <div class="w-px h-10 bg-stone-300"></div>
+          <div>
+            <div class="font-serif text-xl font-bold text-stone-900">8407913008</div>
+            <div class="text-xs text-stone-500 font-medium">Official WhatsApp Contact</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= CUSTOMER GRATITUDE / SOCIAL PROOF ================= -->
+  <section class="py-16 bg-cream-200/60 border-t border-amber-900/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      <div class="bg-white rounded-3xl p-8 sm:p-12 shadow-sm border border-amber-900/10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        
+        <div class="lg:col-span-5 rounded-2xl overflow-hidden shadow border border-amber-900/10">
+          <img src="assets/WhatsApp Image 2026-08-28 at 12.56.18 PM (1).jpeg" alt="Orders Complete Graphic" class="w-full h-auto object-cover" />
+        </div>
+
+        <div class="lg:col-span-7 space-y-4">
+          <span class="text-xs uppercase tracking-widest text-amber-900 font-bold">Trusted & Cherished</span>
+          <h3 class="font-serif text-2xl sm:text-3xl font-normal text-stone-900">Thank You For Supporting Handmade</h3>
+          <p class="text-sm text-stone-600 font-light leading-relaxed">
+            We are deeply grateful for every customer who chooses handcrafted care over mass production. Every order is fulfilled with individual love, pristine packaging, and dedication.
+          </p>
+          <div class="pt-2 flex items-center gap-3">
+            <span class="flex text-amber-500 text-lg">★★★★★</span>
+            <span class="text-xs text-stone-600 font-medium">Verified Customer Appreciation</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer id="contact" class="bg-stone-900 text-cream-100 pt-16 pb-12 border-t border-stone-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8 grid grid-cols-1 md:grid-cols-12 gap-12 pb-12 border-b border-stone-800">
+      
+      <!-- Brand Col -->
+      <div class="md:col-span-5 space-y-4">
+        <h3 class="font-serif text-2xl font-bold tracking-wider text-white">MADHURI CREATION</h3>
+        <p class="text-xs text-stone-400 font-light leading-relaxed max-w-sm">
+          Handcrafted with love. Discover natural soaps and sculpted floral candles crafted for everyday care and elegant gifting.
+        </p>
+        <div class="pt-2 flex items-center gap-3">
+          <button 
+            onclick="handleGeneralWhatsApp()"
+            class="bg-emerald-800 hover:bg-emerald-700 text-white text-xs font-semibold uppercase tracking-wider px-4 py-2.5 rounded-xl flex items-center gap-2 shadow"
+          >
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+              <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-1.151 4.202 4.294-1.127z"/>
+            </svg>
+            <span>WhatsApp: 8407913008</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="md:col-span-3 space-y-3">
+        <h4 class="text-xs uppercase tracking-widest text-amber-300 font-semibold">Collections</h4>
+        <ul class="space-y-2 text-xs text-stone-400">
+          <li><a href="#soaps" class="hover:text-white transition-colors">Handmade Soaps (₹99)</a></li>
+          <li><a href="#candles" class="hover:text-white transition-colors">Handcrafted Candles</a></li>
+          <li><a href="#gifting" class="hover:text-white transition-colors">Gift Hampers</a></li>
+          <li><a href="#about" class="hover:text-white transition-colors">About Madhuri Creation</a></li>
+          <li><a href="/admin" target="_blank" class="text-amber-400 hover:text-amber-300 font-semibold transition-colors">🔒 Owner Admin Panel</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="md:col-span-4 space-y-3">
+        <h4 class="text-xs uppercase tracking-widest text-amber-300 font-semibold">Direct Contact</h4>
+        <div class="text-xs text-stone-400 space-y-2 font-light">
+          <p><strong class="text-white font-medium">WhatsApp Ordering:</strong> 8407913008</p>
+          <p><strong class="text-white font-medium">Location:</strong> Kalewadi, Pune, Maharashtra - 411017</p>
+          <p><strong class="text-white font-medium">Business:</strong> Madhuri Creation</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-8 pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-stone-500">
+      <p>© 2026 Madhuri Creation. All rights reserved. Handcrafted with love.</p>
+      <p class="mt-2 sm:mt-0">100% Authentic Handmade Products</p>
+    </div>
+  </footer>
+
+  <!-- ================= FLOATING WHATSAPP BUTTON ================= -->
+  <button 
+    onclick="handleGeneralWhatsApp()"
+    class="fixed bottom-6 right-6 z-40 bg-emerald-800 hover:bg-emerald-700 text-white p-4 rounded-full shadow-2xl flex items-center justify-center btn-whatsapp-pulse transition-transform hover:scale-110 focus:outline-none"
+    title="Order on WhatsApp"
+  >
+    <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24">
+      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-1.151 4.202 4.294-1.127z"/>
+    </svg>
+  </button>
+
+  <!-- ================= PRODUCT DETAIL MODAL ================= -->
+  <div id="product-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 sm:p-6 overflow-y-auto">
+    <!-- Backdrop -->
+    <div class="fixed inset-0 bg-stone-950/60 backdrop-blur-sm" onclick="closeProductModal()"></div>
+
+    <!-- Modal Card -->
+    <div class="relative w-full max-w-4xl bg-cream-50 rounded-3xl shadow-2xl overflow-hidden z-10 border border-amber-900/10 flex flex-col md:flex-row max-h-[90vh]">
+      
+      <!-- Close Button -->
+      <button 
+        onclick="closeProductModal()"
+        class="absolute top-4 right-4 z-20 w-9 h-9 rounded-full bg-stone-900/70 hover:bg-stone-900 text-white flex items-center justify-center transition-colors"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+
+      <!-- Modal Image Column -->
+      <div class="w-full md:w-1/2 bg-stone-100 p-6 flex flex-col justify-between items-center relative min-h-[300px]">
+        <div class="w-full aspect-square rounded-2xl overflow-hidden bg-stone-200">
+          <img id="modal-main-img" src="" alt="Product Detail" class="w-full h-full object-cover object-center" />
+        </div>
+        
+        <!-- Modal Gallery Thumbnails -->
+        <div id="modal-thumbnails" class="flex gap-2 mt-4 overflow-x-auto max-w-full pb-2">
+          <!-- Populated by modal.js -->
+        </div>
+      </div>
+
+      <!-- Modal Details Column -->
+      <div class="w-full md:w-1/2 p-6 sm:p-8 flex flex-col justify-between overflow-y-auto bg-white/90">
+        <div class="space-y-4">
+          <div>
+            <span id="modal-category" class="text-xs uppercase tracking-widest text-amber-800 font-semibold"></span>
+            <h2 id="modal-title" class="font-serif text-2xl sm:text-3xl font-medium text-stone-900 mt-1"></h2>
+          </div>
+
+          <div class="flex items-baseline gap-3">
+            <span id="modal-price" class="font-serif text-3xl font-bold text-stone-900"></span>
+            <span id="modal-spec" class="text-xs font-semibold bg-amber-100 text-amber-900 px-3 py-1 rounded-full"></span>
+          </div>
+
+          <p id="modal-desc" class="text-xs sm:text-sm text-stone-600 leading-relaxed font-light"></p>
+
+          <div class="pt-2 border-t border-amber-900/10">
+            <h4 class="text-xs uppercase tracking-wider text-stone-900 font-semibold mb-2">Key Highlights</h4>
+            <ul id="modal-features" class="space-y-1">
+              <!-- Features populated dynamically -->
+            </ul>
+          </div>
+        </div>
+
+        <div class="pt-6 border-t border-amber-900/10 mt-6">
+          <button 
+            id="modal-wa-btn"
+            class="w-full bg-emerald-800 hover:bg-emerald-700 active:bg-emerald-900 text-white text-xs font-semibold uppercase tracking-wider py-3.5 px-6 rounded-2xl flex items-center justify-center gap-3 shadow-md hover:shadow-lg transition-all duration-200"
+          >
+            <svg class="w-5 h-5 fill-current text-white flex-shrink-0" viewBox="0 0 24 24">
+              <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-1.151 4.202 4.294-1.127z"/>
+            </svg>
+            <span>Order This Item On WhatsApp</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- JavaScript Modules -->
+  <script src="js/products.js"></script>
+  <script src="js/whatsapp.js"></script>
+  <script src="js/modal.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>

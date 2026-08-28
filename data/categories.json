@@ -1,0 +1,18 @@
+[
+  {
+    "_id": "cat_1",
+    "name": "Handmade Soaps",
+    "slug": "soaps",
+    "description": "Natural care, handcrafted with love.",
+    "active": true,
+    "displayOrder": 1
+  },
+  {
+    "_id": "cat_2",
+    "name": "Handcrafted Candles",
+    "slug": "candles",
+    "description": "Beautifully crafted candles for beautiful moments.",
+    "active": true,
+    "displayOrder": 2
+  }
+]
